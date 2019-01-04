@@ -51,12 +51,12 @@ values."
      markdown
      ;; auto-completion
      ;; better-defaults
-     evil-commentary ;; comment code
+     elfeed ;; rss feed
      emacs-lisp
+     erc ;; irc client
+     evil-commentary ;; comment code
      git
      org
-     erc ;; irc client
-     elfeed ;; rss feed
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
