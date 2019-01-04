@@ -55,6 +55,7 @@ values."
      emacs-lisp
      git
      org
+     erc ;; irc client
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
@@ -63,6 +64,8 @@ values."
      spell-checking
      syntax-checking
      version-control
+     ;; fun stuff
+     spotify
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -70,13 +73,12 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
    '(
-     color-theme-solarized
+     ;; color-theme-solarized
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
-   fill-column 120
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -321,7 +323,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; (setq system-uses-terminfo nil)
   ;; Activate column indicator in prog-mode and text-mode
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
-  (add-hook 'text-mode-hook 'turn-on-fci-mode)
+  (add-hook 'text-mode-hook
+            (lambda()
+             'turn-on-fci-mode))
   )
 
 (defun dotspacemacs/user-config ()
@@ -333,10 +337,14 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq-default js2-basic-offset 2)
   (setq-default js-indent-level 2)
-  ;; solarized theme http://philipdaniels.com/blog/2017/02/spacemacs---configuring-the-solarized-theme/
-  (set-terminal-parameter nil 'background-mode 'dark)
-  (set-frame-parameter nil 'background-mode 'dark)
-  (spacemacs/load-theme 'solarized)
+  ;; set default fill column
+  (setq-default set-fill-column 120)
+  ;; Visual line navigation for textual modes
+  (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
+  ;; ;; solarized theme http://philipdaniels.com/blog/2017/02/spacemacs---configuring-the-solarized-theme/
+  ;; (set-terminal-parameter nil 'background-mode 'dark)
+  ;; (set-frame-parameter nil 'background-mode 'dark)
+  ;; (spacemacs/load-theme 'solarized)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -346,10 +354,14 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
+ '(evil-want-Y-yank-to-eol nil)
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (tern color-theme-solarized color-theme org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot evil-commentary git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck diff-hl auto-dictionary yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor web-mode tagedit slim-mode scss-mode sass-mode pug-mode noflet less-css-mode helm-css-scss haml-mode fzf ensime company yasnippet sbt-mode scala-mode emmet-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks spotify multi tern color-theme-solarized color-theme org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot evil-commentary git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck diff-hl auto-dictionary yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor web-mode tagedit slim-mode scss-mode sass-mode pug-mode noflet less-css-mode helm-css-scss haml-mode fzf ensime company yasnippet sbt-mode scala-mode emmet-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
