@@ -348,7 +348,10 @@ you should place your code here."
             (lambda ()
               (setq indent-tabs-mode 1)
               (setq tab-width 2)))
+  ;; Showing date time in spaceline
   (display-time-mode 1)
+  (setq display-time-24hr-format t)
+  (setq display-time-day-and-date t)
   ;; ;; solarized theme http://philipdaniels.com/blog/2017/02/spacemacs---configuring-the-solarized-theme/
   ;; (set-terminal-parameter nil 'background-mode 'dark)
   ;; (set-frame-parameter nil 'background-mode 'dark)
