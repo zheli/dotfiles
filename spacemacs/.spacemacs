@@ -39,9 +39,8 @@ values."
      ;; auto-completion
      ;; better-defaults
      ;; fun stuff
-     ;; lsp-mode ;; language server protocol
-     ;; rss feed
      colors
+     ;; rss feed
      (elfeed :variables rmh-elfeed-org-files (list
                                               "~/Google Drive/rss_feed.org"))
      (fzf)
@@ -316,6 +315,12 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
+
+   ;; For spacemacs develop branch
+   ;; dotspacemacs-mode-line-theme is 'spacemacs, 'all-the-icons, 'custom,
+   ;; 'vim-powerline or 'vanilla or a list with `car' one of the previous
+   ;; values and properties one of the following: `:separator' or `:separator-scale'
+   dotspacemacs-mode-line-theme 'spacemacs
    ))
 
 (defun dotspacemacs/user-init ()
