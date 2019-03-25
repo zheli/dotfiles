@@ -74,8 +74,13 @@ values."
    dotspacemacs-additional-packages
    '(
      color-theme-solarized
+     ;; kubernetes support 
      kubernetes
      kubernetes-evil
+
+     ;; Language Server Protocol
+     lsp-mode
+     lsp-ui
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
