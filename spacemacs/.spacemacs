@@ -54,7 +54,7 @@ values."
      html
      javascript
      markdown
-     org
+     (org :variables org-enable-reveal-js-support t)
      python
      ruby
      scala
@@ -349,8 +349,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq-default js2-basic-offset 2)
-  (setq-default js-indent-level 2)
+  ;; General
   ;; set default fill column
   (setq-default set-fill-column 120)
   ;; Visual line navigation for textual modes
@@ -359,14 +358,71 @@ you should place your code here."
             (lambda ()
               (setq indent-tabs-mode 1)
               (setq tab-width 2)))
+
   ;; Showing date time in spaceline
   (display-time-mode 1)
   (setq display-time-24hr-format t)
   (setq display-time-day-and-date t)
 
+  ;; JavaScript
+  (setq-default js2-basic-offset 2)
+  (setq-default js-indent-level 2)
+
   ;; Markdown
   (add-hook 'markdown-mode-hook (lambda () (setq fill-column 100)))
 
+  ;; Org mode
+  (setq calendar-week-start-day 1) ;; first day of a week is Monday
+
+  ;; Python
+  ;; (python :variables python-backend 'lsp)
+  ;; (python :variables python-pipenv-activate t)
+  (setq python-pipenv-activate t)
+  ;; ;; solarized theme http://philipdaniels.com/blog/2017/02/spacemacs---configuring-the-solarized-theme/
+  ;; (set-terminal-parameter nil 'background-mode 'dark)
+  ;; (set-frame-parameter nil 'background-mode 'dark)
+  ;; (spacemacs/load-theme 'solarized)
+  ;; (load-file "~/.emacs.d/private/crosshairs.el")
+  ;; (load-file "~/.emacs.d/private/hl-line.el")
+
+  ;; Scala lsp mode
+  ;;
+
+  ;; ;; Add melpa to your packages repositories
+  ;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+  ;; ;; Enable defer and ensure by default for use-package
+  ;; (setq use-package-always-defer t
+  ;;       use-package-always-ensure t)
+  ;; ;; Enable scala-mode and sbt-mode
+  ;; (use-package scala-mode
+  ;;   :mode "\\.s\\(cala\\|bt\\)$")
+  ;; (use-package sbt-mode
+  ;;   :commands sbt-start sbt-command
+  ;;   :config
+  ;;   ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;;   ;; allows using SPACE when in the minibuffer
+  ;;   (substitute-key-definition
+  ;;    'minibuffer-complete-word
+  ;;    'self-insert-command
+  ;;    minibuffer-local-completion-map))
+  ;; ;; ;; Enable nice rendering of diagnostics like compile errors.
+  ;; (use-package flycheck
+  ;;   :init (global-flycheck-mode))
+
+  ;; (use-package lsp-mode
+  ;;   :init (setq lsp-prefer-flymake nil))
+
+  ;; (use-package lsp-ui
+  ;;   :hook (lsp-mode . lsp-ui-mode))
+
+  ;; (use-package lsp-scala
+  ;;   :after scala-mode
+  ;;   :demand t
+  ;;   ;; Optional - enable lsp-scala automatically in scala files
+  ;;   :hook (scala-mode . lsp))
+  ;; (add-hook 'scala-mode-hook #'lsp)
+  ;; ;; Scala lsp mode ends
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -384,7 +440,7 @@ you should place your code here."
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (ht lsp-ui lsp-mode kubernetes transient kubernetes-evil terraform-mode hcl-mode go-eldoc go-guru go-mode rainbow-mode rainbow-identifiers color-identifiers-mode elfeed-goodies elfeed-web elfeed-org ace-jump-mode elfeed erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks spotify multi tern color-theme-solarized color-theme org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot evil-commentary git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck diff-hl auto-dictionary yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor web-mode tagedit slim-mode scss-mode sass-mode pug-mode noflet less-css-mode helm-css-scss haml-mode fzf ensime company yasnippet sbt-mode scala-mode emmet-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (ox-reveal ht lsp-ui lsp-mode kubernetes transient kubernetes-evil terraform-mode hcl-mode go-eldoc go-guru go-mode rainbow-mode rainbow-identifiers color-identifiers-mode elfeed-goodies elfeed-web elfeed-org ace-jump-mode elfeed erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks spotify multi tern color-theme-solarized color-theme org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot evil-commentary git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck diff-hl auto-dictionary yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor web-mode tagedit slim-mode scss-mode sass-mode pug-mode noflet less-css-mode helm-css-scss haml-mode fzf ensime company yasnippet sbt-mode scala-mode emmet-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
