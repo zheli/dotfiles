@@ -2,6 +2,7 @@
 My shell environment setup for the following softwares:
 
 * alacritty
+* kitty
 * spacemacs
 
 ## Dependencies
