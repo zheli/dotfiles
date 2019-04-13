@@ -1,0 +1,58 @@
+# edit in spacemacs client mode
+alias diff_md="git diff-br master...deploy"
+alias e='emacsclient --no-wait'
+alias nvv='nvim -S'
+alias vv='vim -S'
+
+# irssi
+alias irssi="TERM=screen-256color irssi"
+alias irssid="docker start -i $(docker ps -a|grep irssi|awk '{print $1}')"
+alias irssidrm="docker rm $(docker ps -a|grep irssi|awk '{print $1}')"
+
+agnvim () {
+    CHOICE=$(ag --color $* | fzf -0 -1 --ansi)
+    if [ ! -z "$CHOICE" ]
+    then
+        nvim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
+    fi
+}
+
+# Python
+alias agpy='ag -inr --py'
+alias rmpyc='find . -name *.pyc -exec rm -rf {} \;'
+## django
+alias dman='./manage.py'
+
+# git
+alias gsup='git stash save && git pull --rebase && git stash pop'
+alias ginit='git init && git config user.email "linuxcity.jn@gmail.com" && git config user.name "Zhe Li"'
+
+# tmux
+alias tm='tmux -S ~/tmux-default.socket'
+alias tmux="TERM=xterm-256color tmux"
+alias tmuxa="tmux a -d"
+
+# editor config
+alias src='source ~/.zshrc'
+alias tmuxconfig='nvim ~/.tmux.conf'
+alias aliasconfig='e ~/.aliases'
+alias zshconfig="e ~/.zshrc"
+alias envconfig="nvim ~/.config/zshenv/env.sh"
+
+# docker
+alias dm='docker-machine'
+alias dco='docker-compose'
+alias dcod='docker-compose -p default'
+alias dcodv='docker-compose --verbose -p default'
+alias dcov='docker-compose --verbose'
+
+# kubernetes
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+function kubectl() { echo "+kubectl $@"; command kubectl $@; }
+
+# others
+alias start_irssi="docker run -it --name irssi jess/irssi"
+alias scalakata="docker start scalakata"
+alias stop_scalakata="docker stop scalakata"
+alias amm="/usr/libexec/java_home -v 1.8 --exec java -jar /usr/local/bin/amm-2.12"
+alias free="vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf(\"%-16s % 16.2f Mi\n\", \"$1:\", $2 * $size / 1048576);'"
