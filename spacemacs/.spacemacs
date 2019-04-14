@@ -355,6 +355,7 @@ you should place your code here."
   ;; General
   ;; set default fill column
   (setq-default set-fill-column 120)
+  (add-hook 'markdown-mode-hook (lambda () (setq fill-column 120)))
   ;; Visual line navigation for textual modes
   (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
   (add-hook 'go-mode-hook
@@ -370,9 +371,6 @@ you should place your code here."
   ;; JavaScript
   (setq-default js2-basic-offset 2)
   (setq-default js-indent-level 2)
-
-  ;; Markdown
-  (add-hook 'markdown-mode-hook (lambda () (setq fill-column 100)))
 
   ;; Org mode
   (setq calendar-week-start-day 1) ;; first day of a week is Monday
