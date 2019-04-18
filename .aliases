@@ -3,6 +3,8 @@ alias diff_md="git diff-br master...deploy"
 alias e='emacsclient --no-wait'
 alias nvv='nvim -S'
 alias vv='vim -S'
+# so watch supports alias
+alias watch='watch '
 
 # irssi
 alias irssi="TERM=screen-256color irssi"
