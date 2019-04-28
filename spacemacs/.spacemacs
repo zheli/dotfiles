@@ -78,13 +78,20 @@ values."
    dotspacemacs-additional-packages
    '(
      solarized-theme
-     ;; kubernetes support 
+
+     ;; kubernetes support
      kubernetes
      kubernetes-evil
+     flycheck
 
      ;; Language Server Protocol
      lsp-mode
      lsp-ui
+
+     ;; For Scala-lsp
+     scala-mode
+     sbt-mode
+     lsp-scala
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -389,7 +396,6 @@ you should place your code here."
   ;; (load-file "~/.emacs.d/private/hl-line.el")
 
   ;; Scala lsp mode
-  ;;
 
   ;; ;; Add melpa to your packages repositories
   ;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -400,18 +406,21 @@ you should place your code here."
   ;; ;; Enable scala-mode and sbt-mode
   ;; (use-package scala-mode
   ;;   :mode "\\.s\\(cala\\|bt\\)$")
-  ;; (use-package sbt-mode
-  ;;   :commands sbt-start sbt-command
-  ;;   :config
-  ;;   ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
-  ;;   ;; allows using SPACE when in the minibuffer
-  ;;   (substitute-key-definition
-  ;;    'minibuffer-complete-word
-  ;;    'self-insert-command
-  ;;    minibuffer-local-completion-map))
-  ;; ;; ;; Enable nice rendering of diagnostics like compile errors.
-  ;; (use-package flycheck
-  ;;   :init (global-flycheck-mode))
+  (use-package sbt-moe
+    :commands sbt-start sbt-command
+    :config
+    ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+    ;; allows using SPACE when in the minibuffer
+    (substitute-key-definition
+     'minibuffer-complete-word
+     'self-insert-command
+     minibuffer-local-completion-map))
+  ;; ;; Enable nice rendering of diagnostics like compile errors.
+  (use-package flycheck
+    :init (global-flycheck-mode
+           (let ((govet (flycheck-checker-get 'go-vet 'command)))
+             (when (equal (cadr govet) "tool")
+               (setf (cdr govet) (cddr govet))))))
 
   ;; (use-package lsp-mode
   ;;   :init (setq lsp-prefer-flymake nil))
@@ -419,13 +428,13 @@ you should place your code here."
   ;; (use-package lsp-ui
   ;;   :hook (lsp-mode . lsp-ui-mode))
 
-  ;; (use-package lsp-scala
-  ;;   :after scala-mode
-  ;;   :demand t
-  ;;   ;; Optional - enable lsp-scala automatically in scala files
-  ;;   :hook (scala-mode . lsp))
-  ;; (add-hook 'scala-mode-hook #'lsp)
-  ;; ;; Scala lsp mode ends
+  (use-package lsp-scala
+    :after scala-mode
+    :demand t
+    ;; Optional - enable lsp-scala automatically in scala files
+    :hook (scala-mode . lsp))
+  (add-hook 'scala-mode-hook #'lsp)
+  ;; Scala lsp mode ends
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
