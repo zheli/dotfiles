@@ -42,6 +42,7 @@ values."
      ;; better-defaults
      ;; fun stuff
      colors
+     custom ;; my custom layer
      ;; rss feed
      (elfeed :variables rmh-elfeed-org-files (list
                                               "~/Google Drive/rss_feed.org"))
