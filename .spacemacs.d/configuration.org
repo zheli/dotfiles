@@ -46,6 +46,15 @@
                   '(ns-appearance . dark))
    #+end_src
 
+* Modes
+** Org
+*** Basic setup
+    #+begin_src emacs-lisp :results none
+    ;; first day of a week is Monday
+    (setq calendar-week-start-day 1)
+
+    #+end_src
+
 * Functions
 ** Utils
 #+begin_src emacs-lisp :results none
