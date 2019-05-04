@@ -45,3 +45,36 @@
      (add-to-list 'default-frame-alist
                   '(ns-appearance . dark))
    #+end_src
+
+* Functions
+** Utils
+#+begin_src emacs-lisp :results none
+  (defun zl/insert-today ()
+    (interactive)
+    (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
+
+#+end_src
+
+** External Applications
+#+begin_src emacs-lisp :results none
+  (defun zl/get-column ()
+    (number-to-string (+ (current-column) 1)))
+
+  (defun zl/get-line-number ()
+    (number-to-string (line-number-at-pos)))
+
+  (defun zl/open-with-line (app)
+    (when buffer-file-name
+      (save-buffer)
+      (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) "\""))))
+
+  (defun zl/open-with-line-column (app)
+    (when buffer-file-name
+      (save-buffer)
+      (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) ":" (zl/get-column) "\""))))
+
+  (defun zl/open-with-vscode ()
+    (interactive)
+    (zl/open-with-line-column "/usr/local/bin/code --goto"))
+
+#+end_src
