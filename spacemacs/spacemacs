@@ -45,11 +45,10 @@ values."
           org-enable-github-support t
           org-enable-reveal-js-support t)
      osx
-     (scala-lsp :variables
-                scala-use-unicode-arrows t
+     (scala-lsp :location
                 (recipe :fetcher github
                         :repo "zheli/layer-scala-lsp")
-                )
+                :variables scala-use-unicode-arrows t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
