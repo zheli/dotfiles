@@ -54,6 +54,12 @@
     (setq calendar-week-start-day 1)
 
     #+end_src
+** LSP
+    #+begin_src emacs-lisp :results none
+      (setq company-lsp-async t
+            company-lsp-cache-candidates nil)
+      (push 'company-lsp company-backends)
+    #+end_src
 
 * Functions
 ** Utils
