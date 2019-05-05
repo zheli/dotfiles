@@ -5,6 +5,7 @@ My shell environment setup for the following softwares:
 * kitty
 * spacemacs
 * tmux
+* prezto (zsh configuration framework)
 
 ## Dependencies
 ### Fonts
