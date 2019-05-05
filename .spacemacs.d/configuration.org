@@ -18,8 +18,9 @@
 ** Frame Size
    #+begin_src emacs-lisp :results none
           (if (eq system-type 'darwin)
-              (dolist (item '((height . 120) (width . 120)))
-                (add-to-list 'default-frame-alist item)))
+              (progn ; Lets you evaluate more than one sexp for the true case
+                (add-to-list 'default-frame-alist '(height . 120))
+                (add-to-list 'default-frame-alist '(width . 120))))
    #+end_src
 ** Whitespace
    #+begin_src emacs-lisp :results none
