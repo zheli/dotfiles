@@ -12,6 +12,7 @@
    #+begin_src emacs-lisp :results none
      (setq confirm-kill-emacs 'y-or-n-p)
      (setq mac-emulate-three-button-mouse t)
+     (spacemacs/toggle-indent-guide-globally-on)
    #+end_src
 
 * UI/Visual
