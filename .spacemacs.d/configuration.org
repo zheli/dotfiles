@@ -45,12 +45,16 @@
      (spaceline-spacemacs-theme 'datetime)
    #+end_src
 ** Natural Title bar
-   #+begin_src emacs-lisp :results none
-     (add-to-list 'default-frame-alist
-                  '(ns-transparent-titlebar . t))
-     (add-to-list 'default-frame-alist
-                  '(ns-appearance . dark))
-   #+end_src
+#+begin_src emacs-lisp :results none
+  (add-to-list 'default-frame-alist
+              '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist
+              '(ns-appearance . dark))
+#+end_src
+** Follow focus
+#+begin_src emacs-lisp :results none
+  (setq mouse-autoselect-window t)
+#+end_src
 
 * Modes
 ** Org
