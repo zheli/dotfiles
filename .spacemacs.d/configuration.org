@@ -38,6 +38,13 @@
       indent-tabs-mode nil
       fci-rule-column 120)
    #+end_src
+** Show time in modeline
+   #+begin_src emacs-lisp :results none
+     ;;display time in powerline
+     (spaceline-define-segment datetime
+       (shell-command-to-string "echo -n $(date '+%H:%M')"))
+     (spaceline-spacemacs-theme 'datetime)
+   #+end_src
 ** Natural Title bar
    #+begin_src emacs-lisp :results none
      (add-to-list 'default-frame-alist
@@ -56,9 +63,11 @@
     #+end_src
 ** LSP
     #+begin_src emacs-lisp :results none
-      (setq company-lsp-async t
-            company-lsp-cache-candidates nil)
-      (push 'company-lsp company-backends)
+      (setq company-lsp-async t)
+      ;; Hack to make sure 'company-lsp is only pushed after company package is loaded
+      (use-package company
+       :config
+       (push 'company-lsp company-backends))
     #+end_src
 
 * Functions
