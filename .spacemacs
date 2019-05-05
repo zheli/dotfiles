@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     html
      auto-completion
      better-defaults
      emacs-lisp
@@ -39,6 +38,7 @@ values."
      fzf ;; see installation here: https://github.com/AshyIsMe/fzf-spacemacs-layer
      git
      helm
+     html
      lsp
      markdown
      nginx

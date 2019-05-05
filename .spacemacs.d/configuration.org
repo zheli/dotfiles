@@ -17,11 +17,9 @@
 * UI/Visual
 ** Frame Size
    #+begin_src emacs-lisp :results none
-     (if (eq system-type 'darwin)
-         (add-to-list 'default-frame-alist
-                      '(height . 60))
-       (add-to-list 'default-frame-alist
-                    '(width . 134)))
+          (if (eq system-type 'darwin)
+              (dolist (item '((height . 120) (width . 120)))
+                (add-to-list 'default-frame-alist item)))
    #+end_src
 ** Whitespace
    #+begin_src emacs-lisp :results none
@@ -42,7 +40,7 @@
    #+begin_src emacs-lisp :results none
      ;;display time in powerline
      (spaceline-define-segment datetime
-       (shell-command-to-string "echo -n $(date '+%H:%M')"))
+       (shell-command-to-string "echo -n \"$(date '+%H:%M')\""))
      (spaceline-spacemacs-theme 'datetime)
    #+end_src
 ** Natural Title bar
