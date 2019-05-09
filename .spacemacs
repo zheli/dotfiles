@@ -56,6 +56,7 @@ values."
             shell-default-position 'bottom)
      spell-checking
      syntax-checking
+     typescript
      version-control
      yaml
      )
