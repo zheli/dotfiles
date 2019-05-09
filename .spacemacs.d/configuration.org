@@ -21,6 +21,10 @@
 (spacemacs/toggle-smartparens-globally-on)
 (global-prettify-symbols-mode 1)
 #+End_src
+** Transparent background
+#+begin_src emacs-lisp :results none
+(spacemacs/toggle-transparency)
+#+end_src
 ** Frame Size
    #+begin_src emacs-lisp :results none
           (if (eq system-type 'darwin)
