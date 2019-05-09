@@ -46,6 +46,7 @@ values."
           org-enable-github-support t
           org-enable-reveal-js-support t)
      osx
+     python
      (scala-lsp :location
                 (recipe :fetcher github
                         :repo "zheli/layer-scala-lsp")
