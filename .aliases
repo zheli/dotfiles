@@ -7,29 +7,37 @@ alias dcod='docker-compose -p default'
 alias dcodv='docker-compose --verbose -p default'
 alias dcov='docker-compose --verbose'
 
-## Editors
-### edit in spacemacs client mode
+# Editors
+## edit in spacemacs client mode
 alias e='emacsclient --no-wait'
 alias nvv='nvim -S'
 alias vv='vim -S'
 
-## workaround so watch command supports alias
+# workaround so watch command supports alias
 alias watch='watch '
 
-## git
+# git
+[ -f ~/.aliases_git ] && source ~/.aliases_git
 alias gsup='git stash save && git pull --rebase && git stash pop'
+alias gfo="git fetch origin"
 alias ginit='git init && git config user.email "linuxcity.jn@gmail.com" && git config user.name "Zhe Li"'
 
-## irssi
+# kubernetes
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+## kubectx
+alias kctx="kubectx"
+alias kns="kubens"
+
+# irssi
 alias irssi="TERM=screen-256color irssi"
 alias irssid="docker start -i $(docker ps -a|grep irssi|awk '{print $1}')"
 alias irssidrm="docker rm $(docker ps -a|grep irssi|awk '{print $1}')"
 alias start_irssi="docker run -it --name irssi jess/irssi"
 
-## Python
+# Python
 alias agpy='ag -inr --py'
 alias rmpyc='find . -name *.pyc -exec rm -rf {} \;'
-### Django
+## Django
 alias dman='./manage.py'
 
 # Scala
@@ -48,9 +56,6 @@ alias tmuxconfig='nvim ~/.tmux.conf'
 alias aliasconfig='e ~/.aliases'
 alias zshconfig="e ~/.zshrc"
 alias envconfig="nvim ~/.config/zshenv/env.sh"
-
-# kubernetes
-[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
 # Others
 alias free="vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf(\"%-16s % 16.2f Mi\n\", \"$1:\", $2 * $size / 1048576);'"
