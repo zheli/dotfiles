@@ -39,6 +39,7 @@ values."
      git
      helm
      html
+     javascript
      lsp
      markdown
      nginx
@@ -47,10 +48,7 @@ values."
           org-enable-reveal-js-support t)
      osx
      python
-     (scala-lsp :location
-                (recipe :fetcher github
-                        :repo "zheli/layer-scala-lsp")
-                :variables scala-use-unicode-arrows t)
+     scala-lsp
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)

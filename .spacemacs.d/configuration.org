@@ -14,12 +14,32 @@
      (setq mac-emulate-three-button-mouse t)
      (spacemacs/toggle-indent-guide-globally-on)
    #+end_src
+** Garbage Collection
+From http://akrl.sdf.org/.
+#+begin_src emacs-lisp :results none
+  (setq garbage-collection-messages t)
+  (defmacro zl/k-time (&rest body)
+    "Measure and return the time it takes evaluating BODY."
+    `(let ((time (current-time)))
+       ,@body
+       (float-time (time-since time))))
+
+  ;; Set garbage collection threshold to 512MB.
+  (setq gc-cons-threshold #x20000000)
+
+  ;; When idle for 15sec run the GC no matter what.
+  (defvar zl/k-gc-timer
+    (run-with-idle-timer 15 t
+                         (lambda ()
+                           (message "Garbage Collector has run for %.06fsec"
+                                    (zl/k-time (garbage-collect))))))
+#+end_src
 
 * UI/Visual
 #+begin_src emacs-lisp :results none
 (spacemacs/toggle-syntax-checking-on)
 (spacemacs/toggle-smartparens-globally-on)
-(global-prettify-symbols-mode 1)
+;; (global-prettify-symbols-mode 1)
 #+End_src
 ** Transparent background
 #+begin_src emacs-lisp :results none
