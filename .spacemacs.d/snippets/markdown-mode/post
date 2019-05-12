@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: post
+# key: <post
+# --
+---
+title: $1
+date: $2
+author: Zhe
+layout: post
+categories:
+- $3
+tags:
+- $4
+---
+$5
