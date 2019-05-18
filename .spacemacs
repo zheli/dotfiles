@@ -65,7 +65,8 @@ values."
    dotspacemacs-additional-packages
    '(
      kubernetes-evil
-     solarized-theme)
+     solarized-theme
+     terraform-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
