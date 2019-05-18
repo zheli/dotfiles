@@ -123,6 +123,7 @@ From http://akrl.sdf.org/.
 ** LSP
     #+begin_src emacs-lisp :results none
       (setq company-lsp-async t)
+      (setq company-lsp-cache-candidates 'auto)
       ;; Hack to make sure 'company-lsp is only pushed after company package is loaded
       (use-package company
        :config
