@@ -22,6 +22,7 @@ alias ga="git add"
 alias gfo="git fetch origin"
 alias ginit='git init && git config user.email "linuxcity.jn@gmail.com" && git config user.name "Zhe Li"'
 alias gst="git status"
+alias gsta="git stash"
 alias gsup='git stash save && git pull --rebase && git stash pop'
 alias gup="git pull --rebase"
 
