@@ -139,15 +139,20 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(
                          spacemacs-light
+                         spacemacs-dark
                          solarized-dark
                          solarized-light)
+   dotspacemacs-mode-line-theme 'spacemacs
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '(
+                               ;; "Source Code Pro"
+                               "Menlo for Powerline"
+                               ;; "Meslo LG M for Powerline"
                                :size 13
                                :weight normal
                                :width normal
