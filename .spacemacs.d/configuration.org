@@ -103,6 +103,7 @@ From http://akrl.sdf.org/.
 (require 'lsp-mode)
 (add-hook 'js-mode-hook #'lsp)
 (add-hook 'typescript-mode-hook #'lsp)
+(add-hook 'typescript-tsx-mode-hook #'lsp)
 #+end_src
 ** Org
 *** Basic setup
