@@ -9,11 +9,11 @@
     user-mail-address "linuxcity.jn@gmail.com")
 #+end_src
 ** Convenience
-   #+begin_src emacs-lisp :results none
-     (setq confirm-kill-emacs 'y-or-n-p)
-     (setq mac-emulate-three-button-mouse t)
-     (spacemacs/toggle-indent-guide-globally-on)
-   #+end_src
+#+begin_src emacs-lisp :results none
+  (setq confirm-kill-emacs 'y-or-n-p)
+  (setq mac-emulate-three-button-mouse t)
+  (spacemacs/toggle-indent-guide-globally-on)
+#+end_src
 ** Garbage Collection
 From http://akrl.sdf.org/.
 #+begin_src emacs-lisp :results none
@@ -21,8 +21,8 @@ From http://akrl.sdf.org/.
   (defmacro zl/k-time (&rest body)
     "Measure and return the time it takes evaluating BODY."
     `(let ((time (current-time)))
-       ,@body
-       (float-time (time-since time))))
+      ,@body
+      (float-time (time-since time))))
 
   ;; Set garbage collection threshold to 512MB.
   (setq gc-cons-threshold #x20000000)
@@ -30,32 +30,33 @@ From http://akrl.sdf.org/.
   ;; When idle for 15sec run the GC no matter what.
   (defvar zl/k-gc-timer
     (run-with-idle-timer 15 t
-                         (lambda ()
-                           (message "Garbage Collector has run for %.06fsec"
+                        (lambda ()
+                          (message "Garbage Collector has run for %.06fsec"
                                     (zl/k-time (garbage-collect))))))
 #+end_src
-
 * UI/Visual
-#+begin_src emacs-lisp :results none
-(spacemacs/toggle-syntax-checking-on)
-(spacemacs/toggle-smartparens-globally-on)
-;; (global-prettify-symbols-mode 1)
-#+End_src
+  #+begin_src emacs-lisp :results none
+    (spacemacs/toggle-syntax-checking-on)
+    (spacemacs/toggle-smartparens-globally-on)
+  #+End_src
 ** Transparent background
-#+begin_src emacs-lisp :results none
-(spacemacs/toggle-transparency)
-#+end_src
+    #+begin_src emacs-lisp :results none
+      ;; (spacemacs/toggle-transparency)
+    #+end_src
 ** Frame Size
    #+begin_src emacs-lisp :results none
-          (if (eq system-type 'darwin)
-              (progn ; Lets you evaluate more than one sexp for the true case
-                (add-to-list 'default-frame-alist '(height . 100))
-                (add-to-list 'default-frame-alist '(width . 160))))
+      (if (eq system-type 'darwin)
+          (progn ; Lets you evaluate more than one sexp for the true case
+            (add-to-list 'default-frame-alist '(height . 100))
+            (add-to-list 'default-frame-alist '(width . 160))))
    #+end_src
 ** Ignore certain files in helm
 #+begin_src emacs-lisp :results none
-(setq helm-ff-skip-boring-files t)
-(push "\\.DS_Store$" helm-boring-file-regexp-list)
+  (setq helm-ff-skip-boring-files t)
+  ;; (push "\\.DS_Store$" helm-boring-file-regexp-list)
+  (setq helm-boring-file-regexp-list
+        (append (progn (require 'helm-files) helm-boring-file-regexp-list)
+                '("\\.DS_Store$" "\\.o$")))
 #+end_src
 ** Whitespace
    #+begin_src emacs-lisp :results none
@@ -132,41 +133,39 @@ From http://akrl.sdf.org/.
 
 * Functions
 ** Utils
-#+begin_src emacs-lisp :results none
-  (defun zl/insert-today ()
-    (interactive)
-    (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
-
-#+end_src
+  #+begin_src emacs-lisp :results none
+    (defun zl/insert-today ()
+      (interactive)
+      (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
+  #+end_src
 
 ** External Applications
-#+begin_src emacs-lisp :results none
-  (defun zl/get-column ()
-    (number-to-string (+ (current-column) 1)))
+  #+begin_src emacs-lisp
+    (defun zl/get-column ()
+      (number-to-string (+ (current-column) 1)))
 
-  (defun zl/get-line-number ()
-    (number-to-string (line-number-at-pos)))
+    (defun zl/get-line-number ()
+      (number-to-string (line-number-at-pos)))
 
-  (defun zl/open-with-line (app)
-    (when buffer-file-name
-      (save-buffer)
-      (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) "\""))))
+    (defun zl/open-with-line (app)
+      (when buffer-file-name
+        (save-buffer)
+        (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) "\""))))
 
-  (defun zl/open-with-line-column (app)
-    (when buffer-file-name
-      (save-buffer)
-      (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) ":" (zl/get-column) "\""))))
+    (defun zl/open-with-line-column (app)
+      (when buffer-file-name
+        (save-buffer)
+        (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) ":" (zl/get-column) "\""))))
 
-  (defun zl/open-with-reveal (app)
-    (shell-command (concat "osascript -e 'tell application \"" app "\" to activate'")))
+    (defun zl/open-with-reveal (app)
+      (shell-command (concat "osascript -e 'tell application \"" app "\" to activate'")))
 
-  (defun zl/open-with-idea ()
-    (interactive)
-    (zl/open-with-reveal "IntelliJ IDEA")
-    (zl/open-with-line "/usr/local/bin/idea"))
+    (defun zl/open-with-idea ()
+      (interactive)
+      (zl/open-with-reveal "IntelliJ IDEA")
+      (zl/open-with-line "/usr/local/bin/idea"))
 
-  (defun zl/open-with-vscode ()
-    (interactive)
-    (zl/open-with-line-column "/usr/local/bin/code --goto"))
-
-#+end_src
+    (defun zl/open-with-vscode ()
+      (interactive)
+      (zl/open-with-line-column "/usr/local/bin/code --goto"))
+  #+end_src
