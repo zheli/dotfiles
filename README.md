@@ -14,3 +14,7 @@ On MacOS, install them using `brew cask`:
 brew cask install font-meslo-for-powerline
 brew cask install font-menlo-for-powerline
 ```
+
+## Installation
+### Spacemacs
+Use the develop branch.
