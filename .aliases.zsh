@@ -1,4 +1,8 @@
-alias diff_md="git diff-br master...deploy"
+# Directories
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
 
 # Docker
 alias dm='docker-machine'
@@ -10,6 +14,7 @@ alias dcov='docker-compose --verbose'
 # Editors
 ## edit in spacemacs client mode
 alias e='emacsclient --no-wait'
+alias en='emacsclient -c'
 alias nvv='nvim -S'
 alias vv='vim -S'
 
