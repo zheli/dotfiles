@@ -34,6 +34,17 @@ From http://akrl.sdf.org/.
                           (message "Garbage Collector has run for %.06fsec"
                                     (zl/k-time (garbage-collect))))))
 #+end_src
+** Backup Settings
+A common frustration with new Emacs users is the filename# files created. This centralises the backup files created as you edit.
+#+begin_src emacs-lisp :results none
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+    backup-by-copying t    ; Don't delink hardlinks
+    version-control t      ; Use version numbers on backups
+    delete-old-versions t  ; Automatically delete excess backups
+    kept-new-versions 20   ; how many of the newest versions to keep
+    kept-old-versions 5    ; and how many of the old
+    )
+#+end_src
 * UI/Visual
   #+begin_src emacs-lisp :results none
     (spacemacs/toggle-syntax-checking-on)
@@ -56,7 +67,7 @@ From http://akrl.sdf.org/.
   ;; (push "\\.DS_Store$" helm-boring-file-regexp-list)
   (setq helm-boring-file-regexp-list
         (append (progn (require 'helm-files) helm-boring-file-regexp-list)
-                '("\\.DS_Store$" "\\.o$")))
+                '("\\.DS_Store$" "src/test/resources/mocks/?")))
 #+end_src
 ** Whitespace
    #+begin_src emacs-lisp :results none
@@ -131,7 +142,14 @@ From http://akrl.sdf.org/.
        :config
        (push 'company-lsp company-backends))
     #+end_src
-
+** Web
+   #+begin_src emacs-lisp :results none
+    (defun my-web-mode-hook ()
+      (setq web-mode-markup-indent-offset 2)
+    )
+    (add-hook 'web-mode-hook  'my-web-mode-hook)
+   #+end_src
+k
 * Functions
 ** Utils
   #+begin_src emacs-lisp :results none
