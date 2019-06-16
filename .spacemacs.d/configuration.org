@@ -153,9 +153,12 @@ k
 * Functions
 ** Utils
   #+begin_src emacs-lisp :results none
-    (defun zl/insert-today ()
-      (interactive)
-      (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
+      (defun zl/insert-today ()
+        (interactive)
+        (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
+      (defun zl/insert-timestamp ()
+        (interactive)
+        (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d %T %Z\"")));; might only work on macos
   #+end_src
 
 ** External Applications
