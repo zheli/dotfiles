@@ -59,7 +59,7 @@ A common frustration with new Emacs users is the filename# files created. This c
       (if (eq system-type 'darwin)
           (progn ; Lets you evaluate more than one sexp for the true case
             (add-to-list 'default-frame-alist '(height . 100))
-            (add-to-list 'default-frame-alist '(width . 160))))
+            (add-to-list 'default-frame-alist '(width . 186))))
    #+end_src
 ** Ignore certain files in helm
 #+begin_src emacs-lisp :results none
@@ -109,13 +109,18 @@ A common frustration with new Emacs users is the filename# files created. This c
 #+end_src
 
 * Modes
+** Java
+  #+begin_src emacs-lisp :results none
+    (setenv "JAVA_HOME" "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home")
+  #+end_src
 ** JavaScript & TypeScript
-#+begin_src emacs-lisp :results none
-(require 'lsp-mode)
-(add-hook 'js-mode-hook #'lsp)
-(add-hook 'typescript-mode-hook #'lsp)
-(add-hook 'typescript-tsx-mode-hook #'lsp)
-#+end_src
+  #+begin_src emacs-lisp :results none
+    (require 'lsp-mode)
+    (add-hook 'js-mode-hook #'lsp)
+    (add-hook 'typescript-mode-hook #'lsp)
+    (add-hook 'typescript-tsx-mode-hook #'lsp)
+    (setq-default js-indent-level 2)
+  #+end_src
 ** Org
 *** Basic setup
     #+begin_src emacs-lisp :results none
@@ -153,12 +158,12 @@ k
 * Functions
 ** Utils
   #+begin_src emacs-lisp :results none
-      (defun zl/insert-today ()
-        (interactive)
-        (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
-      (defun zl/insert-timestamp ()
-        (interactive)
-        (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d %T %Z\"")));; might only work on macos
+    (defun zl/insert-today ()
+      (interactive)
+      (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
+    (defun zl/insert-timestamp ()
+      (interactive)
+      (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d %T %Z\"")));; might only work on macos
   #+end_src
 
 ** External Applications
