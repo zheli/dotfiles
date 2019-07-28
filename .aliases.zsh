@@ -25,6 +25,7 @@ alias watch='watch '
 [ -f ~/.aliases_git ] && source ~/.aliases_git
 alias ga="git add"
 alias gfo="git fetch origin"
+alias gd="git diff"
 alias ginit='git init && git config user.email "linuxcity.jn@gmail.com" && git config user.name "Zhe Li"'
 alias gst="git status"
 alias gsta="git stash"
