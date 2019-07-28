@@ -45,6 +45,11 @@ A common frustration with new Emacs users is the filename# files created. This c
     kept-old-versions 5    ; and how many of the old
     )
 #+end_src
+** Magit
+#+begin_src emacs-lisp :results none
+  ;; Use brew git instead of xcode git
+  (setq magit-git-executable "/usr/local/bin/git")
+#+end_src
 * UI/Visual
   #+begin_src emacs-lisp :results none
     (spacemacs/toggle-syntax-checking-on)
@@ -92,22 +97,21 @@ A common frustration with new Emacs users is the filename# files created. This c
      (spaceline-spacemacs-theme 'datetime)
    #+end_src
 ** Natural Title bar
-#+begin_src emacs-lisp :results none
-  (add-to-list 'default-frame-alist
-              '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist
-              '(ns-appearance . dark))
-#+end_src
-**Scrolling
-#+begin_src emacs-lisp :results none
-(setq jit-lock-defer-time 0)
-(setq fast-but-imprecise-scrolling t)
-#+end_src
+   #+begin_src emacs-lisp :results none
+   (add-to-list 'default-frame-alist
+               '(ns-transparent-titlebar . t))
+   (add-to-list 'default-frame-alist
+               '(ns-appearance . dark))
+   #+end_src
+** Scrolling
+   #+begin_src emacs-lisp :results none
+     (setq jit-lock-defer-time 0)
+     (setq fast-but-imprecise-scrolling t)
+   #+end_src
 ** Follow focus
-#+begin_src emacs-lisp :results none
-  (setq mouse-autoselect-window t)
-#+end_src
-
+  #+begin_src emacs-lisp :results none
+    ;;(setq mouse-autoselect-window t)
+  #+end_src
 * Modes
 ** Java
   #+begin_src emacs-lisp :results none
