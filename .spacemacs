@@ -33,6 +33,7 @@ values."
    '(
      auto-completion
      better-defaults
+     docker
      emacs-lisp
      evil-commentary
      fzf ;; see installation here: https://github.com/AshyIsMe/fzf-spacemacs-layer
@@ -54,6 +55,7 @@ values."
             shell-default-position 'bottom)
      spell-checking
      syntax-checking
+     themes-megapack
      typescript
      version-control
      yaml
@@ -66,7 +68,8 @@ values."
                                       all-the-icons
                                       kubernetes-evil
                                       solarized-theme
-                                      terraform-mode)
+                                      terraform-mode
+                                      yasnippet-snippets)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -150,9 +153,9 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '(
                                ;; "Source Code Pro"
-                               "Menlo for Powerline"
-                               ;; "Meslo LG M for Powerline"
-                               :size 13
+                               ;; "Menlo for Powerline"
+                               "Meslo LG M for Powerline"
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
