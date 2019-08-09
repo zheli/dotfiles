@@ -25,7 +25,7 @@ From http://akrl.sdf.org/.
       (float-time (time-since time))))
 
   ;; Set garbage collection threshold to 512MB.
-  (setq gc-cons-threshold #x20000000)
+  (setq gc-cons-threshold (eval-when-compile (* 1024 1024 1024)))
 
   ;; When idle for 15sec run the GC no matter what.
   (defvar zl/k-gc-timer
@@ -124,6 +124,10 @@ A common frustration with new Emacs users is the filename# files created. This c
     (add-hook 'typescript-mode-hook #'lsp)
     (add-hook 'typescript-tsx-mode-hook #'lsp)
     (setq-default js-indent-level 2)
+    ;; Performance fix
+    ;;https://github.com/emacs-lsp/lsp-mode/issues/588
+    (setq lsp-clients-typescript-server "typescript-language-server"
+          lsp-clients-typescript-server-args '("--stdio"))
   #+end_src
 ** Org
 *** Basic setup
