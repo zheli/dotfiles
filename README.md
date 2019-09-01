@@ -18,3 +18,12 @@ brew cask install font-menlo-for-powerline
 ## Installation
 ### Spacemacs
 Use the develop branch.
+
+## Update prezto git module
+```
+cd .zprezto
+git pull
+cd ..
+git add .zprezto
+git commit -m "Update prezto."
+```
