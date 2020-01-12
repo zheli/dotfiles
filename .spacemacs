@@ -30,7 +30,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(ruby
+     rust
      auto-completion
      better-defaults
      docker
@@ -38,6 +39,7 @@ values."
      evil-commentary
      fzf ;; see installation here: https://github.com/AshyIsMe/fzf-spacemacs-layer
      git
+     go
      helm
      html
      javascript
@@ -56,6 +58,7 @@ values."
      spell-checking
      syntax-checking
      themes-megapack
+     terraform
      typescript
      version-control
      yaml
@@ -66,9 +69,9 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       all-the-icons
+                                      easy-jekyll
                                       kubernetes-evil
                                       solarized-theme
-                                      terraform-mode
                                       yasnippet-snippets)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()

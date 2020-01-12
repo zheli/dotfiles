@@ -113,6 +113,17 @@ A common frustration with new Emacs users is the filename# files created. This c
     ;;(setq mouse-autoselect-window t)
   #+end_src
 * Modes
+** Easy Jekyll
+  #+begin_src emacs-lisp :results none
+    (use-package easy-jekyll
+      :init
+      (setq easy-jekyll-basedir "~/code/zheli.github.io/")
+      (setq easy-jekyll-url "https://www.systemsthoughts.com")
+      ;; (setq easy-jekyll-sshdomain "blogdomain")
+      ;; (setq easy-jekyll-root "/home/blog/")
+      (setq easy-jekyll-previewtime "300")
+      :bind ("C-c C-e" . easy-jekyll))
+  #+end_src
 ** Java
   #+begin_src emacs-lisp :results none
     (setenv "JAVA_HOME" "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home")
@@ -146,6 +157,10 @@ A common frustration with new Emacs users is the filename# files created. This c
 (require 'lsp-mode)
 (add-hook 'python-mode-hook #'lsp)
 #+end_src
+** Go
+  #+begin_src emacs-lisp :results none
+    (setq go-tab-width 8)
+  #+end_src
 ** LSP
     #+begin_src emacs-lisp :results none
       (setq company-lsp-async t)
