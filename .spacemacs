@@ -58,7 +58,8 @@ values."
      spell-checking
      syntax-checking
      themes-megapack
-     terraform
+     (terraform :variables
+                terraform-auto-format-on-save t)
      typescript
      version-control
      yaml
@@ -145,9 +146,9 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         spacemacs-dark
                          solarized-dark
                          spacemacs-light
-                         spacemacs-dark
                          solarized-light)
    dotspacemacs-mode-line-theme 'spacemacs
    ;; If non nil the cursor color matches the state color in GUI Emacs.
