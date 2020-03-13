@@ -4,7 +4,7 @@ My shell environment setup for the following softwares:
 * alacritty
 * kitty
 * spacemacs
-* tmux
+* tmux (>2.9)
 * prezto (zsh configuration framework)
 
 ## Dependencies
