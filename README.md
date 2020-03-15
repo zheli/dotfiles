@@ -19,6 +19,19 @@ brew cask install font-menlo-for-powerline
 ### Spacemacs
 Use the develop branch.
 
+### zprezto
+Run `cd ~ && ln -s ~/code/dotfile/.prezto`. And add symlinks to all the following files
+```
+ln -s ~/code/dotfile/.prezto/runcoms/zlogin .zlogin
+ln -s ~/code/dotfile/.prezto/runcoms/zlogout .zlogout
+ln -s ~/code/dotfile/.prezto/runcoms/zprezto .zprezto
+ln -s ~/code/dotfile/.prezto/runcoms/zprezto-custom .zprezto-custom
+ln -s ~/code/dotfile/.prezto/runcoms/zpreztorc .zpreztorc
+ln -s ~/code/dotfile/.prezto/runcoms/zprofile .zprofile
+ln -s ~/code/dotfile/.prezto/runcoms/zshenv .zshenv
+ln -s ~/code/dotfile/.prezto/runcoms/zshrc .zshrc
+```
+
 ## Update prezto git module
 ```
 cd .zprezto
