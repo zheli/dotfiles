@@ -60,20 +60,20 @@ A common frustration with new Emacs users is the filename# files created. This c
       ;; (spacemacs/toggle-transparency)
     #+end_src
 ** Frame Size
-   #+begin_src emacs-lisp :results none
+    #+begin_src emacs-lisp :results none
       (if (eq system-type 'darwin)
           (progn ; Lets you evaluate more than one sexp for the true case
             (add-to-list 'default-frame-alist '(height . 100))
             (add-to-list 'default-frame-alist '(width . 186))))
-   #+end_src
+    #+end_src
 ** Ignore certain files in helm
-#+begin_src emacs-lisp :results none
-  (setq helm-ff-skip-boring-files t)
-  ;; (push "\\.DS_Store$" helm-boring-file-regexp-list)
-  (setq helm-boring-file-regexp-list
-        (append (progn (require 'helm-files) helm-boring-file-regexp-list)
-                '("\\.DS_Store$" "src/test/resources/mocks/?")))
-#+end_src
+    #+begin_src emacs-lisp :results none
+      (setq helm-ff-skip-boring-files t)
+      ;; (push "\\.DS_Store$" helm-boring-file-regexp-list)
+      (setq helm-boring-file-regexp-list
+            (append (progn (require 'helm-files) helm-boring-file-regexp-list)
+                    '("\\.DS_Store$" "src/test/resources/mocks/?" "node_modules.bak/?")))
+    #+end_src
 ** Whitespace
    #+begin_src emacs-lisp :results none
      (setq whitespace-display-mappings
@@ -91,10 +91,11 @@ A common frustration with new Emacs users is the filename# files created. This c
    #+end_src
 ** Show time in modeline
    #+begin_src emacs-lisp :results none
+     ;; This function made Emacs extremly slow, comment it out for now
      ;;display time in powerline
-     (spaceline-define-segment datetime
-       (shell-command-to-string "echo -n \"$(date '+%H:%M')\""))
-     (spaceline-spacemacs-theme 'datetime)
+     ;; (spaceline-define-segment datetime
+     ;;   (shell-command-to-string "echo -n \"$(date '+%H:%M')\""))
+     ;; (spaceline-spacemacs-theme 'datetime)
    #+end_src
 ** Natural Title bar
    #+begin_src emacs-lisp :results none
@@ -118,9 +119,7 @@ A common frustration with new Emacs users is the filename# files created. This c
     (use-package easy-jekyll
       :init
       (setq easy-jekyll-basedir "~/code/zheli.github.io/")
-      (setq easy-jekyll-url "https://www.systemsthoughts.com")
-      ;; (setq easy-jekyll-sshdomain "blogdomain")
-      ;; (setq easy-jekyll-root "/home/blog/")
+      (setq easy-jekyll-url "https://zheli.github.io")
       (setq easy-jekyll-previewtime "300")
       :bind ("C-c C-e" . easy-jekyll))
   #+end_src
@@ -148,19 +147,19 @@ A common frustration with new Emacs users is the filename# files created. This c
 
     #+end_src
 **** Keep images not too wide
-#+begin_src emacs-lisp :results none
-(setq org-image-actual-width 800)
-(setq org-download-screenshot-method "screencapture %s")
-#+end_src
+    #+begin_src emacs-lisp :results none
+    (setq org-image-actual-width 800)
+    (setq org-download-screenshot-method "screencapture %s")
+    #+end_src
 ** Python
-#+begin_src emacs-lisp :results none
-(require 'lsp-mode)
-(add-hook 'python-mode-hook #'lsp)
-#+end_src
+    #+begin_src emacs-lisp :results none
+      (require 'lsp-mode)
+      (add-hook 'python-mode-hook #'lsp)
+    #+end_src
 ** Go
-  #+begin_src emacs-lisp :results none
-    (setq go-tab-width 8)
-  #+end_src
+    #+begin_src emacs-lisp :results none
+      (setq go-tab-width 8)
+    #+end_src
 ** LSP
     #+begin_src emacs-lisp :results none
       (setq company-lsp-async t)
@@ -170,6 +169,19 @@ A common frustration with new Emacs users is the filename# files created. This c
        :config
        (push 'company-lsp company-backends))
     #+end_src
+** Scala
+    #+begin_src emacs-lisp :results none
+      ;; (lsp-register-client
+      ;;  (make-lsp-client :new-connection (lsp-stdio-connection 'lsp-metals--server-command)
+      ;;                   :major-modes '(scala-mode)
+      ;;                   :priority -1
+      ;;                   :notification-handlers (ht ("metals/treeViewDidChange" #'ignore))
+      ;;                   :server-id 'metals
+      ;;                   :initialized-fn (lambda (workspace)
+      ;;                                     (with-lsp-workspace workspace
+      ;;                                       (lsp--set-configuration
+      ;;                                        (lsp-configuration-section "metals"))))))
+    #+end_src
 ** Web
    #+begin_src emacs-lisp :results none
     (defun my-web-mode-hook ()
@@ -177,7 +189,6 @@ A common frustration with new Emacs users is the filename# files created. This c
     )
     (add-hook 'web-mode-hook  'my-web-mode-hook)
    #+end_src
-k
 * Functions
 ** Utils
   #+begin_src emacs-lisp :results none
@@ -188,7 +199,6 @@ k
       (interactive)
       (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d %T %Z\"")));; might only work on macos
   #+end_src
-
 ** External Applications
   #+begin_src emacs-lisp
     (defun zl/get-column ()
