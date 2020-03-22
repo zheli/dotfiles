@@ -91,11 +91,9 @@ A common frustration with new Emacs users is the filename# files created. This c
    #+end_src
 ** Show time in modeline
    #+begin_src emacs-lisp :results none
-     ;; This function made Emacs extremly slow, comment it out for now
-     ;;display time in powerline
-     ;; (spaceline-define-segment datetime
-     ;;   (shell-command-to-string "echo -n \"$(date '+%H:%M')\""))
-     ;; (spaceline-spacemacs-theme 'datetime)
+     (setq display-time-day-and-date t)
+     (setq display-time-24hr-format t)
+     (display-time-mode 1)
    #+end_src
 ** Natural Title bar
    #+begin_src emacs-lisp :results none
