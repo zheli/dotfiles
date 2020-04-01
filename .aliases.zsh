@@ -38,6 +38,10 @@ alias gup="git pull --rebase"
 alias kctx="kubectx"
 alias kns="kubens"
 
+# Terraform
+# To install: mkdir -p ~/.aliases && cd ~/.aliases && git clone https://github.com/zer0beat/terraform-aliases.git
+[ -f ~/.aliases/terraform-aliases/.terraform_aliases ] && source ~/.aliases/terraform-aliases/.terraform_aliases
+
 # irssi
 alias irssi="TERM=screen-256color irssi"
 alias irssid="docker start -i $(docker ps -a|grep irssi|awk '{print $1}')"
