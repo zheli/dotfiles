@@ -127,11 +127,26 @@ A common frustration with new Emacs users is the filename# files created. This c
   #+end_src
 ** JavaScript & TypeScript
   #+begin_src emacs-lisp :results none
+    ;; See https://develop.spacemacs.org/layers/+lang/javascript/README.html
+    ;; and https://develop.spacemacs.org/layers/+lang/typescript/README.html
     (require 'lsp-mode)
     (add-hook 'js-mode-hook #'lsp)
     (add-hook 'typescript-mode-hook #'lsp)
     (add-hook 'typescript-tsx-mode-hook #'lsp)
+
+    (setq-default js2-basic-offset 2)
+
+    ;; indentation
     (setq-default js-indent-level 2)
+    (setq-default typescript-indent-level 2)
+
+    (setq-default js-indent-align-list-continuation nil) ;;https://emacs.stackexchange.com/questions/29780/changing-how-argument-lists-are-indented-in-javascript
+
+    (setq-default javascript-fmt-tool 'prettier)
+    (setq-default typescript-fmt-tool 'prettier)
+    (setq-default javascript-fmt-on-save t)
+    (setq-default typescript-fmt-on-save t)
+
     ;; Performance fix
     ;;https://github.com/emacs-lsp/lsp-mode/issues/588
     (setq lsp-clients-typescript-server "typescript-language-server"
