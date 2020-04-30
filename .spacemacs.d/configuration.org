@@ -155,14 +155,14 @@ A common frustration with new Emacs users is the filename# files created. This c
 ** Org
 *** Basic setup
     #+begin_src emacs-lisp :results none
-    ;; first day of a week is Monday
-    (setq calendar-week-start-day 1)
+      ;; first day of a week is Monday
+      (setq calendar-week-start-day 1)
 
-    #+end_src
-**** Keep images not too wide
-    #+begin_src emacs-lisp :results none
-    (setq org-image-actual-width 800)
-    (setq org-download-screenshot-method "screencapture %s")
+      ;; Keep images not too wide
+      (setq org-image-actual-width 800)
+      (setq org-download-screenshot-method "screencapture %s")
+
+      (setq org-agenda-files (list "~/Google Drive/todo.org"))
     #+end_src
 ** Python
     #+begin_src emacs-lisp :results none
