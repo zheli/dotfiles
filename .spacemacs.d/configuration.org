@@ -153,16 +153,17 @@ A common frustration with new Emacs users is the filename# files created. This c
           lsp-clients-typescript-server-args '("--stdio"))
   #+end_src
 ** Org
-    #+begin_src emacs-lisp :results none
-      ;; first day of a week is Monday
-      (setq calendar-week-start-day 1)
+   #+begin_src emacs-lisp :results none
+     ;; first day of a week is Monday
+     (setq calendar-week-start-day 1)
 
-      ;; Keep images not too wide
-      (setq org-image-actual-width 800)
-      (setq org-download-screenshot-method "screencapture %s")
+     ;; Keep images not too wide
+     (setq org-image-actual-width 800)
+     (setq org-download-screenshot-method "screencapture %s")
 
-      (setq org-agenda-files (list "~/Google Drive/todo.org"))
-    #+end_src
+     (setq org-agenda-files (list "~/Google Drive/todo.org"
+                                  "~/Google Drive/todo-private.org"))
+   #+end_src
 ** Python
     #+begin_src emacs-lisp :results none
       (require 'lsp-mode)
