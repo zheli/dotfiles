@@ -218,6 +218,9 @@ A common frustration with new Emacs users is the filename# files created. This c
     (defun zl/insert-timestamp ()
       (interactive)
       (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d %T %Z\"")));; might only work on macos
+    (defun zl/insert-pass-32 ()
+      (interactive)
+      (insert (shell-command-to-string "pwgen -n 32 1")));; need to install pwgen
   #+end_src
 ** External Applications
   #+begin_src emacs-lisp
