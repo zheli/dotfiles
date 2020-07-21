@@ -161,8 +161,8 @@ A common frustration with new Emacs users is the filename# files created. This c
      (setq org-image-actual-width 800)
      (setq org-download-screenshot-method "screencapture %s")
 
-     (setq org-agenda-files (list "~/Google Drive/todo.org"
-                                  "~/Google Drive/todo-private.org"))
+     (setq org-agenda-files (list "~/Google Drive/work.org"
+                                  "~/Google Drive/private.org"))
    #+end_src
 ** Python
     #+begin_src emacs-lisp :results none
