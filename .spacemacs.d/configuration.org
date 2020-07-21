@@ -125,6 +125,12 @@ A common frustration with new Emacs users is the filename# files created. This c
       (setq easy-jekyll-previewtime "300")
       :bind ("C-c C-e" . easy-jekyll))
   #+end_src
+** Markdown
+   #+begin_src emacs-lisp :results none
+     (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+     (add-hook 'markdown-mode-hook (lambda()
+                                     (set-fill-column 80)))
+   #+end_src
 ** Java
   #+begin_src emacs-lisp :results none
     (setenv "JAVA_HOME" "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home")
