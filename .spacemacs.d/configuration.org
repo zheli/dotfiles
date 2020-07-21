@@ -112,6 +112,10 @@ A common frustration with new Emacs users is the filename# files created. This c
     ;;(setq mouse-autoselect-window t)
   #+end_src
 * Modes
+** Conf(Colon)
+  #+begin_src emacs-lisp :results none
+    (add-hook 'conf-colon-mode-hook (lambda() (spacemacs/toggle-relative-line-numbers-on)))
+  #+end_src
 ** Easy Jekyll
   #+begin_src emacs-lisp :results none
     (use-package easy-jekyll
