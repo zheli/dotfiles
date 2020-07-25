@@ -42,7 +42,9 @@ values."
      git
      go
      helm
-     html
+     (html :variables
+           ;; tsx file is opened in web mode children
+           web-mode-code-indent-offset 2)
      javascript
      lsp
      markdown
@@ -53,6 +55,7 @@ values."
      osx
      python
      scala-lsp
+     slack
      ;; lsp-metals
      (shell :variables
             shell-default-height 30
