@@ -359,8 +359,6 @@ you should place your code here."
   (setq custom-file "~/.spacemacs.d/custom-configuration.el")
   (org-babel-load-file "~/.spacemacs.d/configuration.org")
   ;; Activate column indicator in prog-mode and text-mode
-  (add-hook 'prog-mode-hook 'turn-on-fci-mode)
-  (add-hook 'text-mode-hook 'turn-on-fci-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

@@ -17,7 +17,7 @@ brew cask install font-menlo-for-powerline
 
 ## Installation
 ### Spacemacs
-Use the develop branch.
+Use the develop branch and install Emacs 27 via brew.
 
 ### zprezto
 Run `cd ~ && ln -s ~/code/dotfile/.prezto`. And add symlinks to all the following files
