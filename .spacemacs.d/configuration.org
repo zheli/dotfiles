@@ -48,7 +48,7 @@ A common frustration with new Emacs users is the filename# files created. This c
 ** Magit
 #+begin_src emacs-lisp :results none
   ;; Use brew git instead of xcode git
-  (setq magit-git-executable "/usr/local/bin/git")
+  ;; (setq magit-git-executable "/usr/local/bin/git")
 #+end_src
 * UI/Visual
   #+begin_src emacs-lisp :results none

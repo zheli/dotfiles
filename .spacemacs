@@ -48,7 +48,7 @@ values."
            web-mode-code-indent-offset 2)
      javascript
      lsp
-     lsp-mode
+     ;; lsp-mode ;; couldn't find the package anymore
      markdown
      nginx
      (org :variables
