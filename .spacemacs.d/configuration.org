@@ -24,8 +24,8 @@ From http://akrl.sdf.org/.
       ,@body
       (float-time (time-since time))))
 
-  ;; Set garbage collection threshold to 512MB.
-  (setq gc-cons-threshold (eval-when-compile (* 1024 1024 1024)))
+  ;; Set garbage collection threshold to 2GB.
+  (setq gc-cons-threshold (eval-when-compile (* 2048 1024 1024)))
 
   ;; When idle for 15sec run the GC no matter what.
   (defvar zl/k-gc-timer
@@ -61,10 +61,12 @@ A common frustration with new Emacs users is the filename# files created. This c
     #+end_src
 ** Frame Size
     #+begin_src emacs-lisp :results none
-      (if (eq system-type 'darwin)
-          (progn ; Lets you evaluate more than one sexp for the true case
-            (add-to-list 'default-frame-alist '(height . 100))
-            (add-to-list 'default-frame-alist '(width . 186))))
+      ;; Maximize window frame
+      (spacemacs/toggle-maximize-frame-on)
+      ;; (if (eq system-type 'darwin)
+      ;;     (progn ; Lets you evaluate more than one sexp for the true case
+      ;;       (add-to-list 'default-frame-alist '(height . 100))
+      ;;       (add-to-list 'default-frame-alist '(width . 186))))
     #+end_src
 ** Ignore certain files in helm
     #+begin_src emacs-lisp :results none
@@ -86,15 +88,22 @@ A common frustration with new Emacs users is the filename# files created. This c
 
      (setq-default
       tab-width 2
-      indent-tabs-mode nil
-      fci-rule-column 120)
+      indent-tabs-mode nil)
    #+end_src
-** Show time in modeline
+** Highlights
    #+begin_src emacs-lisp :results none
-     (setq display-time-day-and-date t)
-     (setq display-time-24hr-format t)
-     (display-time-mode 1)
+     (setq column-enforce-column 100)
+     (spacemacs/toggle-highlight-long-lines-globally-on)
    #+end_src
+** Modeline
+#+begin_src emacs-lisp :results none
+;; Display Date
+(setq display-time-day-and-date t)
+(setq display-time-24hr-format t)
+(display-time-mode 1)
+;; Display battery
+(spacemacs/toggle-mode-line-battery-on)
+#+end_src
 ** Natural Title bar
    #+begin_src emacs-lisp :results none
    (add-to-list 'default-frame-alist
