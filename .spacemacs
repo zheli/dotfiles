@@ -48,6 +48,7 @@ values."
            web-mode-code-indent-offset 2)
      javascript
      lsp
+     lsp-mode
      markdown
      nginx
      (org :variables
@@ -55,7 +56,9 @@ values."
           org-enable-reveal-js-support t)
      osx
      python
-     scala-lsp
+     ;; scala-lsp
+     (scala :variables
+            scala-backend 'scala-metals)
      slack
      ;; lsp-metals
      (shell :variables
