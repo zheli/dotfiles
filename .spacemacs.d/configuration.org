@@ -197,9 +197,17 @@ A common frustration with new Emacs users is the filename# files created. This c
       (setq pipenv-projectile-after-switch-function
             #'pipenv-projectile-after-switch-extended)
     #+end_src
-** Go
+** Golang
     #+begin_src emacs-lisp :results none
-      (setq go-tab-width 8)
+      (go :variables
+          go-backend 'lsp
+          go-tab-width 8)
+      ;; (add-hook 'go-mode-hook
+      ;;           (lambda ()
+      ;;             (setq indent-tabs-mode 1)
+      ;;             (setq tab-width 8)))
+
+      ;; (setq go-tab-width 8)
     #+end_src
 ** LSP
     #+begin_src emacs-lisp :results none
@@ -216,7 +224,7 @@ A common frustration with new Emacs users is the filename# files created. This c
       ;;  (make-lsp-client :new-connection (lsp-stdio-connection 'lsp-metals--server-command)
       ;;                   :major-modes '(scala-mode)
       ;;                   :priority -1
-      ;;                   :notification-handlers (ht ("metals/treeViewDidChange" #'ignore))
+      ;;                   ;; :notification-handlers (ht ("metals/treeViewDidChange" #'ignore))
       ;;                   :server-id 'metals
       ;;                   :initialized-fn (lambda (workspace)
       ;;                                     (with-lsp-workspace workspace
