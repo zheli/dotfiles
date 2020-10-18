@@ -199,9 +199,6 @@ A common frustration with new Emacs users is the filename# files created. This c
     #+end_src
 ** Golang
     #+begin_src emacs-lisp :results none
-      (go :variables
-          go-backend 'lsp
-          go-tab-width 8)
       ;; (add-hook 'go-mode-hook
       ;;           (lambda ()
       ;;             (setq indent-tabs-mode 1)

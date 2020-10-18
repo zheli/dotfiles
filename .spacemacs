@@ -30,7 +30,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(csv
+   '(
+     csv
      react
      ruby
      rust
@@ -41,14 +42,16 @@ values."
      evil-commentary
      fzf ;; see installation here: https://github.com/AshyIsMe/fzf-spacemacs-layer
      git
-     go
+     (go :variables
+         go-backend 'lsp
+         go-tab-width 8)
      helm
      (html :variables
            ;; tsx file is opened in web mode children
            web-mode-code-indent-offset 2)
      javascript
      lsp
-     ;; lsp-mode ;; couldn't find the package anymore
+     lsp-mode ;; couldn't find the package anymore
      markdown
      nginx
      (org :variables
