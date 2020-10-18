@@ -37,6 +37,12 @@ ln -s ~/code/dotfiles/.prezto/runcoms/zshrc .zshrc
 ln -s ~/code/dotfiles/.zprezto-custom/zl-prompt/external/zl ~/.zprezto/modules/prompt/external/
 ```
 
+### kubectl completion
+```
+mkdir -p ~/.zsh/completion
+kubectl completion zsh > ~/.zsh/completion/kubectl_completion
+```
+
 ## Update prezto git module
 ```
 cd .zprezto
