@@ -23,16 +23,18 @@ git clone --single-branch --branch develop https://github.com/syl20bnr/spacemacs
 ```
 
 ### zprezto
-Run `cd ~ && ln -s ~/code/dotfile/.prezto`. And add symlinks to all the following files
+Run `cd ~`. And add symlinks to all the following files
 ```
-ln -s ~/code/dotfile/.prezto/runcoms/zlogin .zlogin
-ln -s ~/code/dotfile/.prezto/runcoms/zlogout .zlogout
-ln -s ~/code/dotfile/.prezto/runcoms/zprezto .zprezto
-ln -s ~/code/dotfile/.prezto/runcoms/zprezto-custom .zprezto-custom
-ln -s ~/code/dotfile/.prezto/runcoms/zpreztorc .zpreztorc
-ln -s ~/code/dotfile/.prezto/runcoms/zprofile .zprofile
-ln -s ~/code/dotfile/.prezto/runcoms/zshenv .zshenv
-ln -s ~/code/dotfile/.prezto/runcoms/zshrc .zshrc
+ln -s ~/code/dotfiles/.prezto .zprezto
+ln -s ~/code/dotfiles/.prezto/runcoms/zlogin .zlogin
+ln -s ~/code/dotfiles/.prezto/runcoms/zlogout .zlogout
+ln -s ~/code/dotfiles/.prezto/runcoms/zprezto .zprezto
+ln -s ~/code/dotfiles/.prezto/runcoms/zprezto-custom .zprezto-custom
+ln -s ~/code/dotfiles/.prezto/runcoms/zpreztorc .zpreztorc
+ln -s ~/code/dotfiles/.prezto/runcoms/zprofile .zprofile
+ln -s ~/code/dotfiles/.prezto/runcoms/zshenv .zshenv
+ln -s ~/code/dotfiles/.prezto/runcoms/zshrc .zshrc
+ln -s ~/code/dotfiles/.zprezto-custom/zl-prompt/external/zl ~/.zprezto/modules/prompt/external/
 ```
 
 ## Update prezto git module
