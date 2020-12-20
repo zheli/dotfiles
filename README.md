@@ -22,32 +22,36 @@ After installing Emacs 27+, checkout spacemacs's develop branch locally:
 git clone --single-branch --branch develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ```
 
-### zprezto
-Run `cd ~`. And add symlinks to all the following files
+### zsh
+#### Install zsh
+##### Arch/Manjaro
 ```
-ln -s ~/code/dotfiles/.prezto .zprezto
-ln -s ~/code/dotfiles/.prezto/runcoms/zlogin .zlogin
-ln -s ~/code/dotfiles/.prezto/runcoms/zlogout .zlogout
-ln -s ~/code/dotfiles/.prezto/runcoms/zprezto .zprezto
-ln -s ~/code/dotfiles/.prezto/runcoms/zprezto-custom .zprezto-custom
-ln -s ~/code/dotfiles/.prezto/runcoms/zpreztorc .zpreztorc
-ln -s ~/code/dotfiles/.prezto/runcoms/zprofile .zprofile
-ln -s ~/code/dotfiles/.prezto/runcoms/zshenv .zshenv
-ln -s ~/code/dotfiles/.prezto/runcoms/zshrc .zshrc
-ln -s ~/code/dotfiles/.zprezto-custom/zl-prompt/external/zl ~/.zprezto/modules/prompt/external/
+sudo pacman -Syu zsh
 ```
+##### Ubuntu
+```
+sudo apt-get install zsh
+```
+#### Change user default shell
+```
+chsh --shell /bin/zsh
+```
+
+### on-my-zsh
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+ln -s $(pwd)/.zshrc ~
+```
+
+### aliases
+```
+ln -s $(pwd)/.aliases.zsh ~
+```
+
 
 ### kubectl completion
 ```
 mkdir -p ~/.zsh/completion
 kubectl completion zsh > ~/.zsh/completion/kubectl_completion
-```
-
-## Update prezto git module
-```
-cd .zprezto
-git pull
-cd ..
-git add .zprezto
-git commit -m "Update prezto."
 ```
