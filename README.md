@@ -16,6 +16,9 @@ brew cask install font-menlo-for-powerline
 ```
 
 ## Installation
+### Windows WSL2
+See https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
 ### Spacemacs
 After installing Emacs 27+, checkout spacemacs's develop branch locally:
 ```
@@ -49,6 +52,16 @@ ln -s $(pwd)/.zshrc ~
 ln -s $(pwd)/.aliases.zsh ~
 ```
 
+### Docker
+#### Grant current user permission to docekr
+```
+sudo usermod -aG docker ${USER}
+```
+
+### Git
+```
+git config user.email "Your email" && git config user.name "Your name"
+```
 
 ### kubectl completion
 ```
