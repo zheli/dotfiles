@@ -15,7 +15,7 @@ brew cask install font-meslo-for-powerline
 brew cask install font-menlo-for-powerline
 ```
 
-## Installation
+## Installation & configuration
 ### Windows WSL2
 See https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
@@ -58,9 +58,22 @@ ln -s $(pwd)/.aliases.zsh ~
 sudo usermod -aG docker ${USER}
 ```
 
+### Tmux
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
 ### Git
 ```
 git config user.email "Your email" && git config user.name "Your name"
+```
+
+### Redshift
+Alternative to flux.
+```
+sudo pacman -Syu redshift
+systemctl --user enable redshift.service
+systemctl --user start redshift.service
 ```
 
 ### kubectl completion
