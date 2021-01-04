@@ -174,16 +174,33 @@ A common frustration with new Emacs users is the filename# files created. This c
   #+end_src
 ** Org
    #+begin_src emacs-lisp :results none
-     ;; first day of a week is Monday
-     (setq calendar-week-start-day 1)
+          ;; first day of a week is Monday
+          (setq calendar-week-start-day 1)
 
-     ;; Keep images not too wide
-     (setq org-image-actual-width 800)
-     (setq org-download-screenshot-method "screencapture %s")
+          ;; Keep images not too wide
+          (setq org-image-actual-width 800)
+          (setq org-download-screenshot-method "screencapture %s")
 
-     (setq org-agenda-files (list "~/Google Drive/work.org"
-                                  "~/Google Drive/private.org"))
+          (setq org-agenda-files (list "~/Dropbox/inbox.org"
+                                       "~/Dropbox/schedule_private.org"
+                                       "~/Dropbox/schedule_work.org"))
+
+          ;; capture GTD tasks
+          (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                         (file+headline "~/Dropbox/inbox.org" "Tasks")
+                                         "* TODO %i%?")
+                                        ("T" "Tickler" entry
+                                         (file+headline "~/Dropbox/tickler.org" "Tickler")
+                                         "* %i%? \n %U")))
    #+end_src
+*** Google Calendar
+    #+begin_src emacs-lisp :results none
+      (setq org-gcal-file-alist
+            '(
+              ("linuxcity.jn@gmail.com" . "~/Dropbox/schedule_private.org")
+              ("zhe@minna.tech" . "~/Dropbox/schedule_work.org")))
+      (load "~/.spacemacs.d/secrets.el")
+    #+end_src
 ** Python
     #+begin_src emacs-lisp :results none
       (require 'lsp-mode)
