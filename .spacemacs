@@ -45,13 +45,14 @@ values."
      (go :variables
          go-backend 'lsp
          go-tab-width 8)
+     google-calendar
      helm
      (html :variables
            ;; tsx file is opened in web mode children
            web-mode-code-indent-offset 2)
      javascript
      lsp
-     lsp-mode ;; couldn't find the package anymore
+     ;; lsp-mode ;; couldn't find the package anymore
      markdown
      nginx
      (org :variables
@@ -365,6 +366,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq custom-file "~/.spacemacs.d/custom-configuration.el")
   (org-babel-load-file "~/.spacemacs.d/configuration.org")
+  (load "~/.spacemacs.d/secrets.el")
   ;; Activate column indicator in prog-mode and text-mode
   )
 
