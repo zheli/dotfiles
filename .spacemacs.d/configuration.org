@@ -174,24 +174,29 @@ A common frustration with new Emacs users is the filename# files created. This c
   #+end_src
 ** Org
    #+begin_src emacs-lisp :results none
-          ;; first day of a week is Monday
-          (setq calendar-week-start-day 1)
+     ;; first day of a week is Monday
+     (setq calendar-week-start-day 1)
 
-          ;; Keep images not too wide
-          (setq org-image-actual-width 800)
-          (setq org-download-screenshot-method "screencapture %s")
+     ;; Keep images not too wide
+     (setq org-image-actual-width 800)
+     (setq org-download-screenshot-method "screencapture %s")
 
-          (setq org-agenda-files (list "~/Dropbox/inbox.org"
-                                       "~/Dropbox/schedule_private.org"
-                                       "~/Dropbox/schedule_work.org"))
+     (setq org-agenda-files (list "~/Dropbox/inbox.org"
+                                  "~/Dropbox/schedule_private.org"
+                                  "~/Dropbox/schedule_work.org"))
 
-          ;; capture GTD tasks
-          (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                         (file+headline "~/Dropbox/inbox.org" "Tasks")
-                                         "* TODO %i%?")
-                                        ("T" "Tickler" entry
-                                         (file+headline "~/Dropbox/tickler.org" "Tickler")
-                                         "* %i%? \n %U")))
+     ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+     ;; capture GTD tasks
+     (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                    (file+headline "~/Dropbox/inbox.org" "Tasks")
+                                    "* TODO %i%?")
+                                   ("T" "Tickler" entry
+                                    (file+headline "~/Dropbox/tickler.org" "Tickler")
+                                    "* %i%? \n %U")))
+     (setq org-refile-targets '(("~/Dropbox/gtd.org" :maxlevel . 3)
+                                ("~/Dropbox/someday.org" :level . 1)
+                                ("~/Dropbox/tickler.org" :maxlevel . 2)))
+     (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
    #+end_src
 *** Google Calendar
     #+begin_src emacs-lisp :results none
