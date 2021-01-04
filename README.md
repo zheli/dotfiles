@@ -24,6 +24,11 @@ After installing Emacs 27+, checkout spacemacs's develop branch locally:
 ```
 git clone --single-branch --branch develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ```
+Install private layers:
+```
+git clone git@github.com:ashyisme/fzf-spacemacs-layer.git ~/.emacs.d/private/fzf
+git clone https://github.com/mhkc/google-calendar-layer ~/.emacs.d/private/google-calendar
+```
 
 ### zsh
 #### Install zsh
