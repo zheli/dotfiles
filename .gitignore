@@ -2,3 +2,4 @@
 .spacemacs.d/custom-configuration.el
 .spacemacs.d/.spacemacs.env
 .spacemacs.d/configuration.el
+secrets.el
