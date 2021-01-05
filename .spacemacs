@@ -52,7 +52,6 @@ values."
            web-mode-code-indent-offset 2)
      javascript
      lsp
-     ;; lsp-mode ;; couldn't find the package anymore
      markdown
      nginx
      (org :variables
@@ -83,6 +82,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      lsp-metals
                                       all-the-icons
                                       easy-jekyll
                                       kubernetes-evil
@@ -161,9 +161,9 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          spacemacs-dark
+                         solarized-light
                          solarized-dark
-                         spacemacs-light
-                         solarized-light)
+                         spacemacs-light)
    dotspacemacs-mode-line-theme 'spacemacs
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
