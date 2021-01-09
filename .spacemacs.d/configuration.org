@@ -48,7 +48,7 @@ A common frustration with new Emacs users is the filename# files created. This c
 ** Magit
 #+begin_src emacs-lisp :results none
   ;; Use brew git instead of xcode git
-  ;; (setq magit-git-executable "/usr/local/bin/git")
+  (setq magit-git-executable "/usr/local/bin/git")
 #+end_src
 * UI/Visual
   #+begin_src emacs-lisp :results none
@@ -96,20 +96,20 @@ A common frustration with new Emacs users is the filename# files created. This c
      (spacemacs/toggle-highlight-long-lines-globally-on)
    #+end_src
 ** Modeline
-#+begin_src emacs-lisp :results none
-;; Display Date
-(setq display-time-day-and-date t)
-(setq display-time-24hr-format t)
-(display-time-mode 1)
-;; Display battery
-(spacemacs/toggle-mode-line-battery-on)
-#+end_src
+   #+begin_src emacs-lisp :results none
+   ;; Display Date
+   (setq display-time-day-and-date t)
+   (setq display-time-24hr-format t)
+   (display-time-mode 1)
+   ;; Display battery
+   (spacemacs/toggle-mode-line-battery-on)
+   #+end_src
 ** Natural Title bar
    #+begin_src emacs-lisp :results none
-   (add-to-list 'default-frame-alist
-               '(ns-transparent-titlebar . t))
-   (add-to-list 'default-frame-alist
-               '(ns-appearance . dark))
+     (add-to-list 'default-frame-alist
+                  '(ns-transparent-titlebar . t))
+     (add-to-list 'default-frame-alist
+                  '(ns-appearance . dark))
    #+end_src
 ** Scrolling
    #+begin_src emacs-lisp :results none
@@ -134,6 +134,13 @@ A common frustration with new Emacs users is the filename# files created. This c
       (setq easy-jekyll-previewtime "300")
       :bind ("C-c C-e" . easy-jekyll))
   #+end_src
+** Kubernetes
+#+begin_src emacs-lisp :results none
+  ;; (require 'k8s-mode)
+  ;; (use-package k8s-mode
+  ;;   :ensure t
+  ;;   :hook (k8s-mode . yas-minor-mode))
+#+end_src
 ** Markdown
    #+begin_src emacs-lisp :results none
      (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
@@ -181,30 +188,31 @@ A common frustration with new Emacs users is the filename# files created. This c
      (setq org-image-actual-width 800)
      (setq org-download-screenshot-method "screencapture %s")
 
-     (setq org-agenda-files (list "~/Dropbox/inbox.org"
-                                  "~/Dropbox/schedule_private.org"
-                                  "~/Dropbox/schedule_work.org"))
+     (setq org-agenda-files (list "~/Dropbox/gtd/inbox.org"
+                                  "~/Dropbox/gtd/gtd.org"
+                                  "~/Dropbox/gtd/tickler.org"
+                                  "~/Dropbox/gtd/calendar_private.org"
+                                  "~/Dropbox/gtd/calendar_work.org"))
 
      ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
      ;; capture GTD tasks
      (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                    (file+headline "~/Dropbox/inbox.org" "Tasks")
+                                    (file+headline "~/Dropbox/gtd/inbox.org" "Tasks")
                                     "* TODO %i%?")
                                    ("T" "Tickler" entry
-                                    (file+headline "~/Dropbox/tickler.org" "Tickler")
+                                    (file+headline "~/Dropbox/gtd/tickler.org" "Tickler")
                                     "* %i%? \n %U")))
-     (setq org-refile-targets '(("~/Dropbox/gtd.org" :maxlevel . 3)
-                                ("~/Dropbox/someday.org" :level . 1)
-                                ("~/Dropbox/tickler.org" :maxlevel . 2)))
+     (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
+                                ("~/Dropbox/gtd/someday.org" :level . 1)
+                                ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
      (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
    #+end_src
 *** Google Calendar
     #+begin_src emacs-lisp :results none
       (setq org-gcal-file-alist
-            '(
-              ("linuxcity.jn@gmail.com" . "~/Dropbox/schedule_private.org")
-              ("zhe@minna.tech" . "~/Dropbox/schedule_work.org")))
-      (load "~/.spacemacs.d/secrets.el")
+            '(("linuxcity.jn@gmail.com" . "~/Dropbox/gtd/calendar_private.org")
+              ("zhe@minna.tech" . "~/Dropbox/gtd/calendar_work.org")))
+      ;; (load "~/.spacemacs.d/secrets.el")
     #+end_src
 ** Python
     #+begin_src emacs-lisp :results none
