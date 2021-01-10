@@ -27,7 +27,7 @@ git clone --single-branch --branch develop https://github.com/syl20bnr/spacemacs
 Install private layers:
 ```
 git clone git@github.com:ashyisme/fzf-spacemacs-layer.git ~/.emacs.d/private/fzf
-git clone https://github.com/mhkc/google-calendar-layer ~/.emacs.d/private/google-calendar
+git clone --branch fix-refresh-token-function-name git@github.com:zheli/google-calendar-layer.git ~/.emacs.d/private/google-calendar
 ```
 
 ### zsh
