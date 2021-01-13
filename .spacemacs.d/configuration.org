@@ -188,11 +188,11 @@ A common frustration with new Emacs users is the filename# files created. This c
      (setq org-image-actual-width 800)
      (setq org-download-screenshot-method "screencapture %s")
 
-     (setq org-agenda-files (list ("~/Dropbox/gtd/inbox.org"
-                                   "~/Dropbox/gtd/gtd.org"
-                                   "~/Dropbox/gtd/tickler.org"
-                                   "~/Dropbox/gtd/calendar_private.org"
-                                   "~/Dropbox/gtd/calendar_work.org")))
+     (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
+                              "~/Dropbox/gtd/gtd.org"
+                              "~/Dropbox/gtd/tickler.org"
+                              "~/Dropbox/gtd/calendar_private.org"
+                              "~/Dropbox/gtd/calendar_work.org"))
 
      ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
      ;; capture GTD tasks
@@ -205,7 +205,14 @@ A common frustration with new Emacs users is the filename# files created. This c
      (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
                                 ("~/Dropbox/gtd/someday.org" :level . 1)
                                 ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
+
      (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+
+     (setq org-agenda-custom-commands
+           '(("o" "Admin tasks" tags-todo "@admin"
+              ((org-agenda-overriding-header "Admin")))
+             ("u" "Support tasks" tags-todo "@support"
+              ((org-agenda-overriding-header "Support")))))
    #+end_src
 *** Google Calendar
     #+begin_src emacs-lisp :results none
