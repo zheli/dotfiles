@@ -75,6 +75,10 @@ git config user.email "Your email" && git config user.name "Your name"
 
 ### Redshift
 Alternative to flux.
+
+Make sure you create an API key for geoclue service from GCP console:
+https://console.cloud.google.com/apis/credentials and add that to
+'/etc/geoclue/geoclue.conf' file.
 ```
 sudo pacman -Syu redshift
 systemctl --user enable redshift.service
