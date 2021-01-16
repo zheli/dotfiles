@@ -191,8 +191,8 @@ A common frustration with new Emacs users is the filename# files created. This c
      (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
                               "~/Dropbox/gtd/gtd.org"
                               "~/Dropbox/gtd/tickler.org"
-                              "~/Dropbox/gtd/calendar_private.org"
-                              "~/Dropbox/gtd/calendar_work.org"))
+                              "~/Dropbox/org-calendars/calendar_private.org"
+                              "~/Dropbox/org-calendars/calendar_work.org"))
 
      ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
      ;; capture GTD tasks
@@ -234,8 +234,8 @@ A common frustration with new Emacs users is the filename# files created. This c
    #+end_src
 *** Google Calendar
     #+begin_src emacs-lisp :results none
-      (setq org-gcal-file-alist '(("linuxcity.jn@gmail.com" . "~/Dropbox/gtd/calendar_private.org")
-                                  ("zhe@minna.tech" . "~/Dropbox/gtd/calendar_work.org"))
+      (setq org-gcal-file-alist '(("linuxcity.jn@gmail.com" . "~/Dropbox/org-calendars/calendar_private.org")
+                                  ("zhe@minna.tech" . "~/Dropbox/org-calendars/calendar_work.org"))
             org-gcal-remove-api-cancelled-events t)
       ;; (load "~/.spacemacs.d/secrets.el")
     #+end_src
