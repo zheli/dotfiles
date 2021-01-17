@@ -120,6 +120,10 @@ A common frustration with new Emacs users is the filename# files created. This c
   #+begin_src emacs-lisp :results none
     ;;(setq mouse-autoselect-window t)
   #+end_src
+** Locale
+  #+begin_src emacs-lisp :results none
+    (setq system-time-locale "en_US.UTF-8")
+  #+end_src
 * Modes
 ** Conf(Colon)
   #+begin_src emacs-lisp :results none
