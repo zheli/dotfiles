@@ -423,4 +423,4 @@ exec --no-startup-id dropbox start
 ## start alttab
 exec_always alttab
 ## set mouse DPI
-xinput set-prop 15 "libinput Accel Speed" -0.7
+exec --no-startup-id xinput set-prop "Logitech M705" "libinput Accel Speed" -0.7
