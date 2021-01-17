@@ -208,6 +208,7 @@ A common frustration with new Emacs users is the filename# files created. This c
                                     "* %i%? \n %U")))
      (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
                                 ("~/Dropbox/gtd/someday.org" :level . 1)
+                                ("~/Dropbox/gtd/archives.org" :level . 1)
                                 ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
 
      (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
