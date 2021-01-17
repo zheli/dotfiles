@@ -85,6 +85,18 @@ systemctl --user enable redshift.service
 systemctl --user start redshift.service
 ```
 
+### Chinese input method on Manjaro/i3
+1. Install some fonts here: https://wiki.archlinux.org/index.php/fonts#Chinese
+2. Run `pacman -Syu fcitx fcitx-googlepinyin fcitx-im fcitx-configtool`.
+
+If it doesn't work, add these in `~/.xinitrc`:
+```
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+```
+Reference: https://medium.com/@slmeng/how-to-install-chinese-fonts-and-input-method-in-arch-linux-18b68d2817e7
+
 ### kubectl completion
 ```
 mkdir -p ~/.zsh/completion

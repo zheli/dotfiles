@@ -424,3 +424,5 @@ exec --no-startup-id dropbox start
 exec_always alttab
 ## set mouse DPI
 exec --no-startup-id xinput set-prop "Logitech M705" "libinput Accel Speed" -0.7
+## start fcitx input method
+exec --no-startup-id fcitx
