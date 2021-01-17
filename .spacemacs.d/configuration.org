@@ -248,96 +248,96 @@ A common frustration with new Emacs users is the filename# files created. This c
       ;; (load "~/.spacemacs.d/secrets.el")
     #+end_src
 ** Python
-    #+begin_src emacs-lisp :results none
-      (require 'lsp-mode)
-      (add-hook 'python-mode-hook #'pipenv-mode)
-      ;; See https://develop.spacemacs.org/layers/+lang/python/README.html for installation
-      (setq-default dotspacemacs-configuration-layers
-                    '((python :variables
-                              python-backend 'lsp
-                              python-lsp-server 'mspyls
-                              python-lsp-git-root "~/code/python-language-server")))
-      (setq pipenv-projectile-after-switch-function
-            #'pipenv-projectile-after-switch-extended)
-    #+end_src
+   #+begin_src emacs-lisp :results none
+     (require 'lsp-mode)
+     (add-hook 'python-mode-hook #'pipenv-mode)
+     ;; See https://develop.spacemacs.org/layers/+lang/python/README.html for installation
+     (setq-default dotspacemacs-configuration-layers
+                   '((python :variables
+                             python-backend 'lsp
+                             python-lsp-server 'mspyls
+                             python-lsp-git-root "~/code/python-language-server")))
+     (setq pipenv-projectile-after-switch-function
+           #'pipenv-projectile-after-switch-extended)
+   #+end_src
 ** Golang
-    #+begin_src emacs-lisp :results none
-      ;; (add-hook 'go-mode-hook
-      ;;           (lambda ()
-      ;;             (setq indent-tabs-mode 1)
-      ;;             (setq tab-width 8)))
+   #+begin_src emacs-lisp :results none
+     ;; (add-hook 'go-mode-hook
+     ;;           (lambda ()
+     ;;             (setq indent-tabs-mode 1)
+     ;;             (setq tab-width 8)))
 
-      ;; (setq go-tab-width 8)
-    #+end_src
+     ;; (setq go-tab-width 8)
+   #+end_src
 ** LSP
-    #+begin_src emacs-lisp :results none
-      (setq company-lsp-async t)
-      (setq company-lsp-cache-candidates 'auto)
-      ;; Hack to make sure 'company-lsp is only pushed after company package is loaded
-      (use-package company
+   #+begin_src emacs-lisp :results none
+     (setq company-lsp-async t)
+     (setq company-lsp-cache-candidates 'auto)
+     ;; Hack to make sure 'company-lsp is only pushed after company package is loaded
+     (use-package company
        :config
        (push 'company-lsp company-backends))
-    #+end_src
+   #+end_src
 ** Scala
-    #+begin_src emacs-lisp :results none
-      ;; (lsp-register-client
-      ;;  (make-lsp-client :new-connection (lsp-stdio-connection 'lsp-metals--server-command)
-      ;;                   :major-modes '(scala-mode)
-      ;;                   :priority -1
-      ;;                   ;; :notification-handlers (ht ("metals/treeViewDidChange" #'ignore))
-      ;;                   :server-id 'metals
-      ;;                   :initialized-fn (lambda (workspace)
-      ;;                                     (with-lsp-workspace workspace
-      ;;                                       (lsp--set-configuration
-      ;;                                        (lsp-configuration-section "metals"))))))
-    #+end_src
+   #+begin_src emacs-lisp :results none
+     ;; (lsp-register-client
+     ;;  (make-lsp-client :new-connection (lsp-stdio-connection 'lsp-metals--server-command)
+     ;;                   :major-modes '(scala-mode)
+     ;;                   :priority -1
+     ;;                   ;; :notification-handlers (ht ("metals/treeViewDidChange" #'ignore))
+     ;;                   :server-id 'metals
+     ;;                   :initialized-fn (lambda (workspace)
+     ;;                                     (with-lsp-workspace workspace
+     ;;                                       (lsp--set-configuration
+     ;;                                        (lsp-configuration-section "metals"))))))
+   #+end_src
 ** Web
    #+begin_src emacs-lisp :results none
-    (defun my-web-mode-hook ()
-      (setq web-mode-markup-indent-offset 2)
-    )
-    (add-hook 'web-mode-hook  'my-web-mode-hook)
+     (defun my-web-mode-hook ()
+       (setq web-mode-markup-indent-offset 2)
+       )
+     (add-hook 'web-mode-hook  'my-web-mode-hook)
    #+end_src
 * Functions
 ** Utils
-  #+begin_src emacs-lisp :results none
-    (defun zl/insert-today ()
-      (interactive)
-      (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
-    (defun zl/insert-timestamp ()
-      (interactive)
-      (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d %T %Z\"")));; might only work on macos
-    (defun zl/insert-pass-32 ()
-      (interactive)
-      (insert (shell-command-to-string "pwgen -n 32 1")));; need to install pwgen
-  #+end_src
+   #+begin_src emacs-lisp :results none
+     (defun zl/insert-today ()
+       (interactive)
+       (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d\"")))
+     (defun zl/insert-timestamp ()
+       (interactive)
+       (insert (shell-command-to-string "/bin/date \"+%Y-%m-%d %T %Z\"")));; might only work on macos
+     (defun zl/insert-pass-32 ()
+       (interactive)
+       (insert (shell-command-to-string "pwgen -n 32 1")));; need to install pwgen
+   #+end_src
 ** External Applications
-  #+begin_src emacs-lisp
-    (defun zl/get-column ()
-      (number-to-string (+ (current-column) 1)))
+   #+begin_src emacs-lisp
+     (defun zl/get-column ()
+       (number-to-string (+ (current-column) 1)))
 
-    (defun zl/get-line-number ()
-      (number-to-string (line-number-at-pos)))
+     (defun zl/get-line-number ()
+       (number-to-string (line-number-at-pos)))
 
-    (defun zl/open-with-line (app)
-      (when buffer-file-name
-        (save-buffer)
-        (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) "\""))))
+     (defun zl/open-with-line (app)
+       (when buffer-file-name
+         (save-buffer)
+         (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) "\""))))
 
-    (defun zl/open-with-line-column (app)
-      (when buffer-file-name
-        (save-buffer)
-        (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) ":" (zl/get-column) "\""))))
+     (defun zl/open-with-line-column (app)
+       (when buffer-file-name
+         (save-buffer)
+         (shell-command (concat app " \"" buffer-file-name ":" (zl/get-line-number) ":" (zl/get-column) "\""))))
 
-    (defun zl/open-with-reveal (app)
-      (shell-command (concat "osascript -e 'tell application \"" app "\" to activate'")))
+     (defun zl/open-with-reveal (app)
+       (shell-command (concat "osascript -e 'tell application \"" app "\" to activate'")))
 
-    (defun zl/open-with-idea ()
-      (interactive)
-      (zl/open-with-reveal "IntelliJ IDEA")
-      (zl/open-with-line "/usr/local/bin/idea"))
+     (defun zl/open-with-idea ()
+       (interactive)
+       (zl/open-with-reveal "IntelliJ IDEA")
+       (zl/open-with-line "/usr/local/bin/idea"))
 
-    (defun zl/open-with-vscode ()
-      (interactive)
-      (zl/open-with-line-column "/usr/local/bin/code --goto"))
-  #+end_src
+     (defun zl/open-with-vscode ()
+       (interactive)
+       (zl/open-with-line-column "/usr/local/bin/code --goto"))
+   #+end_src
