@@ -42,6 +42,10 @@ values."
      evil-commentary
      fzf ;; see installation here: https://github.com/AshyIsMe/fzf-spacemacs-layer
      git
+
+     ;; Golang support, make sure you install the language server
+     ;; > GO111MODULE=on go get -v golang.org/x/tools/gopls@latest
+     ;; And on Linux make sure unzip is installed
      (go :variables
          go-backend 'lsp
          go-tab-width 8)
