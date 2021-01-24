@@ -191,54 +191,6 @@ A common frustration with new Emacs users is the filename# files created. This c
      ;; Keep images not too wide
      (setq org-image-actual-width 800)
      (setq org-download-screenshot-method "screencapture %s")
-
-     (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
-                              "~/Dropbox/gtd/gtd.org"
-                              "~/Dropbox/gtd/tickler.org"
-                              "~/Dropbox/org-calendars/calendar_private.org"
-                              "~/Dropbox/org-calendars/calendar_work.org"))
-
-     ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
-     ;; capture GTD tasks
-     (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                    (file+headline "~/Dropbox/gtd/inbox.org" "Tasks")
-                                    "* TODO %i%?")
-                                   ("T" "Tickler" entry
-                                    (file+headline "~/Dropbox/gtd/tickler.org" "Tickler")
-                                    "* %i%? \n %U")))
-     (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
-                                ("~/Dropbox/gtd/someday.org" :level . 1)
-                                ("~/Dropbox/gtd/archives.org" :level . 1)
-                                ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
-
-     (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
-
-     (setq org-agenda-custom-commands
-           '(("o" "Admin tasks" tags-todo "@admin"
-              ((org-agenda-overriding-header "Admin")))
-             ("u" "Support tasks" tags-todo "@support"
-              ((org-agenda-overriding-header "Support")
-               (org-agenda-skip-function #'zl/org-agenda-skip-all-siblings-but-first)))
-             ("n" "Next tasks" tags-todo "GTD"
-              ((org-agenda-overriding-header "Next tasks")
-               (org-agenda-skip-function #'zl/org-agenda-skip-all-siblings-but-first)))))
-
-     ;; only show the first action to be done (or next action) for each project
-     (defun zl/org-agenda-skip-all-siblings-but-first ()
-       "Skip all but the first non-done entry."
-       (let (should-skip-entry)
-         (unless (org-current-is-todo)
-           (setq should-skip-entry t))
-         (save-excursion
-           (while (and (not should-skip-entry) (org-goto-sibling t))
-             (when (org-current-is-todo)
-               (setq should-skip-entry t))))
-         (when should-skip-entry
-           (or (outline-next-heading)
-               (goto-char (point-max))))))
-
-     (defun org-current-is-todo ()
-       (string= "TODO" (org-get-todo-state)))
    #+end_src
 *** Google Calendar
     #+begin_src emacs-lisp :results none
@@ -246,6 +198,77 @@ A common frustration with new Emacs users is the filename# files created. This c
                                   ("zhe@minna.tech" . "~/Dropbox/org-calendars/calendar_work.org"))
             org-gcal-remove-api-cancelled-events t)
       ;; (load "~/.spacemacs.d/secrets.el")
+    #+end_src
+*** GTD
+    #+begin_src emacs-lisp :results none
+      (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
+                               "~/Dropbox/gtd/gtd.org"
+                               "~/Dropbox/gtd/tickler.org"
+                               "~/Dropbox/org-calendars/calendar_private.org"
+                               "~/Dropbox/org-calendars/calendar_work.org"))
+
+      ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+      ;; capture GTD tasks
+      (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                     (file+headline "~/Dropbox/gtd/inbox.org" "Tasks")
+                                     "* TODO %i%?")
+                                    ("T" "Tickler" entry
+                                     (file+headline "~/Dropbox/gtd/tickler.org" "Tickler")
+                                     "* %i%? \n %U")))
+      (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
+                                 ("~/Dropbox/gtd/someday.org" :level . 1)
+                                 ("~/Dropbox/gtd/archives.org" :level . 1)
+                                 ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
+
+      (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+
+      (setq org-agenda-custom-commands
+            '(("o" "Admin tasks" tags-todo "@admin"
+               ((org-agenda-overriding-header "Admin")))
+              ("u" "Support tasks" tags-todo "@support"
+               ((org-agenda-overriding-header "Support")
+                (org-agenda-skip-function #'zl/org-agenda-skip-all-siblings-but-first)))
+              ("n" "Next tasks" tags-todo "GTD"
+               ((org-agenda-overriding-header "Next tasks")
+                (org-agenda-skip-function #'zl/org-agenda-skip-all-siblings-but-first)))
+
+                   ("W" "Weekly review"
+                     agenda ""
+                     ((org-agenda-span 'week)
+                      (org-agenda-start-on-weekday 1)
+                      (org-agenda-start-with-log-mode t)
+                      (org-agenda-skip-function
+                       '(org-agenda-skip-entry-if 'nottodo 'done))))
+              )
+            )
+
+      ;; (add-to-list 'org-agenda-custom-commands
+      ;;              '("W" "Weekly review"
+      ;;                agenda ""
+      ;;                ((org-agenda-span 'week)
+      ;;                 (org-agenda-start-on-weekday 6)
+      ;;                 (org-agenda-start-with-log-mode t)
+      ;;                 (org-agenda-skip-function
+      ;;                  '(org-agenda-skip-entry-if 'nottodo 'done))))
+      ;;              )
+      (org-agenda-archives-mode t)
+
+      ;; only show the first action to be done (or next action) for each project
+      (defun zl/org-agenda-skip-all-siblings-but-first ()
+        "Skip all but the first non-done entry."
+        (let (should-skip-entry)
+          (unless (org-current-is-todo)
+            (setq should-skip-entry t))
+          (save-excursion
+            (while (and (not should-skip-entry) (org-goto-sibling t))
+              (when (org-current-is-todo)
+                (setq should-skip-entry t))))
+          (when should-skip-entry
+            (or (outline-next-heading)
+                (goto-char (point-max))))))
+
+      (defun org-current-is-todo ()
+        (string= "TODO" (org-get-todo-state)))
     #+end_src
 ** Python
    #+begin_src emacs-lisp :results none
