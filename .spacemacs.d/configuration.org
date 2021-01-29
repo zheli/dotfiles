@@ -215,6 +215,7 @@ A common frustration with new Emacs users is the filename# files created. This c
                                     ("T" "Tickler" entry
                                      (file+headline "~/Dropbox/gtd/tickler.org" "Tickler")
                                      "* %i%? \n %U")))
+
       (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
                                  ("~/Dropbox/gtd/someday.org" :level . 1)
                                  ("~/Dropbox/gtd/archives.org" :level . 1)
@@ -225,12 +226,15 @@ A common frustration with new Emacs users is the filename# files created. This c
       (setq org-agenda-custom-commands
             '(("o" "Admin tasks" tags-todo "@admin"
                ((org-agenda-overriding-header "Admin")))
+
               ("u" "Support tasks" tags-todo "@support"
                ((org-agenda-overriding-header "Support")
                 (org-agenda-skip-function #'zl/org-agenda-skip-all-siblings-but-first)))
+
               ("n" "Next tasks" tags-todo "GTD"
                ((org-agenda-overriding-header "Next tasks")
                 (org-agenda-skip-function #'zl/org-agenda-skip-all-siblings-but-first)))
+
               ("W" "Weekly review" agenda ""
                ((org-agenda-span 'week)
                 (org-agenda-start-on-weekday 1)
@@ -266,6 +270,7 @@ A common frustration with new Emacs users is the filename# files created. This c
 
       (defun org-current-is-todo ()
         (string= "TODO" (org-get-todo-state)))
+
     #+end_src
 ** Python
    #+begin_src emacs-lisp :results none
