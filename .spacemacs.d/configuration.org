@@ -227,6 +227,11 @@ A common frustration with new Emacs users is the filename# files created. This c
             '(("o" "Admin tasks" tags-todo "@admin"
                ((org-agenda-overriding-header "Admin")))
 
+              ("b" "Important but not urgent"
+                tags-todo "GTD"
+                keywords "+[#B]"
+                ((org-agenda-overriding-header "Important but not urgent")))
+
               ("u" "Support tasks" tags-todo "@support"
                ((org-agenda-overriding-header "Support")
                 (org-agenda-skip-function #'zl/org-agenda-skip-all-siblings-but-first)))
@@ -244,14 +249,10 @@ A common frustration with new Emacs users is the filename# files created. This c
               ))
 
       ;; (add-to-list 'org-agenda-custom-commands
-      ;;              '("W" "Weekly review"
-      ;;                agenda ""
-      ;;                ((org-agenda-span 'week)
-      ;;                 (org-agenda-start-on-weekday 6)
-      ;;                 (org-agenda-start-with-log-mode t)
-      ;;                 (org-agenda-skip-function
-      ;;                  '(org-agenda-skip-entry-if 'nottodo 'done))))
-      ;;              )
+      ;;              '("b" "Important but not urgent"
+      ;;                tags-todo "GTD"
+      ;;                keywords "+[#B]"
+      ;;                ((org-agenda-overriding-header "Important but not urgent"))))
       (org-agenda-archives-mode t)
 
       ;; only show the first action to be done (or next action) for each project
