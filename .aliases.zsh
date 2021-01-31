@@ -14,7 +14,8 @@ alias dcov='docker-compose --verbose'
 # Editors
 ## edit in spacemacs client mode
 alias e='emacsclient --no-wait'
-alias en='emacsclient -c'
+alias en='emacsclient -nc'
+alias emacsnc='emacsclient -nc &'
 alias nvv='nvim -S'
 alias vv='vim -S'
 
