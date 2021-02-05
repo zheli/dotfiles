@@ -38,6 +38,7 @@ values."
      auto-completion
      better-defaults
      docker
+     emoji
      emacs-lisp
      evil-commentary
      fzf ;; see installation here: https://github.com/AshyIsMe/fzf-spacemacs-layer
@@ -174,13 +175,19 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               ;; "Source Code Pro"
-                               ;; "Menlo for Powerline"
-                               "Meslo LG M for Powerline"
-                               :size 12
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+                               ("Inconsolata for Powerline"
+                                :size 12
+                                :weight normal
+                                :width normal
+                                :powerline-scale 1.1)
+                               (;; "Source Code Pro"
+                                ;; "Menlo for Powerline"
+                                "Meslo LG M for Powerline"
+                                :size 12
+                                :weight normal
+                                :width normal
+                                :powerline-scale 1.1)
+                               )
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
