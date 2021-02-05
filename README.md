@@ -30,6 +30,14 @@ git clone git@github.com:ashyisme/fzf-spacemacs-layer.git ~/.emacs.d/private/fzf
 git clone --branch fix-refresh-token-function-name git@github.com:zheli/google-calendar-layer.git ~/.emacs.d/private/google-calendar
 ```
 
+### 3rd party software repository on arch linux
+Install yay
+```
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+
 ### zsh
 #### Install zsh
 ##### Arch/Manjaro
@@ -95,6 +103,13 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 ```
 Reference: https://medium.com/@slmeng/how-to-install-chinese-fonts-and-input-method-in-arch-linux-18b68d2817e7
+
+### Emoji font support
+```
+git clone https://aur.archlinux.org/ttf-ancient-fonts.git
+cd ttf-ancient-fonts
+makepkg -si
+```
 
 ### kubectl completion
 ```
