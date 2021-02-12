@@ -42,7 +42,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-#exec --no-startup-id volumeicon
+exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
@@ -274,7 +274,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id manjaro-hello
+#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -420,8 +420,11 @@ mode "$mode_gaps_outer" {
 # My customization
 ## start dropbox
 exec --no-startup-id dropbox start
-## start alttab
+## start alttab. Install alttab from https://github.com/sagb/alttab/blob/master/INSTALL.md
 exec_always alttab
+## Modify caplock as ctrl and escape key. Install xcape using `sudo pacman -Syu xcape`
+exec --no-startup-id setxkbmap -option ctrl:nocaps
+exec --no-startup-id xcape -e 'Control_L=Escape'
 ## set mouse DPI
 exec --no-startup-id xinput set-prop "Logitech M705" "libinput Accel Speed" -0.7
 ## start fcitx input method
