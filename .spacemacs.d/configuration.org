@@ -253,7 +253,6 @@ A common frustration with new Emacs users is the filename# files created. This c
       ;;                tags-todo "GTD"
       ;;                keywords "+[#B]"
       ;;                ((org-agenda-overriding-header "Important but not urgent"))))
-      (org-agenda-archives-mode t)
 
       ;; only show the first action to be done (or next action) for each project
       (defun zl/org-agenda-skip-all-siblings-but-first ()
