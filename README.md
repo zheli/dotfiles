@@ -116,3 +116,8 @@ makepkg -si
 mkdir -p ~/.zsh/completion
 kubectl completion zsh > ~/.zsh/completion/kubectl_completion
 ```
+
+### Remap keys
+```
+ln -sf $(pwd)/.Xmodmap ~
+```
