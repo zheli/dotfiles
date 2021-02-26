@@ -272,6 +272,33 @@ A common frustration with new Emacs users is the filename# files created. This c
         (string= "TODO" (org-get-todo-state)))
 
     #+end_src
+*** Sort with priority and TODO status
+    #+begin_src emacs-lisp :results none
+      (require 'cl)
+      (require 'dash)
+
+      (defun todo-to-int (todo)
+        (first (-non-nil
+                (mapcar (lambda (keywords)
+                          (let ((todo-seq
+                                 (-map (lambda (x) (first (split-string  x "(")))
+                                       (rest keywords))))
+                            (cl-position-if (lambda (x) (string= x todo)) todo-seq)))
+                        org-todo-keywords))))
+
+      (defun zl/org-sort-key ()
+        (let* ((todo-max (apply #'max (mapcar #'length org-todo-keywords)))
+               (todo (org-entry-get (point) "TODO"))
+               (todo-int (if todo (todo-to-int todo) todo-max))
+               (priority (org-entry-get (point) "PRIORITY"))
+               (priority-int (if priority (string-to-char priority) org-default-priority)))
+          (format "%03d %03d" todo-int priority-int)
+          ))
+
+      (defun zl/org-sort-entries ()
+        (interactive)
+        (org-sort-entries nil ?f #'zl/org-sort-key))
+    #+end_src
 ** Python
    #+begin_src emacs-lisp :results none
      (require 'lsp-mode)
