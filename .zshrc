@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git kube-ps1)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,6 +76,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zshenv
 
 # Left ctrl as escape key
+setxkbmap -option ctrl:nocaps
 xcape -e "Control_L=Escape"
 
 # NodeJS
