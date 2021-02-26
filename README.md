@@ -38,32 +38,33 @@ cd yay
 makepkg -si
 ```
 
-### zsh
-#### Install zsh
-##### Arch/Manjaro
-```
-sudo pacman -Syu zsh
-```
-##### Ubuntu
-```
-sudo apt-get install zsh
-```
-#### Change user default shell
-```
-chsh --shell /bin/zsh
-```
-
 ### on-my-zsh
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-ln -s $(pwd)/.zshrc ~
-ln -s $(pwd)/zshenv ~
+ln -sf $(pwd)/.zshrc ~
+ln -sf $(pwd)/.zshenv ~
 ```
 
 ### aliases
 ```
-ln -s $(pwd)/.aliases.zsh ~
+git clone https://github.com/ahmetb/kubectl-aliases.git ~/code/kubectl-aliases
+ln -s $(pwd)/.aliases.zsh
+ln -s ~/code/kubectl-aliases/.kubectl_aliases ~
+```
+
+### Clock sync
+```
+systemctl enable ntpd
+systemctl enable ntpdate
+systemctl start ntpd
+systemctl start ntpdate
+```
+
+### Disable PC speaker beep
+```
+su
+echo "blacklist pcspkr" | tee /etc/modprobe.d/nobeep.conf
 ```
 
 ### Docker
