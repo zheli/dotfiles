@@ -1,6 +1,10 @@
 #
 # Defines environment variables.
 #
+
+# Function for adding path to PATH
+pupdate() { case ":${PATH:=$1}:" in *:"$1":*) ;; *) PATH="$1:$PATH" ;; esac; }
+
 export EDITOR='vim'
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -11,7 +15,13 @@ export HISTCONTROL=ignorespace
 export TERM='xterm-256color'
 
 # local bins
-PATH=$PATH:$HOME/.local/bin
+pupdate $HOME/.local/bin
+
+# Kubernetes
+PROMPT='$(kube_ps1)'$PROMPT
+
+## Minna Kubectl plugin
+pupdate $HOME/code/minna/developer-tools/kubectl-plugins
 
 # fzf
 FZF_TMUX=1
@@ -24,3 +34,20 @@ export NVM_DIR="$HOME/.nvm"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
+# krew
+pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
+
+# Scala
+## SBT
+export SBT_OPTS="-Xmx4G"
+
+# ZSH
+## substring history search
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=red,fg=white,bold"
+
+## zsh-autosuggest
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=59"
+
+## zsh cache for completion
+export ZSH_CACHE_DIR="$HOME/.zsh/completion"
