@@ -423,8 +423,9 @@ exec --no-startup-id dropbox start
 ## start alttab. Install alttab from https://github.com/sagb/alttab/blob/master/INSTALL.md
 ## Show all applications in the options
 exec_always alttab -d 1
-## Modify caplock as ctrl and escape key. Install xcape using `sudo pacman -Syu xcape`
-exec --no-startup-id setxkbmap -option ctrl:nocaps
+## switch between english and swedish using alt+shift and
+## modify caplock as ctrl and escape key. Install xcape using `sudo pacman -Syu xcape`
+exec --no-startup-id setxkbmap -layout us,se -option grp:alt_shift_toggle -option ctrl:nocaps
 exec --no-startup-id xcape -e 'Control_L=Escape'
 ## set mouse DPI
 exec --no-startup-id xinput set-prop "Logitech M705" "libinput Accel Speed" -0.7
