@@ -119,7 +119,7 @@ A common frustration with new Emacs users is the filename# files created. This c
    #+end_src
 ** Follow focus
   #+begin_src emacs-lisp :results none
-    ;;(setq mouse-autoselect-window t)
+    (setq mouse-autoselect-window t)
   #+end_src
 ** Locale
   #+begin_src emacs-lisp :results none
