@@ -1,6 +1,11 @@
 # Introduction
 Instructions for setting up Manjaro system
 
+## Setup i3
+```
+ln -s $(pwd)/polybar ~/.config/
+```
+
 ## Use fastest pacman mirror
 ```
 sudo pacman-mirrors --fasttrack && sudo pacman -Syyu

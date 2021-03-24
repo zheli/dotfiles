@@ -433,3 +433,13 @@ exec --no-startup-id xinput set-prop "Logitech M705" "libinput Accel Speed" -0.7
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 0
 ## start fcitx input method
 exec --no-startup-id fcitx
+## polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+## media keys
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+# Map volume down to printscr key
+exec_always xmodmap -e "keycode 107 = XF86AudioLowerVolume NoSymbol XF86AudioLowerVolume"
+# Map volume up to pause key
+exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume"
