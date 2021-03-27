@@ -4,6 +4,8 @@ Instructions for setting up Manjaro system
 ## Setup i3
 ```
 ln -s $(pwd)/polybar ~/.config/
+ln -s $(pwd)/rofi ~/.config/
+sudo pacman -Syu polybar rofi
 ```
 
 ## Use fastest pacman mirror
