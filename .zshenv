@@ -35,6 +35,10 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
+# Golang
+export GOPATH=$HOME/.go
+pupdate $HOME/.go/bin
+
 # krew
 pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
 
