@@ -359,7 +359,8 @@ mouse:
     #   - (macOS) open
     #   - (Linux) xdg-open
     #   - (Windows) explorer
-    launcher: open
+    launcher: xdg-open
+    #launcher: open
 
     # URL modifiers
     #
