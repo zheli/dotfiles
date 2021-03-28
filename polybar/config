@@ -226,7 +226,8 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = net1
+; interface = net1
+interface = wlp0s20f3
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -248,7 +249,8 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = eno1
+; interface = eno1
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -266,11 +268,11 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+; date-alt = " %Y-%m-%d"
 
-time = %H:%M
-time-alt = %H:%M:%S
+; time = %H:%M
+; time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
