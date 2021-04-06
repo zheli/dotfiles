@@ -33,6 +33,9 @@ alias gsta="git stash"
 alias gsup='git stash save && git pull --rebase && git stash pop'
 alias gup="git pull --rebase"
 
+# i3
+alias move_right="i3-msg move workspace to output right"
+
 # kubernetes
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 ## kubectx
