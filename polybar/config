@@ -27,13 +27,12 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/example]
+[bar/bottombar]
+bottom = true
 monitor = ${env:MONITOR:HDMI-2}
 width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
+height = 16
+radius = 0.0
 fixed-center = false
 
 background = ${colors.background}
@@ -42,7 +41,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 1
 border-color = #00000000
 
 padding-left = 0
@@ -55,9 +54,49 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3
-modules-center = mpd spotify-prev spotify-play-pause spotify-next spotify xwindow
-modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-left = i3-bottom
+modules-center = xwindow
+modules-right = date
+
+wm-restack = i3
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/example]
+monitor = ${env:MONITOR:HDMI-2}
+width = 100%
+height = 28
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 1
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+
+modules-left = i3 spotify-prev spotify-play-pause spotify-next spotify
+modules-center = mpd
+modules-right = xbacklight pulseaudio xkeyboard wlan eth battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -173,6 +212,44 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/i3-bottom]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = #db6060
+label-focused-underline= ${colors.primary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+;label-visible-background = ${self.label-focused-background}
+label-visible-background = ${colors.background-alt}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+label-separator = |
+
 
 [module/mpd]
 type = internal/mpd
@@ -269,7 +346,7 @@ format-disconnected-underline = ${self.format-connected-underline}
 type = internal/date
 interval = 5
 
-date =
+date = " %Y-%m-%d"
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
@@ -301,11 +378,11 @@ bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 1
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 1
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 1
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 click-right = pavucontrol
