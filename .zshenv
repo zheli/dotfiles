@@ -26,6 +26,9 @@ pupdate $HOME/code/minna/developer-tools/kubectl-plugins
 # fzf
 FZF_TMUX=1
 
+# istio
+pupdate $HOME/.local/istio/bin
+
 # NodeJS
 ## NVM
 export NVM_DIR="$HOME/.nvm"
