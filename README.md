@@ -122,3 +122,8 @@ kubectl completion zsh > ~/.zsh/completion/kubectl_completion
 ```
 ln -sf $(pwd)/.Xmodmap ~
 ```
+
+### i3
+```
+ln -sf $(pwd)/.i3status.conf ~
+```
