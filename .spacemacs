@@ -176,14 +176,14 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    ;; Remember to change the font in configuration.org as well
    dotspacemacs-default-font '(
-                               ("Inconsolata for Powerline"
+                               (;; "Source Code Pro"
+                                ;; "Menlo for Powerline"
+                                "Meslo LG M for Powerline"
                                 :size 14
                                 :weight normal
                                 :width normal
                                 :powerline-scale 1.1)
-                               (;; "Source Code Pro"
-                                ;; "Menlo for Powerline"
-                                "Meslo LG M for Powerline"
+                               ("Inconsolata for Powerline"
                                 :size 14
                                 :weight normal
                                 :width normal
