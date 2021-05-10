@@ -193,13 +193,6 @@ A common frustration with new Emacs users is the filename# files created. This c
      (setq org-image-actual-width 800)
      (setq org-download-screenshot-method "screencapture %s")
    #+end_src
-*** Google Calendar
-    #+begin_src emacs-lisp :results none
-      (setq org-gcal-file-alist '(("linuxcity.jn@gmail.com" . "~/Dropbox/org-calendars/calendar_private.org")
-                                  ("zhe@minna.tech" . "~/Dropbox/org-calendars/calendar_work.org"))
-            org-gcal-remove-api-cancelled-events t)
-      ;; (load "~/.spacemacs.d/secrets.el")
-    #+end_src
 *** GTD
     #+begin_src emacs-lisp :results none
       (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"

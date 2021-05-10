@@ -50,7 +50,6 @@ values."
      (go :variables
          go-backend 'lsp
          go-tab-width 8)
-     google-calendar
      helm
      (html :variables
            ;; tsx file is opened in web mode children
