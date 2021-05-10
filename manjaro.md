@@ -24,3 +24,6 @@ pulseaudio --start
 
 ## Enable Emacs daemon
 `systemctl --user enable --now emacs`
+
+## Enable emoji
+https://forum.manjaro.org/t/howto-enable-emoji-fonts/36695
