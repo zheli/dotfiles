@@ -19,6 +19,10 @@ pupdate $HOME/.local/bin
 
 # Kubernetes
 PROMPT='$(kube_ps1)'$PROMPT
+## Get all node IPs
+function externalips {
+  kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type=="ExternalIP")].address }'; echo
+} 
 
 ## Minna Kubectl plugin
 pupdate $HOME/code/minna/developer-tools/kubectl-plugins
