@@ -55,6 +55,7 @@ A common frustration with new Emacs users is the filename# files created. This c
     (spacemacs/toggle-syntax-checking-on)
     (spacemacs/toggle-smartparens-globally-on)
     (setq default-frame-alist '((font . "-PfEd-Inconsolata for Powerline-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")))
+    (global-visual-line-mode t); Soft line wrap
   #+End_src
 ** Transparent background
     #+begin_src emacs-lisp :results none
