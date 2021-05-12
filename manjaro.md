@@ -31,3 +31,10 @@ https://forum.manjaro.org/t/howto-enable-emoji-fonts/36695
 ## Fix spelling check
 If you get "(Can’t find Hunspell dictionary with a .aff affix file)" error in
 Emacs, open "Manjaro Settings Manager" and install all en_US language packages.
+
+## Automatically xrandr profile when plug in new monitors
+```
+sudo pacman -Syu autorandr
+autorandr --save <name>
+```
+See https://www.donarmstrong.com/posts/autorandr/.
