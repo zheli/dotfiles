@@ -61,7 +61,6 @@ values."
      (org :variables
           org-enable-github-support t
           org-enable-reveal-js-support t)
-     osx
      python
      ;; scala-lsp
      (scala :variables
@@ -79,6 +78,7 @@ values."
                 terraform-auto-format-on-save t)
      typescript
      version-control
+     vimscript
      yaml
      )
    ;; List of additional packages that will be installed without being
