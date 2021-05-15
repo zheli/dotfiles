@@ -49,7 +49,7 @@ ln -sf $(pwd)/.zshenv ~
 ### aliases
 ```
 git clone https://github.com/ahmetb/kubectl-aliases.git ~/code/kubectl-aliases
-ln -s $(pwd)/.aliases.zsh
+ln -s $(pwd)/.aliases.zsh ~
 ln -s ~/code/kubectl-aliases/.kubectl_aliases ~
 ```
 
