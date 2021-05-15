@@ -3,6 +3,10 @@
 #+EMAIL: linucity.jn@gmail.com
 #+STARTUP: content
 * General
+  #+begin_src emacs-lisp :results none
+    (when (daemonp)
+      (exec-path-from-shell-initialize))
+  #+end_src
 ** Personal
 #+begin_src emacs-lisp :results none
   (setq user-full-name "Zhe Li"
@@ -49,6 +53,7 @@ A common frustration with new Emacs users is the filename# files created. This c
 #+begin_src emacs-lisp :results none
   ;; Use brew git instead of xcode git
   ;; (setq magit-git-executable "/usr/local/bin/git")
+  ;; (if (eq system-type 'darwin) (setq magit-git-executable "/usr/local/bin/git"))
 #+end_src
 * UI/Visual
   #+begin_src emacs-lisp :results none
