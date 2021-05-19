@@ -179,12 +179,12 @@ values."
                                (;; "Source Code Pro"
                                 ;; "Menlo for Powerline"
                                 "Meslo LG M for Powerline"
-                                :size 14
+                                :size 12
                                 :weight normal
                                 :width normal
                                 :powerline-scale 1.1)
                                ("Inconsolata for Powerline"
-                                :size 14
+                                :size 12
                                 :weight normal
                                 :width normal
                                 :powerline-scale 1.1)
