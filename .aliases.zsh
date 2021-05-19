@@ -36,6 +36,10 @@ alias gup="git pull --rebase"
 # i3
 alias move_right="i3-msg move workspace to output right"
 
+# GCloud
+alias gal="gcloud auth login"
+alias gaal="gcloud auth application-default login"
+
 # kubernetes
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 ## kubectx
