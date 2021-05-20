@@ -59,7 +59,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec pcmanfm
+#bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
@@ -447,3 +447,6 @@ exec_always xmodmap -e "keycode 107 = XF86AudioLowerVolume NoSymbol XF86AudioLow
 exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume"
 # network manager
 exec --no-startup-id nm-applet
+bindsym $mod+d exec --no-startup-id rofi -show combi
+# Switch monitor setup profile
+bindsym $mod+F3 exec autorandr -c
