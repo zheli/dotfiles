@@ -447,6 +447,5 @@ exec_always xmodmap -e "keycode 107 = XF86AudioLowerVolume NoSymbol XF86AudioLow
 exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume"
 # network manager
 exec --no-startup-id nm-applet
-bindsym $mod+d exec --no-startup-id rofi -show combi
 # Switch monitor setup profile
 bindsym $mod+F3 exec autorandr -c

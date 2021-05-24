@@ -54,9 +54,9 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3 spotify-prev spotify-play-pause spotify-next spotify
+modules-left = spotify-prev spotify-play-pause spotify-next spotify
 modules-center = xwindow
-modules-right = pulseaudio
+modules-right = i3 pulseaudio
 
 wm-restack = i3
 
@@ -75,7 +75,7 @@ width = 100%
 height = 28
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 0.0
+radius = 0.5
 fixed-center = false
 
 background = ${colors.background}
@@ -347,15 +347,16 @@ format-disconnected-underline = ${self.format-connected-underline}
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 10
 
 date = " %Y-%m-%d"
-date-alt = " %Y-%m-%d"
+date-alt = ""
 
 time = %H:%M
-time-alt = %H:%M:%S
+time-alt = %H:%M
 
 format-prefix = 
+;format-prefix = 时间
 ;format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5
 

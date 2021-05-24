@@ -294,6 +294,7 @@ schemes:
 
 # Colors (Ayu Dark)
 colors: *ayu_dark
+#colors: *solarized_light
 
   # Dim colors
   #
