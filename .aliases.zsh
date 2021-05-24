@@ -34,11 +34,13 @@ alias gsup='git stash save && git pull --rebase && git stash pop'
 alias gup="git pull --rebase"
 
 # i3
+alias move_left="i3-msg move workspace to output left"
 alias move_right="i3-msg move workspace to output right"
 
 # GCloud
 alias gal="gcloud auth login"
 alias gaal="gcloud auth application-default login"
+alias gcdev="gcloud --account='zhe@minna.tech'"
 
 # kubernetes
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
