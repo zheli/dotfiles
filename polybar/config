@@ -526,6 +526,7 @@ format = <label>
 click-left = playerctl previous spotify
 
 [module/spotify-play-pause]
+; Check get_spotify_status.sh if it is not working
 type = custom/ipc
 hook-0 = echo "||"
 hook-1 = echo ""
