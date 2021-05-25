@@ -38,3 +38,8 @@ sudo pacman -Syu autorandr
 autorandr --save <name>
 ```
 See https://www.donarmstrong.com/posts/autorandr/.
+
+## Install pipenv
+```
+pip install --user pipenv
+```
