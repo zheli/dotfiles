@@ -18,7 +18,8 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+;background = #222
+background = #323f5c
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -54,9 +55,9 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = spotify-prev spotify-play-pause spotify-next spotify
+modules-left = i3 spotify-prev spotify-play-pause spotify-next spotify
 modules-center = xwindow
-modules-right = i3 pulseaudio
+modules-right = pulseaudio i3
 
 wm-restack = i3
 
@@ -72,13 +73,14 @@ enable-ipc = true
 [bar/example]
 monitor = ${env:MONITOR:HDMI-2}
 width = 100%
-height = 28
+height = 16
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.5
 fixed-center = false
 
-background = ${colors.background}
+;background = ${colors.background}
+background = #222
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -509,8 +511,8 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 [module/spotify]
 type = custom/script
