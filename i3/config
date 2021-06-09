@@ -449,6 +449,8 @@ exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRai
 exec --no-startup-id nm-applet
 # Switch monitor setup profile
 bindsym $mod+F3 exec autorandr -c
+# Launch emacs in client mode
+bindsym $mod+F4 exec emacsclient -nc
 # set wallpaper
 exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds
 # move workspace left
