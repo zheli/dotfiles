@@ -427,7 +427,7 @@ exec --no-startup-id dropbox start
 exec_always alttab -d 1 -pk Shift_R  -fg "#d58681" -bg "#4a4a4a" -frame "#eb564d" -t 128x150 -i 127x64
 ## switch between english and swedish using alt+shift and
 ## modify caplock as ctrl and escape key. Install xcape using `sudo pacman -Syu xcape`
-exec --no-startup-id setxkbmap -layout us,se -option grp:alt_shift_toggle -option ctrl:nocaps
+exec_always setxkbmap -layout us,se -option grp:alt_shift_toggle -option ctrl:nocaps
 exec --no-startup-id xcape -e 'Control_L=Escape'
 ## set mouse DPI
 exec --no-startup-id xinput set-prop "Logitech M705" "libinput Accel Speed" -0.7
