@@ -453,6 +453,8 @@ exec --no-startup-id nm-applet
 bindsym $mod+F3 exec autorandr -c
 # Launch emacs in client mode
 bindsym $mod+F4 exec emacsclient -nc
+# Play/pause spotify
+bindsym $mod+Shift+F4 exec playerctl play-pause -p spotify
 # set wallpaper
 exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds
 # move workspace left

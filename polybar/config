@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3 spotify-prev spotify-play-pause spotify-next spotify
 modules-center = xwindow
-modules-right = pulseaudio i3
+modules-right = play-pause-general pulseaudio i3
 
 wm-restack = i3
 
@@ -100,7 +100,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = mpd
+; modules-center = mpd
+modules-center =
 modules-right = xbacklight xkeyboard wlan eth cpu battery date powermenu
 
 tray-position = right
@@ -534,7 +535,7 @@ type = custom/ipc
 hook-0 = echo "||"
 hook-1 = echo ""
 initial = 1
-click-left = playerctl play-pause spotify
+click-left = playerctl play-pause -p spotify
 
 [module/spotify-next]
 type = custom/script
@@ -542,3 +543,11 @@ exec = echo ""
 format = <label>
 click-left = playerctl next spotify
 ; vim:ft=dosini
+
+[module/play-pause-general]
+type = custom/ipc
+hook-0 = echo "/||"
+hook-1 = echo ""
+initial = 1
+; click-left = playerctl -l|grep firefox|xargs playerctl play-pause -p
+click-left = playerctl play-pause
