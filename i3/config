@@ -438,7 +438,7 @@ exec --no-startup-id fcitx
 ## polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ## apply screen layout
-exec_always --no-startup-id autorandr -c
+exec --no-startup-id autorandr -c
 ## media keys
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
