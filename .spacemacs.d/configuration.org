@@ -174,7 +174,7 @@ A common frustration with new Emacs users is the filename# files created. This c
     (setq-default js2-basic-offset 2)
 
     ;; indentation
-    (setq-default js-indent-level 2)
+    (setq js-indent-level 2)
     (setq-default typescript-indent-level 2)
 
     ;; (setq-default js-indent-align-list-continuation nil) ;;https://emacs.stackexchange.com/questions/29780/changing-how-argument-lists-are-indented-in-javascript
