@@ -160,7 +160,7 @@ A common frustration with new Emacs users is the filename# files created. This c
    #+end_src
 ** Java
   #+begin_src emacs-lisp :results none
-    (setenv "JAVA_HOME" "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home")
+    ;; (setenv "JAVA_HOME" "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home")
   #+end_src
 ** JavaScript & TypeScript
   #+begin_src emacs-lisp :results none
