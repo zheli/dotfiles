@@ -86,3 +86,4 @@ alias free="vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:
 alias ctrl_escape="setxkbmap -layout us,se -option grp:alt_shift_toggle -option ctrl:nocaps"
 ## Launch minidlna in debug mode
 alias launch_minidland="minidlnad -d -P /tmp/minidlna.pid -L"
+alias samba_here="docker run --name samba -p 139:139 -p 445:445 -v $(pwd):/share -d dperson/samba -p -s \"public;/share\""
