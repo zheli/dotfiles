@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3 spotify-prev spotify-play-pause spotify-next spotify
 modules-center = xwindow
-modules-right = play-pause-general pulseaudio i3
+modules-right = play-pause-general pulseaudio
 
 wm-restack = i3
 
