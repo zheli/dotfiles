@@ -302,13 +302,18 @@ A common frustration with new Emacs users is the filename# files created. This c
     #+end_src
 ** Python
    #+begin_src emacs-lisp :results none
-     ;; See https://develop.spacemacs.org/layers/+lang/python/README.html for installation
+     ;; See https://develop.spacemacs.org/layers/+lang/python/README.html
+     ;; for installation
      (setq-default dotspacemacs-configuration-layers
                    '(
                      (python :variables
                              python-backend 'lsp
                              python-pipenv-activate t
                              )))
+
+     (add-hook 'python-mode-hook
+               (lambda ()
+                 (setq flycheck-python-pylint-executable "/home/zzz/.local/bin/pylint")
    #+end_src
 ** Golang
    #+begin_src emacs-lisp :results none
