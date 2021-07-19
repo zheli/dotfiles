@@ -102,7 +102,7 @@ font-2 = siji:pixelsize=10;1
 modules-left = i3
 ; modules-center = mpd
 modules-center =
-modules-right = xbacklight xkeyboard wlan eth cpu battery date powermenu
+modules-right = xbacklight xkeyboard wlan eth cpu temperature battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -459,6 +459,7 @@ animation-discharging-framerate = 750
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
+hwmon-path = /sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/hwmon/hwmon1/temp1_input
 
 format = <ramp> <label>
 ;format-underline = #f50a4d
