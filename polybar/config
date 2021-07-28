@@ -55,9 +55,9 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3 spotify-prev spotify-play-pause spotify-next spotify
-modules-center = xwindow
-modules-right = play-pause-general pulseaudio
+modules-left = i3
+modules-center = spotify-prev spotify-play-pause spotify-next spotify
+modules-right = play-pause-general filesystem pulseaudio
 
 wm-restack = i3
 
@@ -99,7 +99,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3
+modules-left = i3 xwindow
 ; modules-center = mpd
 modules-center =
 modules-right = xbacklight xkeyboard wlan eth cpu temperature battery date powermenu
@@ -127,6 +127,7 @@ enable-ipc = true
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+label-maxlen = 30
 format-background = #008000
 format-foreground= ${colors.foreground}
 format-padding = 4
