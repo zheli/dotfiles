@@ -198,6 +198,9 @@ A common frustration with new Emacs users is the filename# files created. This c
      ;; Keep images not too wide
      (setq org-image-actual-width 800)
      (setq org-download-screenshot-method "screencapture %s")
+
+     ;; no tag inheritance
+     (setq org-tags-match-list-sublevels nil)
    #+end_src
 *** GTD
     #+begin_src emacs-lisp :results none
