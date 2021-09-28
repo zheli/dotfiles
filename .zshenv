@@ -22,7 +22,7 @@ PROMPT='$(kube_ps1)'$PROMPT
 ## Get all node IPs
 function externalips {
   kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type=="ExternalIP")].address }'; echo
-} 
+}
 
 ## Minna Kubectl plugin
 pupdate $HOME/code/minna/developer-tools/kubectl-plugins
@@ -49,6 +49,9 @@ pupdate $HOME/.go/bin
 # krew
 pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
 
+# Ruby
+pupdate "$HOME/.local/share/gem/ruby/3.0.0/bin"
+
 # Scala
 ## SBT
 export SBT_OPTS="-Xmx4G"
@@ -62,3 +65,5 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=59"
 
 ## zsh cache for completion
 export ZSH_CACHE_DIR="$HOME/.zsh/completion"
+
+source ~/.zshenv_secrets
