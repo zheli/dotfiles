@@ -316,7 +316,7 @@ A common frustration with new Emacs users is the filename# files created. This c
 
      (add-hook 'python-mode-hook
                (lambda ()
-                 (setq flycheck-python-pylint-executable "/home/zzz/.local/bin/pylint")
+                 (setq flycheck-python-pylint-executable "/home/zzz/.local/bin/pylint")))
    #+end_src
 ** Golang
    #+begin_src emacs-lisp :results none
