@@ -30,8 +30,6 @@ alias gd="git diff"
 alias ginit='git init && git config user.email "linuxcity.jn@gmail.com" && git config user.name "Zhe Li"'
 alias gst="git status"
 alias gsta="git stash"
-alias gsup='git stash save && git pull --rebase && git stash pop'
-alias gup="git pull --rebase"
 
 # i3
 alias move_left="i3-msg move workspace to output left"
