@@ -53,6 +53,8 @@ pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
 pupdate "$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 # Scala
+## coursier
+pupdate "$HOME/.local/share/couriser/bin"
 ## SBT
 export SBT_OPTS="-Xmx4G"
 
