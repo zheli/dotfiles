@@ -43,8 +43,3 @@ See https://www.donarmstrong.com/posts/autorandr/.
 ```
 pip install --user pipenv
 ```
-
-## Install metals
-```
-coursier install metals
-```
