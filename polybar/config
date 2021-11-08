@@ -101,7 +101,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3 xwindow
 ; modules-center = mpd
-modules-center =
+modules-center = spotify-play-pause spotify
 modules-right = xbacklight xkeyboard wlan eth cpu temperature battery date powermenu
 
 tray-position = right
