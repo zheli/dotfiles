@@ -59,9 +59,16 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
+
 #bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec pcmanfm_pkexec
+#bindsym $mod+F3 exec ranger
+# Switch monitor setup profile
+bindsym $mod+F3 exec autorandr -c
+
+#bindsym $mod+Shift+F3 exec pcmanfm_pkexec
+# Toggle mic mute/unmute
+bindsym $mod+Shift+F3 exec amixer set Capture toggle
+
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
@@ -449,8 +456,6 @@ bindsym XF86AudioPause exec playerctl pause
 exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume"
 # network manager
 exec --no-startup-id nm-applet
-# Switch monitor setup profile
-bindsym $mod+F3 exec autorandr -c
 # Launch emacs in client mode
 bindsym $mod+F4 exec emacsclient -nc
 # Play/pause spotify
