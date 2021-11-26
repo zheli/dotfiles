@@ -7,3 +7,18 @@ https://github.com/emacs-lsp/lsp-mode/issues/2392
 # "LSP :: example_filename.c not in project or it is blacklisted."
 https://emacs.stackexchange.com/questions/54414/how-to-debug-troubleshoot-lsp-not-in-project-or-it-is-blacklisted-in-lsp-mo
  `lsp-workspace-folders-add` solves it for me.
+
+## Install metals
+```
+# Make sure to use coursier v1.1.0-M9 or newer.
+curl -L -o coursier https://git.io/coursier-cli
+chmod +x coursier
+./coursier bootstrap \
+  --java-opt -Xss4m \
+  --java-opt -Xms100m \
+  --java-opt -Dmetals.client=emacs \
+  org.scalameta:metals_2.12:0.10.9 \
+  -r bintray:scalacenter/releases \
+  -r sonatype:snapshots \
+  -o /usr/local/bin/metals-emacs -f
+```

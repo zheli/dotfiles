@@ -46,11 +46,17 @@ export XMODIFIERS=@im=fcitx
 export GOPATH=$HOME/.go
 pupdate $HOME/.go/bin
 
+# JAVA
+export JAVA_HOME="/usr/lib/jvm/java-11-adoptopenjdk"
+
 # krew
 pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
 
 # Ruby
 pupdate "$HOME/.local/share/gem/ruby/3.0.0/bin"
+## rvm
+### for arch linux
+source $HOME/.cache/yay/rvm/src/rvm.sh
 
 # Scala
 ## coursier
