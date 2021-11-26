@@ -189,6 +189,8 @@ A common frustration with new Emacs users is the filename# files created. This c
     ;;https://github.com/emacs-lsp/lsp-mode/issues/588
     (setq lsp-clients-typescript-server "typescript-language-server"
           lsp-clients-typescript-server-args '("--stdio"))
+
+    (add-to-list 'exec-path "~/.nvm/versions/node/v14.17.3/bin" t)
   #+end_src
 ** Org
    #+begin_src emacs-lisp :results none
@@ -335,19 +337,6 @@ A common frustration with new Emacs users is the filename# files created. This c
      (use-package company
        :config
        (push 'company-lsp company-backends))
-   #+end_src
-** Scala
-   #+begin_src emacs-lisp :results none
-     ;; (lsp-register-client
-     ;;  (make-lsp-client :new-connection (lsp-stdio-connection 'lsp-metals--server-command)
-     ;;                   :major-modes '(scala-mode)
-     ;;                   :priority -1
-     ;;                   ;; :notification-handlers (ht ("metals/treeViewDidChange" #'ignore))
-     ;;                   :server-id 'metals
-     ;;                   :initialized-fn (lambda (workspace)
-     ;;                                     (with-lsp-workspace workspace
-     ;;                                       (lsp--set-configuration
-     ;;                                        (lsp-configuration-section "metals"))))))
    #+end_src
 ** Web
    #+begin_src emacs-lisp :results none
