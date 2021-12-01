@@ -56,7 +56,11 @@ pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
 pupdate "$HOME/.local/share/gem/ruby/3.0.0/bin"
 ## rvm
 ### for arch linux
-source $HOME/.cache/yay/rvm/src/rvm.sh
+### `yay -S rvm`
+if [ -f '$HOME/.cache/yay/rvm/src/rvm.sh' ]; then .
+'source $HOME/.cache/yay/rvm/src/rvm.sh'; fi
+if [ -f '$HOME/.cache/yay/rvm/rvm.sh' ]; then .
+'source $HOME/.cache/yay/rvm/src/rvm.sh'; fi
 
 # Scala
 ## coursier
