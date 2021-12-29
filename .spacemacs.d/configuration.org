@@ -305,6 +305,11 @@ A common frustration with new Emacs users is the filename# files created. This c
         (interactive)
         (org-sort-entries nil ?f #'zl/org-sort-key))
     #+end_src
+*** pomodoro
+   #+begin_src emacs-lisp :results none
+     ;; Adjust pomodoro sound volumes
+     (setq org-pomodoro-short-break-sound-args "-volume 0.3")
+   #+end_src
 ** Python
    #+begin_src emacs-lisp :results none
      ;; See https://develop.spacemacs.org/layers/+lang/python/README.html
