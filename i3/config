@@ -292,7 +292,7 @@ exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 15 -locker blurlock
+exec --no-startup-id xautolock -time 30 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -361,7 +361,8 @@ set_from_resource $term_color15    color15
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9
+
+  client.focused          #556064 #556064 #80FFF9 #FDF6E3 #33ccff
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
@@ -466,3 +467,6 @@ exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 # move workspace right
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
+
+# start a few applications
+exec --no-startup-id firefox
