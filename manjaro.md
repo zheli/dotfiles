@@ -43,3 +43,6 @@ See https://www.donarmstrong.com/posts/autorandr/.
 ```
 pip install --user pipenv
 ```
+
+## Set Droidcam to use HD resolution
+https://www.dev47apps.com/droidcam/linux/
