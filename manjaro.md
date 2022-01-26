@@ -45,4 +45,14 @@ pip install --user pipenv
 ```
 
 ## Set Droidcam to use HD resolution
-https://www.dev47apps.com/droidcam/linux/
+1. Set resolution in `/etc/modprobe.d/droidcam.conf` (see
+   https://www.dev47apps.com/droidcam/linux/). But use modprobe instead of insmod.
+2. Reload module:
+```
+sudo rmmod v4l2loopback_dc
+sudo modprobe v4l2loopback-dc width=1920 height=1080
+```
+3. Check if module is installed.
+```
+lsmod | grep v4l2loopback_dc
+```
