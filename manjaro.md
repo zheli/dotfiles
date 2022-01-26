@@ -56,3 +56,12 @@ sudo modprobe v4l2loopback-dc width=1920 height=1080
 ```
 lsmod | grep v4l2loopback_dc
 ```
+
+## switch terraform version with tfswitch
+```
+# Download the latest version
+tfswitch -b ~/.local/bin/terraform --latest
+
+# switch to different version
+tfswitch -b ~/.local/bin/terraform
+```
