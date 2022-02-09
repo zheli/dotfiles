@@ -308,6 +308,7 @@ A common frustration with new Emacs users is the filename# files created. This c
 *** pomodoro
    #+begin_src emacs-lisp :results none
      ;; Adjust pomodoro sound volumes
+     ;; not working because emacs uses aplay right now
      (setq org-pomodoro-short-break-sound-args "-volume 0.5")
    #+end_src
 ** Python
