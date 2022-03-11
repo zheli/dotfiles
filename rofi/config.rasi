@@ -3,4 +3,4 @@ configuration {
  font: "hack 10";
  combi-modi: "window,drun,ssh";
 }
-@theme "solarized"
+@theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"
