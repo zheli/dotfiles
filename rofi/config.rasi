@@ -1,6 +1,8 @@
 configuration {
- modi: "window,drun,ssh,combi,run";
- font: "hack 10";
  combi-modi: "window,drun,ssh";
+ font: "hack 10";
+ modi: "window,drun,ssh,combi,run";
+ show-icons: true;
+ icon-theme: "Papirus";
 }
 @theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"
