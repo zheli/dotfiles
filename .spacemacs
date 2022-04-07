@@ -183,7 +183,7 @@ values."
    dotspacemacs-default-font '(
                                (
                                 "DejaVu Sans Mono for Powerline"
-                                :size 10
+                                :size 12
                                 :weight normal
                                 :width normal
                                 :powerline-scale 1.1)
@@ -322,7 +322,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers 'relative
+   dotspacemacs-line-numbers 'visual
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil

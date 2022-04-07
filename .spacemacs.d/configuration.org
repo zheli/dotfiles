@@ -61,6 +61,9 @@ A common frustration with new Emacs users is the filename# files created. This c
     (spacemacs/toggle-smartparens-globally-on)
     (setq default-frame-alist '((font . "-PfEd-Inconsolata for Powerline-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")))
     (global-visual-line-mode t); Soft line wrap
+    ; relative line number in emacs
+    ; https://github.com/hlissner/doom-emacs/issues/3321
+    (setq display-line-numbers-type 'visual)
   #+End_src
 ** Transparent background
     #+begin_src emacs-lisp :results none
@@ -161,6 +164,7 @@ A common frustration with new Emacs users is the filename# files created. This c
 ** Java
   #+begin_src emacs-lisp :results none
     ;; (setenv "JAVA_HOME" "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home")
+    ;; (setenv "JAVA_HOME" "/usr/lib/jvm/java-16-adoptopenjdk")
   #+end_src
 ** JavaScript & TypeScript
   #+begin_src emacs-lisp :results none
