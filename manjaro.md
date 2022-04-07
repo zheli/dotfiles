@@ -65,3 +65,6 @@ tfswitch -b ~/.local/bin/terraform --latest
 # switch to different version
 tfswitch -b ~/.local/bin/terraform
 ```
+
+## Cannot boot up. "grub_is_lockdown" not found issue
+See https://archived.forum.manjaro.org/t/using-livecd-v17-0-1-and-above-as-grub-to-boot-os-with-broken-bootloader/24916
