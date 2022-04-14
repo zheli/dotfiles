@@ -68,3 +68,18 @@ tfswitch -b ~/.local/bin/terraform
 
 ## Cannot boot up. "grub_is_lockdown" not found issue
 See https://archived.forum.manjaro.org/t/using-livecd-v17-0-1-and-above-as-grub-to-boot-os-with-broken-bootloader/24916
+
+## Fix temperature sensor issue for Gigabyte motherboard
+See
+* https://wiki.archlinux.org/title/lm_sensors#Gigabyte_B250/Z370/B450M/B560M_motherboards
+* https://unix.stackexchange.com/questions/165110/grub-quiet-splash
+
+1. Add "acpi_enforce_resources=lax" to GRUB_CMDLINE_LINUX_DEFAULT in
+/etc/default/grub.
+2. Install module.
+```
+yay -S it87-dkms-git5~
+sudo modprobe it87 force_id=0x8686
+```
+3. Add files in modules-load.d and modprobe.d folder.
+4. Run `sudo sensors-detect`.
