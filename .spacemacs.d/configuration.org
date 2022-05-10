@@ -343,6 +343,8 @@ A common frustration with new Emacs users is the filename# files created. This c
    #+begin_src emacs-lisp :results none
      (setq company-lsp-async t)
      (setq company-lsp-cache-candidates 'auto)
+     ;; Use terraform-ls as terraform lsp server
+     (setq lsp-terraform-server '(,"terraform-ls" "serve"))
      ;; Hack to make sure 'company-lsp is only pushed after company package is loaded
      (use-package company
        :config
