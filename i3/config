@@ -35,7 +35,7 @@ bindsym $mod+Shift+q kill
 # start program launcher
 #bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+d exec --no-startup-id rofi -show combi
-bindsym $mod+Shift+d exec --no-startup-id rofi -show file-browser
+bindsym $mod+Shift+d exec --no-startup-id rofi -show filebrowser
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -449,7 +449,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id autorandr -c
 ## media keys
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 # Map volume down to printscr key
 # exec_always xmodmap -e "keycode 107 = XF86AudioLowerVolume NoSymbol XF86AudioLowerVolume"
