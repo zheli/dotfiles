@@ -52,6 +52,12 @@ export JAVA_HOME="/usr/lib/jvm/java-11-adoptopenjdk"
 # krew
 pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
 
+# Python
+## pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || pupdate "$PYENV_ROOT/bin"
+eval "$(pyenv init -)"
+
 # Ruby
 pupdate "$HOME/.local/share/gem/ruby/3.0.0/bin"
 ## rvm
