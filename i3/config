@@ -467,6 +467,3 @@ exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 # move workspace right
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
-
-# start a few applications
-exec --no-startup-id firefox
