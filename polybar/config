@@ -18,8 +18,8 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-;background = #222
 background = #323f5c
+background-dark = #222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -30,7 +30,7 @@ alert = #bd2c40
 
 [bar/bottombar]
 bottom = true
-monitor = ${env:MONITOR:HDMI-2}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 16
 radius = 0.0
@@ -56,7 +56,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = spotify-prev spotify-play-pause spotify-next spotify xwindow
+modules-center = spotify-prev spotify-play-pause spotify-next spotify
 modules-right = play-pause-general filesystem pulseaudio
 
 wm-restack = i3
@@ -71,16 +71,13 @@ cursor-scroll = ns-resize
 enable-ipc = true
 
 [bar/topbar]
-monitor = ${env:MONITOR:HDMI-2}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 16
-;offset-x = 1%
-;offset-y = 1%
 radius = 0.5
 fixed-center = false
 
-;background = ${colors.background}
-background = #222
+background = ${colors.background-dark}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -99,9 +96,8 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3 xwindow
-; modules-center = mpd
-modules-center = spotify-play-pause spotify
+modules-left = i3
+modules-center = xwindow
 modules-right = xbacklight xkeyboard wlan eth cpu temperature battery date powermenu
 
 tray-position = right
@@ -121,8 +117,6 @@ scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
-; for spotify
-enable-ipc = true
 
 [module/xwindow]
 type = internal/xwindow
