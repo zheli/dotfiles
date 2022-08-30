@@ -39,11 +39,6 @@ autorandr --save <name>
 ```
 See https://www.donarmstrong.com/posts/autorandr/.
 
-## Install pipenv
-```
-pip install --user pipenv
-```
-
 ## Set Droidcam to use HD resolution
 1. Set resolution in `/etc/modprobe.d/droidcam.conf` (see
    https://www.dev47apps.com/droidcam/linux/). But use modprobe instead of insmod.
@@ -83,3 +78,9 @@ sudo modprobe it87 force_id=0x8686
 ```
 3. Add files in modules-load.d and modprobe.d folder.
 4. Run `sudo sensors-detect`.
+
+## Python stuff
+### Install pipenv
+```
+pip install --user pipenv
+```
