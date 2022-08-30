@@ -49,6 +49,7 @@ alias kns="kubens"
 # Terraform
 # To install: mkdir -p ~/.aliases && cd ~/.aliases && git clone https://github.com/zer0beat/terraform-aliases.git
 [ -f ~/.aliases/terraform-aliases/.terraform_aliases ] && source ~/.aliases/terraform-aliases/.terraform_aliases
+[ -f ~/.aliases/terraform-aliases/.terragrunt_aliases ] && source ~/.aliases/terraform-aliases/.terragrunt_aliases
 
 # irssi
 alias irssi="TERM=screen-256color irssi"
