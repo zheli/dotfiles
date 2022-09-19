@@ -10,6 +10,7 @@ alias dco='docker-compose'
 alias dcod='docker-compose -p default'
 alias dcodv='docker-compose --verbose -p default'
 alias dcov='docker-compose --verbose'
+alias dcol="docker-compose -f docker-compose.base.yml -f docker-compose.local.yml"
 
 # Editors
 ## edit in spacemacs client mode
