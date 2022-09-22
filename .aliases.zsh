@@ -82,7 +82,8 @@ alias zshconfig="e ~/.zshrc"
 alias envconfig="nvim ~/.config/zshenv/env.sh"
 
 # Others
-alias free="vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf(\"%-16s % 16.2f Mi\n\", \"$1:\", $2 * $size / 1048576);'"
+# only needed for macs
+# alias free="vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf(\"%-16s % 16.2f Mi\n\", \"$1:\", $2 * $size / 1048576);'"
 alias ctrl_escape="setxkbmap -layout us,se -option grp:alt_shift_toggle -option ctrl:nocaps"
 ## Launch minidlna in debug mode
 alias launch_minidland="minidlnad -d -P /tmp/minidlna.pid -L"
