@@ -83,4 +83,5 @@ sudo modprobe it87 force_id=0x8686
 ### Install pipenv
 ```
 pip install --user pipenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 ```
