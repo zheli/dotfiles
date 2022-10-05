@@ -127,3 +127,16 @@ ln -sf $(pwd)/.Xmodmap ~
 ```
 ln -sf $(pwd)/.i3status.conf ~
 ```
+
+### webcam
+```
+SUBSYSTEM=="video4linux", KERNEL=="video[0-9]*", ATTR{index}=="0", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="08e5", RUN+="/usr/bin/v4l2-ctl -d $devnode --set-ctrl=saturation=110,white_balance_temperature_auto=0,white_balance_temperature=3500"
+```
+To test udev rules, run:
+```
+udevadm test /sys/class/video4linux/video1
+```
+To re-run udev rules, run:
+```
+udevadm control --reload-rules && udevadm trigger
+```

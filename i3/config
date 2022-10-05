@@ -467,3 +467,5 @@ exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 # move workspace right
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
+# Changing webcam settings
+exec_always v4l2-ctl -d /dev/video1 --set-ctrl=saturation=110,white_balance_temperature_auto=0,white_balance_temperature=3500
