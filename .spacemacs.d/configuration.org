@@ -328,7 +328,9 @@ A common frustration with new Emacs users is the filename# files created. This c
 
      (add-hook 'python-mode-hook
                (lambda ()
-                 (setq flycheck-python-pylint-executable "/home/zzz/.local/bin/pylint")))
+                 (setq flycheck-python-mypy-executable "/home/zzz/.local/bin/mypy")
+                 (setq flycheck-python-pylint-executable "/home/zzz/.local/bin/pylint")
+                 ))
    #+end_src
 ** Golang
    #+begin_src emacs-lisp :results none
@@ -369,6 +371,22 @@ A common frustration with new Emacs users is the filename# files created. This c
      (defun zl/insert-pass-32 ()
        (interactive)
        (insert (shell-command-to-string "pwgen -n 32 1")));; need to install pwgen
+
+     ;;See https://github.com/flycheck/flycheck/issues/1762#issuecomment-749789589
+     (defvar-local my-flycheck-local-cache nil)
+     (defun my-flycheck-local-checker-get (fn checker property)
+       ;; Only check the buffer local cache for the LSP checker, otherwise we get
+       ;; infinite loops.
+       (if (eq checker 'lsp)
+           (or (alist-get property my-flycheck-local-cache)
+               (funcall fn checker property))
+         (funcall fn checker property)))
+     (advice-add 'flycheck-checker-get
+                 :around 'my-flycheck-local-checker-get)
+     (add-hook 'lsp-managed-mode-hook
+               (lambda ()
+                 (when (derived-mode-p 'python-mode)
+                   (setq my-flycheck-local-cache '((next-checkers . (python-mypy)))))))
    #+end_src
 ** External Applications
    #+begin_src emacs-lisp
