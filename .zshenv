@@ -5,8 +5,6 @@
 # Function for adding path to PATH
 pupdate() { case ":${PATH:=$1}:" in *:"$1":*) ;; *) PATH="$1:$PATH" ;; esac; }
 
-# export EDITOR='vim'
-export EDITOR="emacsclient -c"
 export MANPATH="/usr/local/man:$MANPATH"
 
 # ignore command with space prefix in history

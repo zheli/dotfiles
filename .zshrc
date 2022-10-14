@@ -88,11 +88,12 @@ xcape -e "Control_L=Escape"
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  # export EDITOR='vim'
+  export EDITOR="emacsclient -c"
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -114,3 +115,11 @@ eval "$(pyenv virtualenv-init -)"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# SSH-agent, see https://wiki.archlinux.org/title/SSH_keys#ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
