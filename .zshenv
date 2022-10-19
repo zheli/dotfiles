@@ -16,6 +16,9 @@ export TERM='xterm-256color'
 # local bins
 pupdate $HOME/.local/bin
 
+# doom
+pupdate $HOME/.doom-emacs/bin
+
 # Kubernetes
 PROMPT='$(kube_ps1)'$PROMPT
 ## Get all node IPs

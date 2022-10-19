@@ -30,6 +30,14 @@ git clone git@github.com:ashyisme/fzf-spacemacs-layer.git ~/.emacs.d/private/fzf
 git clone --branch fix-refresh-token-function-name git@github.com:zheli/google-calendar-layer.git ~/.emacs.d/private/google-calendar
 ```
 
+### Doom Emacs with chemacs2
+```
+git clone https://github.com/hlissner/doom-emacs ~/doom-emacs
+~/doom-emacs/bin/doom install
+git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
+ln -s .emacs-profiles.el ~
+```
+
 ### 3rd party software repository on arch linux
 Install yay
 ```
