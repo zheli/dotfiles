@@ -44,6 +44,7 @@
 (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
                          "~/Dropbox/gtd/gtd.org"
                          "~/Dropbox/gtd/tickler.org"))
+(setq org-log-done 'time)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
