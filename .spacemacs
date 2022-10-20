@@ -181,15 +181,26 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    ;; Remember to change the font in configuration.org as well
+   ;; Also check font settings in configurations.org file
+
    dotspacemacs-default-font '(
-                               (
-                                "DejaVu Sans Mono for Powerline"
+                               ("DejaVu Sans Mono for Powerline"
                                 :size 12
                                 :weight normal
                                 :width normal
                                 :powerline-scale 1.1)
-                               (;; "Source Code Pro"
-                                ;; "Menlo for Powerline"
+                               ("Source Code Pro"
+                                :size 12
+                                :weight normal
+                                :width normal
+                                :powerline-scale 1.1)
+                               (
+                                "Menlo for Powerline"
+                                :size 12
+                                :weight normal
+                                :width normal
+                                :powerline-scale 1.1)
+                               (
                                 "Meslo LG M for Powerline"
                                 :size 12
                                 :weight normal
@@ -379,7 +390,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq default-frame-alist '((font . "Inconsolata-dz-12")))
   )
 
 (defun dotspacemacs/user-config ()
