@@ -518,6 +518,7 @@ tail = true
 ; prefix symbol is shown before the text
 format-prefix = "♬"
 format = <label>
+font-0 = "Droid Sans Mono:style=Regular"
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
 
 [module/spotify-prev]

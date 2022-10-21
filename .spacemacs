@@ -51,7 +51,8 @@ values."
      (go :variables
          go-backend 'lsp
          go-tab-width 8)
-     helm
+     (helm :variables
+           helm-use-fuzzy 'source)
      (html :variables
            ;; tsx file is opened in web mode children
            web-mode-code-indent-offset 2)
