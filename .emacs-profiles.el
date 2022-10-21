@@ -1,2 +1,4 @@
-(("default"   . ((user-emacs-directory . "~/.doom-emacs")))
- ("spacemacs"   . ((user-emacs-directory . "~/.spacemacs-emacs"))))
+(
+ ("default"   . ((user-emacs-directory . "~/.spacemacs-emacs")))
+ ("doom"   . ((user-emacs-directory . "~/.doom-emacs")))
+ )
