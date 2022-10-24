@@ -19,8 +19,8 @@ pupdate $HOME/.local/bin
 # doom
 pupdate $HOME/.doom-emacs/bin
 
-# Kubernetes
-PROMPT='$(kube_ps1)'$PROMPT
+# Kubernetes prompt
+# PROMPT='$(kube_ps1)'$PROMPT
 ## Get all node IPs
 function externalips {
   kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type=="ExternalIP")].address }'; echo
