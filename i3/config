@@ -340,7 +340,6 @@ set_from_resource $term_color15    color15
 
 # 	bindsym button4 nop
 # 	bindsym button5 nop
-# #   font xft:URWGothic-Book 11
 # 	strip_workspace_numbers yes
 
 #     colors {
