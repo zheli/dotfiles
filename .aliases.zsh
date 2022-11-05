@@ -13,8 +13,8 @@ alias dcov='docker-compose --verbose'
 alias dcol="docker-compose -f docker-compose.base.yml -f docker-compose.local.yml"
 
 # Editors
-## edit in spacemacs client mode
-alias e='emacsclient --no-wait'
+## edit in emacs client mode
+alias e='emacsclient -nc -s spacemacs'
 alias en='emacsclient -nc'
 alias emacsnc='emacsclient -nc &'
 alias nvv='nvim -S'
