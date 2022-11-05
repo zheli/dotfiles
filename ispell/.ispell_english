@@ -11,4 +11,5 @@ prometheus
 proxying
 regex
 Terraform
+traefik
 UI
