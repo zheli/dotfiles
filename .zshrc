@@ -127,7 +127,6 @@ if [ -f '/home/zzz/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/
 # pyenv virtualenv
 eval "$(pyenv virtualenv-init -)"
 
-
 # SSH-agent, see https://wiki.archlinux.org/title/SSH_keys#ssh-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
@@ -138,3 +137,6 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Local settings
+[[ ! -f ~/.local.zsh ]] || source ~/.local.zsh
