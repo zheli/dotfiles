@@ -3,10 +3,12 @@ blockchain
 Dirk
 Dong
 erigon
+eth
 Goerli
 Golang
 hodler
 istioctl
+mainnet
 params
 pomodoro
 prometheus
@@ -16,3 +18,4 @@ Rico
 Terraform
 traefik
 UI
+whitelisting

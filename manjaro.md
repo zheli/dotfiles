@@ -5,7 +5,7 @@ Instructions for setting up Manjaro system
 ```
 ln -s $(pwd)/polybar ~/.config/
 ln -s $(pwd)/rofi ~/.config/
-sudo pacman -Syu polybar rofi
+sudo pacman -Syu polybar rofi rofi-emoji
 ```
 
 ## Use fastest pacman mirror
