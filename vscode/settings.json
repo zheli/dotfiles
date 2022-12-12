@@ -1,0 +1,12 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "editor.inlineSuggest.enabled": true,
+    "git.autofetch": true,
+    "git.allowForcePush": true,
+    "editor.minimap.enabled": false,
+    "vim.useSystemClipboard": true,
+    "python.autoComplete.extraPaths": [
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.extraPaths": [],
+}
