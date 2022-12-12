@@ -61,14 +61,12 @@ command -v pyenv >/dev/null || pupdate "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
 
 # Ruby
-pupdate "$HOME/.local/share/gem/ruby/3.0.0/bin"
 ## rvm
 ### for arch linux
 ### `yay -S rvm`
-if [ -f '$HOME/.cache/yay/rvm/src/rvm.sh' ]; then .
-'source $HOME/.cache/yay/rvm/src/rvm.sh'; fi
-if [ -f '$HOME/.cache/yay/rvm/rvm.sh' ]; then .
-'source $HOME/.cache/yay/rvm/src/rvm.sh'; fi
+unset GEM_HOME
+if [ -f '$HOME/.cache/yay/rvm/src/rvm/scripts/rvm' ]; then .
+'source $HOME/.cache/yay/rvm/src/rvm/scripts/rvm'; fi
 
 # Scala
 ## coursier
