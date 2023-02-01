@@ -95,6 +95,7 @@ xcape -e "Control_L=Escape"
 # NodeJS
 ## NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -140,3 +141,5 @@ fi
 
 # Local settings
 [[ ! -f ~/.local.zsh ]] || source ~/.local.zsh
+
+echo "TERM is $TERM"

@@ -17,7 +17,7 @@ export TERM='xterm-256color'
 pupdate $HOME/.local/bin
 
 # doom
-pupdate $HOME/.doom-emacs/bin
+pupdate $HOME/.doom-emacs.d/bin
 
 # Kubernetes prompt
 # PROMPT='$(kube_ps1)'$PROMPT

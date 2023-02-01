@@ -52,6 +52,12 @@ sudo modprobe v4l2loopback-dc width=1920 height=1080
 lsmod | grep v4l2loopback_dc
 ```
 
+## terraform & terragrunt aliases
+```
+cd
+mkdir -p ~/.aliases && cd ~/.aliases && git clone https://github.com/zer0beat/terraform-aliases.git
+```
+
 ## switch terraform version with tfswitch
 ```
 # Download the latest version
