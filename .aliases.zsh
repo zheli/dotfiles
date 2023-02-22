@@ -14,8 +14,8 @@ alias dcol="docker-compose -f docker-compose.base.yml -f docker-compose.local.ym
 
 # Editors
 ## edit in emacs client mode
-alias e='emacsclient -nc -s spacemacs'
-alias en='emacsclient -nc'
+alias e='emacsclient -n -s spacemacs'
+alias en='emacsclient -c'
 alias emacsnc='emacsclient -nc &'
 alias nvv='nvim -S'
 alias vv='vim -S'
@@ -29,6 +29,7 @@ alias ga="git add"
 alias gfo="git fetch origin"
 alias gd="git diff"
 alias ginit='git init && git config user.email "linuxcity.jn@gmail.com" && git config user.name "Zhe Li"'
+alias gguser='git config user.email "zhe@gateway.fm" && git config user.name "Zhe Li"'
 alias gst="git status"
 alias gsta="git stash"
 
