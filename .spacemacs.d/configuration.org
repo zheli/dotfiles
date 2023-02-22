@@ -36,7 +36,7 @@ From http://akrl.sdf.org/.
     (run-with-idle-timer 15 t
                         (lambda ()
                           (message "Garbage Collector has run for %.06fsec"
-                                    (zl/k-time (garbage-collect))))))
+                                   (zl/k-time (garbage-collect))))))
 #+end_src
 ** Backup Settings
 A common frustration with new Emacs users is the filename# files created. This centralises the backup files created as you edit.
@@ -364,6 +364,24 @@ A common frustration with new Emacs users is the filename# files created. This c
        )
      (add-hook 'web-mode-hook  'my-web-mode-hook)
    #+end_src
+* Plugins
+** copilot
+   #+begin_src emacs-lisp :results none
+     (with-eval-after-load 'company
+       ;; disable inline previews
+       (delq 'company-preview-if-just-one-frontend company-frontends))
+
+     (with-eval-after-load 'copilot
+       (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+       (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
+
+     (add-hook 'prog-mode-hook
+               'copilot-mode)
+
+     (setq copilot-node-executable "/home/zzz/.nvm/versions/node/v16.15.1/bin/node")
+     (define-key evil-insert-state-map (kbd "C-<tab>") 'copilot-accept-completion-by-word)
+     (define-key evil-insert-state-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
+   #+end_src
 * Functions
 ** Utils
    #+begin_src emacs-lisp :results none
@@ -377,21 +395,21 @@ A common frustration with new Emacs users is the filename# files created. This c
        (interactive)
        (insert (shell-command-to-string "pwgen -n 32 1")));; need to install pwgen
 
-     ;;See https://github.com/flycheck/flycheck/issues/1762#issuecomment-749789589
-     (defvar-local my-flycheck-local-cache nil)
-     (defun my-flycheck-local-checker-get (fn checker property)
-       ;; Only check the buffer local cache for the LSP checker, otherwise we get
-       ;; infinite loops.
-       (if (eq checker 'lsp)
-           (or (alist-get property my-flycheck-local-cache)
-               (funcall fn checker property))
-         (funcall fn checker property)))
-     (advice-add 'flycheck-checker-get
-                 :around 'my-flycheck-local-checker-get)
-     (add-hook 'lsp-managed-mode-hook
-               (lambda ()
-                 (when (derived-mode-p 'python-mode)
-                   (setq my-flycheck-local-cache '((next-checkers . (python-mypy)))))))
+     ;; ;;See https://github.com/flycheck/flycheck/issues/1762#issuecomment-749789589
+     ;; (defvar-local my-flycheck-local-cache nil)
+     ;; (defun my-flycheck-local-checker-get (fn checker property)
+     ;;   ;; Only check the buffer local cache for the LSP checker, otherwise we get
+     ;;   ;; infinite loops.
+     ;;   (if (eq checker 'lsp)
+     ;;       (or (alist-get property my-flycheck-local-cache)
+     ;;           (funcall fn checker property))
+     ;;     (funcall fn checker property)))
+     ;; (advice-add 'flycheck-checker-get
+     ;;             :around 'my-flycheck-local-checker-get)
+     ;; (add-hook 'lsp-managed-mode-hook
+     ;;           (lambda ()
+     ;;             (when (derived-mode-p 'python-mode)
+     ;;               (setq my-flycheck-local-cache '((next-checkers . (python-mypy)))))))
    #+end_src
 ** External Applications
    #+begin_src emacs-lisp
@@ -422,4 +440,12 @@ A common frustration with new Emacs users is the filename# files created. This c
      (defun zl/open-with-vscode ()
        (interactive)
        (zl/open-with-line-column "/usr/local/bin/code --goto"))
+   #+end_src
+** Github workflow
+   #+begin_src emacs-lisp
+     (defun zl/launch-github-action ()
+       (interactive)
+       (when buffer-file-name
+         (save-buffer)
+         (shell-command (concat "gh workflow run --ref $(git rev-parse --abbrev-ref HEAD) " buffer-file-name))))
    #+end_src
