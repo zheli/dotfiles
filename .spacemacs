@@ -97,7 +97,11 @@ values."
                                       kubernetes-evil
                                       solarized-theme
                                       yasnippet-snippets
-                                      exec-path-from-shell)
+                                      exec-path-from-shell
+                                      (copilot :location (recipe
+                                                          :fetcher github
+                                                          :repo "zerolfx/copilot.el"
+                                                          :files ("*.el" "dist"))))
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
