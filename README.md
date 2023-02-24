@@ -22,7 +22,7 @@ See https://docs.microsoft.com/en-us/windows/wsl/install-win10
 ### Spacemacs
 After installing Emacs 27+, checkout spacemacs's develop branch locally:
 ```
-git clone --single-branch --branch develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
+git clone --single-branch --branch develop https://github.com/syl20bnr/spacemacs ~/.spacemacs-emacs.d
 ```
 Install private layers:
 ```
@@ -149,3 +149,5 @@ To re-run udev rules, run:
 ```
 udevadm control --reload-rules && udevadm trigger
 ```
+
+### vscode
