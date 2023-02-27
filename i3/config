@@ -432,6 +432,8 @@ mode "$mode_gaps_outer" {
 # My customization
 ## start dropbox
 exec --no-startup-id dropbox start
+## start keybase
+exec --no-startup-id run_keybase
 ## start alttab. Install alttab from https://github.com/sagb/alttab/blob/master/INSTALL.md
 ## Show all applications in the options
 exec_always alttab -d 1 -pk Shift_R  -fg "#d58681" -bg "#4a4a4a" -frame "#eb564d" -t 128x150 -i 127x64
