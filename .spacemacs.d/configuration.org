@@ -218,8 +218,8 @@ A common frustration with new Emacs users is the filename# files created. This c
       (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
                                "~/Dropbox/gtd/gtd.org"
                                "~/Dropbox/gtd/tickler.org"
-                               ;;                          "~/Dropbox/org-calendars/calendar_private.org"
-                               ;;                          "~/Dropbox/org-calendars/calendar_work.org"
+                               ;; "~/Dropbox/org-calendars/calendar_private.org"
+                               ;; "~/Dropbox/org-calendars/calendar_work.org"
                                ))
 
       ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
@@ -232,8 +232,8 @@ A common frustration with new Emacs users is the filename# files created. This c
                                      "* %i%? \n %U")))
 
       (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
+                                 ("~/Dropbox/gtd/inbox.org" :maxlevel . 3)
                                  ("~/Dropbox/gtd/someday.org" :level . 1)
-                                 ("~/Dropbox/gtd/archives.org" :level . 1)
                                  ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
 
       (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))

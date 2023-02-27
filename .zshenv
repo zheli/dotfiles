@@ -39,6 +39,9 @@ pupdate $HOME/.local/istio/bin
 ## NVM
 export NVM_DIR="$HOME/.nvm"
 
+## Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx

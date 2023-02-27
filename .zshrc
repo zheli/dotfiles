@@ -82,7 +82,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kube-ps1 history-substring-search fzf)
+plugins=(git history-substring-search fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -136,10 +136,10 @@ if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Local settings
 [[ ! -f ~/.local.zsh ]] || source ~/.local.zsh
 
 echo "TERM is $TERM"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
