@@ -38,6 +38,7 @@ values."
      rust
      auto-completion
      better-defaults
+     dash
      docker
      emoji
      emacs-lisp
@@ -91,6 +92,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      helm-dash
                                       lsp-metals
                                       all-the-icons
                                       easy-jekyll
