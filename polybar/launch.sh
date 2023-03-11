@@ -9,12 +9,25 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # polybar example &
 # Launch Polybar, using default config location ~/.config/polybar/config
 if type "xrandr"; then
-    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload topbar &
-        MONITOR=$m polybar --reload bottombar &
+    IFS=$'\n'  # must set internal field separator to avoid dumb
+    for entry in $(xrandr --query | grep " connected"); do
+        mon=$(cut -d" " -f1 <<< "$entry")
+        status=$(cut -d" " -f3 <<< "$entry")
+
+        tray_pos=""
+        # For primary detection
+        # if [[ "$status" == "primary" ]]; then
+        if [[ "$mon" == "HDMI-1" ]]; then
+            tray_pos="right"
+        fi
+
+        MONITOR=$mon TRAY_POS=$tray_pos polybar --reload topbar 2>&1 | tee -a /tmp/polybar-top-monitor-"$mon".log & disown
+        MONITOR=$mon TRAY_POS=$tray_pos polybar --reload bomttom 2>&1 | tee -a /tmp/polybar-bottom-monitor-"$mon".log & disown
     done
+    unset IFS
 else
-    polybar --reload example &
+    pos polybar --reload topbar 2>&1 | tee -a /tmp/polybar-top-monitor-"$mon".log & disown
+    pos polybar --reload bomttom 2>&1 | tee -a /tmp/polybar-bottom-monitor-"$mon".log & disown
 fi
 
 echo "Polybar launched..."
