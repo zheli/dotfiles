@@ -5,7 +5,7 @@ My shell environment setup for the following softwares:
 * kitty
 * spacemacs
 * tmux (>2.9)
-* prezto (zsh configuration framework)
+* oh-my-zsh
 
 ## Dependencies
 ### Fonts
@@ -32,7 +32,7 @@ git clone --branch fix-refresh-token-function-name git@github.com:zheli/google-c
 
 ### Doom Emacs with chemacs2
 ```
-git clone https://github.com/hlissner/doom-emacs ~/doom-emacs
+git clone https://github.com/hlissner/doom-emacs ~/.doom-emacs
 ~/doom-emacs/bin/doom install
 git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
 ln -s .emacs-profiles.el ~

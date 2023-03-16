@@ -77,7 +77,6 @@ values."
      spell-checking
      (syntax-checking :variables
                       flycheck-check-syntax-automatically '(save mode-enable))
-     themes-megapack
      (terraform :variables
                 terraform-backend 'lsp
                 terraform-auto-format-on-save t)

@@ -15,7 +15,11 @@ emulate zsh -c "$(direnv hook zsh)"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/zzz/.oh-my-zsh"
+if [[ $(uname -s) == "Darwin" ]]; then
+    export ZSH="/Users/zzz/.oh-my-zsh"
+else
+    export ZSH="/home/zzz/.oh-my-zsh"
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -90,7 +94,9 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zshenv
 
 # Left ctrl as escape key
-xcape -e "Control_L=Escape"
+if [[ $(uname -s) != "Darwin" ]]; then
+    xcape -e "Control_L=Escape"
+fi
 
 # NodeJS
 ## NVM
