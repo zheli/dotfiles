@@ -6,14 +6,11 @@ My shell environment setup for the following softwares:
 * spacemacs
 * tmux (>2.9)
 * oh-my-zsh
+* [fzf](https://github.com/junegunn/fzf)
 
 ## Dependencies
-### Fonts
-On MacOS, install them using `brew cask`:
-```
-brew cask install font-meslo-for-powerline
-brew cask install font-menlo-for-powerline
-```
+### Powerline Fonts
+Use `https://github.com/powerline/fonts`.
 
 ## Installation & configuration
 ### Windows WSL2

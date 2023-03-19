@@ -7,6 +7,11 @@ pupdate() { case ":${PATH:=$1}:" in *:"$1":*) ;; *) PATH="$1:$PATH" ;; esac; }
 
 export MANPATH="/usr/local/man:$MANPATH"
 
+# ZSH path. Has to be loaded first
+if [[ $(uname -s) == "Darwin" ]]; then
+    pupdate "/opt/homebrew/bin"
+fi
+
 # ignore command with space prefix in history
 export HISTCONTROL=ignorespace
 
