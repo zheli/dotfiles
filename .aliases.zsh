@@ -93,3 +93,9 @@ alias samba_here="docker run --name samba -e USERID=1000 -e GROUPID=1000 -p 139:
 alias start_vncserver="x0vncserver -display :0 -passwordFile ~/.vnc/passwd"
 alias debug_pod="kubectl run -i --rm --tty debug --image=alpine/httpie --restart=Never --command -- sh"
 alias spacemacs="emacs --with-profile=spacemacs"
+
+# macos
+
+if [[ $(uname -s) == "Darwin" ]]; then
+    alias xdg-open="open"
+fi

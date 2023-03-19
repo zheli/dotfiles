@@ -7,6 +7,7 @@ My shell environment setup for the following softwares:
 * tmux (>2.9)
 * oh-my-zsh
 * [fzf](https://github.com/junegunn/fzf)
+* [nvm](https://github.com/nvm-sh/nvm)
 
 ## Dependencies
 ### Powerline Fonts
