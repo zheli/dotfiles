@@ -8,6 +8,7 @@ My shell environment setup for the following softwares:
 * oh-my-zsh
 * [fzf](https://github.com/junegunn/fzf)
 * [nvm](https://github.com/nvm-sh/nvm)
+* [ag](https://github.com/ggreer/the_silver_searcher)
 
 ## Dependencies
 ### Powerline Fonts
@@ -149,3 +150,7 @@ udevadm control --reload-rules && udevadm trigger
 ```
 
 ### vscode
+```
+ln -s $(pwd)/settings.json ~/Library/Application\ Support/Code/User/
+ln -s $(pwd)/keybindings.json ~/Library/Application\ Support/Code/User/
+```
