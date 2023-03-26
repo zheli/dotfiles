@@ -22,12 +22,12 @@ if type "xrandr"; then
         fi
 
         MONITOR=$mon TRAY_POS=$tray_pos polybar --reload topbar 2>&1 | tee -a /tmp/polybar-top-monitor-"$mon".log & disown
-        MONITOR=$mon TRAY_POS=$tray_pos polybar --reload bomttom 2>&1 | tee -a /tmp/polybar-bottom-monitor-"$mon".log & disown
+        MONITOR=$mon TRAY_POS=$tray_pos polybar --reload bottombar 2>&1 | tee -a /tmp/polybar-bottom-monitor-"$mon".log & disown
     done
     unset IFS
 else
     pos polybar --reload topbar 2>&1 | tee -a /tmp/polybar-top-monitor-"$mon".log & disown
-    pos polybar --reload bomttom 2>&1 | tee -a /tmp/polybar-bottom-monitor-"$mon".log & disown
+    pos polybar --reload bottombar 2>&1 | tee -a /tmp/polybar-bottom-monitor-"$mon".log & disown
 fi
 
 echo "Polybar launched..."
