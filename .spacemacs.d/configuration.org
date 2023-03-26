@@ -446,6 +446,11 @@ A common frustration with new Emacs users is the filename# files created. This c
      (defun zl/launch-github-action ()
        (interactive)
        (when buffer-file-name
-         (save-buffer)
-         (shell-command (concat "gh workflow run --ref $(git rev-parse --abbrev-ref HEAD) " buffer-file-name))))
+         (let (
+               (default-directory (file-name-directory buffer-file-name))
+               (filename (file-name-nondirectory buffer-file-name)))
+           (save-buffer)
+           (let ((output (shell-command-to-string
+                          (concat "gh workflow run --ref $(git rev-parse --abbrev-ref HEAD) " filename " 2>&1"))))
+             (message output)))))
    #+end_src
