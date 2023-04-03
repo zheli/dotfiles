@@ -41,3 +41,6 @@ hints:
     binding:
       key: U
       mods: Control|Shift
+
+# Send ESC (\x1b) before characters when alt is pressed.
+window.option_as_alt: true
