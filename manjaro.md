@@ -85,6 +85,11 @@ sudo modprobe it87 force_id=0x8686
 3. Add files in modules-load.d and modprobe.d folder.
 4. Run `sudo sensors-detect`.
 
+## Visual Studio Code
+```
+yay -Su visual-studio-code-bin
+```
+
 ## Python stuff
 ### Install pipenv
 ```

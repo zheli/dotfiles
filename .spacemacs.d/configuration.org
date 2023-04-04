@@ -21,22 +21,22 @@
 ** Garbage Collection
 From http://akrl.sdf.org/.
 #+begin_src emacs-lisp :results none
-  (setq garbage-collection-messages t)
-  (defmacro zl/k-time (&rest body)
-    "Measure and return the time it takes evaluating BODY."
-    `(let ((time (current-time)))
-      ,@body
-      (float-time (time-since time))))
+  ;; (setq garbage-collection-messages t)
+  ;; (defmacro zl/k-time (&rest body)
+  ;;   "Measure and return the time it takes evaluating BODY."
+  ;;   `(let ((time (current-time)))
+  ;;     ,@body
+  ;;     (float-time (time-since time))))
 
-  ;; Set garbage collection threshold to 2GB.
-  (setq gc-cons-threshold (eval-when-compile (* 2048 1024 1024)))
+  ;; ;; Set garbage collection threshold to 2GB.
+  ;; (setq gc-cons-threshold (eval-when-compile (* 2048 1024 1024)))
 
-  ;; When idle for 15sec run the GC no matter what.
-  (defvar zl/k-gc-timer
-    (run-with-idle-timer 15 t
-                        (lambda ()
-                          (message "Garbage Collector has run for %.06fsec"
-                                   (zl/k-time (garbage-collect))))))
+  ;; ;; When idle for 15sec run the GC no matter what.
+  ;; (defvar zl/k-gc-timer
+  ;;   (run-with-idle-timer 15 t
+  ;;                       (lambda ()
+  ;;                         (message "Garbage Collector has run for %.06fsec"
+  ;;                                  (zl/k-time (garbage-collect))))))
 #+end_src
 ** Backup Settings
 A common frustration with new Emacs users is the filename# files created. This centralises the backup files created as you edit.
