@@ -396,13 +396,12 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize))
+  ;; (when (memq window-system '(mac ns x))
+  ;;   (exec-path-from-shell-initialize))
 
   (when (eq system-type 'darwin)
     (message "MacOS detected. Loading Mac-specific settings")
-    (setq ispell-program-name "/opt/homebrew/bin/aspell")
-    (setq copilot-node-executable (executable-find "node"))))
+    (setq ispell-program-name "/opt/homebrew/bin/aspell")))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -415,7 +414,11 @@ you should place your code here."
   (org-babel-load-file "~/.spacemacs.d/configuration.org")
   (load "~/.spacemacs.d/secrets.el")
   ;; Activate column indicator in prog-mode and text-mode
-  )
+  (when (eq system-type 'darwin)
+    (message "MacOS detected. Loading Mac-specific settings")
+    ;; Ugly but I don't know how to fix it
+    (setq copilot-node-executable "~/.nvm/versions/node/v18.15.0/bin/node"))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
