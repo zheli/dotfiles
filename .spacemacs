@@ -396,7 +396,13 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
+
+  (when (eq system-type 'darwin)
+    (message "MacOS detected. Loading Mac-specific settings")
+    (setq ispell-program-name "/opt/homebrew/bin/aspell")
+    (setq copilot-node-executable (executable-find "node"))))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
