@@ -398,10 +398,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; (when (memq window-system '(mac ns x))
   ;;   (exec-path-from-shell-initialize))
-
-  (when (eq system-type 'darwin)
-    (message "MacOS detected. Loading Mac-specific settings")
-    (setq ispell-program-name "/opt/homebrew/bin/aspell")))
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -416,8 +413,12 @@ you should place your code here."
   ;; Activate column indicator in prog-mode and text-mode
   (when (eq system-type 'darwin)
     (message "MacOS detected. Loading Mac-specific settings")
+    (setq ispell-program-name "/opt/homebrew/bin/aspell")
+    ;; (message "Execute shell to get PATH from .zshenv and .zshenv")
+    ;; (exec-path-from-shell-initialize)
     ;; Ugly but I don't know how to fix it
-    (setq copilot-node-executable "~/.nvm/versions/node/v18.15.0/bin/node"))
+    (setq copilot-node-executable "~/.nvm/versions/node/v18.15.0/bin/node")
+  )
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
