@@ -35,13 +35,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(ansible
-     sql
-     csv
-     react
-     ruby
-     rust
      auto-completion
      better-defaults
+     csv
      dash
      docker
      emoji
@@ -49,7 +45,6 @@ values."
      evil-commentary
      fzf ;; see installation here: https://github.com/AshyIsMe/fzf-spacemacs-layer
      git
-
      ;; Golang support, make sure you install the language server
      ;; > GO111MODULE=on go get -v golang.org/x/tools/gopls@latest
      ;; And on Linux make sure unzip is installed
@@ -70,7 +65,9 @@ values."
           org-enable-github-support t
           org-enable-reveal-js-support t)
      python
-     ;; scala-lsp
+     react
+     ruby
+     rust
      (scala :variables
             scala-backend 'scala-metals)
      slack
@@ -78,16 +75,17 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      solidity
-     spotify
      spell-checking
+     spotify
+     sql
      (syntax-checking :variables
                       flycheck-check-syntax-automatically '(save mode-enable))
+     treemacs
      (terraform :variables
                 terraform-backend 'lsp
                 terraform-auto-format-on-save t)
      (typescript :variables
                  tide-tsserver-executable "~/.nvm/versions/node/v14.17.3/bin/tsserver")
-     treemacs
      version-control
      vimscript
      yaml
@@ -109,6 +107,11 @@ values."
                                                           :fetcher github
                                                           :repo "zerolfx/copilot.el"
                                                           :files ("*.el" "dist")))
+                                      ;; (forge :location (recipe
+                                      ;;                     :fetcher github
+                                      ;;                     :commit "422881e552afd9df15e591dbf52aa36e2d481758"
+                                      ;;                     :repo "magit/forge"
+                                      ;;                     :files ("*.el" "dist")))
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -641,6 +644,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq forge-database-connector 'sqlite)
   ;; (when (memq window-system '(mac ns x))
   ;;   (exec-path-from-shell-initialize))
 )
