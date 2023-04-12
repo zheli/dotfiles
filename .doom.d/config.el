@@ -44,6 +44,18 @@
 (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
                          "~/Dropbox/gtd/gtd.org"
                          "~/Dropbox/gtd/tickler.org"))
+;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+;; capture GTD tasks
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                (file+headline "~/Dropbox/gtd/inbox.org" "Tasks")
+                                "* TODO %i%?")
+                                ("T" "Tickler" entry
+                                (file+headline "~/Dropbox/gtd/tickler.org" "Tickler")
+                                "* %i%? \n %U")))
+(setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
+                                ("~/Dropbox/gtd/inbox.org" :maxlevel . 3)
+                                ("~/Dropbox/gtd/someday.org" :level . 1)
+                                ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
 (setq org-log-done 'time)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an

@@ -11,7 +11,6 @@ git clone https://github.com/hlissner/doom-emacs ~/.doom-emacs.d
  ~/.doom-emacs.d/bin/doom sync
 ```
 
-
 # Common issue with spacemacs/emacs
 ## I cannot start lsp mode for my python project
 If you have all the packages installed. Open the python file and run command lsp
