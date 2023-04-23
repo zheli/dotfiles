@@ -218,8 +218,6 @@ A common frustration with new Emacs users is the filename# files created. This c
       (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
                                "~/Dropbox/gtd/gtd.org"
                                "~/Dropbox/gtd/tickler.org"
-                               ;; "~/Dropbox/org-calendars/calendar_private.org"
-                               ;; "~/Dropbox/org-calendars/calendar_work.org"
                                ))
 
       ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html

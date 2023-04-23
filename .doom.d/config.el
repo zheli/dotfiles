@@ -89,3 +89,15 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Trigger action from emacs
+(defun zl/launch-github-action ()
+  (interactive)
+  (when buffer-file-name
+    (let (
+          (default-directory (file-name-directory buffer-file-name))
+          (filename (file-name-nondirectory buffer-file-name)))
+      (save-buffer)
+      (let ((output (shell-command-to-string
+                     (concat "gh workflow run --ref $(git rev-parse --abbrev-ref HEAD) " filename " 2>&1"))))
+        (message output)))))
