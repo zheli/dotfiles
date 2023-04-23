@@ -1,8 +1,10 @@
 (
- ("default" . ((user-emacs-directory . "~/.spacemacs-emacs.d")
+ ("default"   . ((user-emacs-directory . "~/.spacemacs-emacs.d")
                (server-name . "spacemacs")))
- ("doom"    . ((user-emacs-directory . "~/.doom-emacs.d")
+ ("doom"      . ((user-emacs-directory . "~/.doom-emacs.d")
                (server-name . "doom")))
  ("spacemacs" . ((user-emacs-directory . "~/.spacemacs-emacs.d")
                (server-name . "spacemacs")))
+ ("zhe"       . ((user-emacs-directory . "~/.zhe-emacs.d")
+               (server-name . "zhe")))
  )
