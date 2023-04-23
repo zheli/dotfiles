@@ -22,7 +22,7 @@ https://github.com/emacs-lsp/lsp-mode/issues/2392
 https://emacs.stackexchange.com/questions/54414/how-to-debug-troubleshoot-lsp-not-in-project-or-it-is-blacklisted-in-lsp-mo
  `lsp-workspace-folders-add` solves it for me.
 
-## Install metals
+## Install metals (deprecated)
 ```
 # Make sure to use coursier v1.1.0-M9 or newer.
 curl -L -o coursier https://git.io/coursier-cli
@@ -36,3 +36,9 @@ chmod +x coursier
   -r sonatype:snapshots \
   -o /usr/local/bin/metals-emacs -f
 ```
+
+## org-mode doesn't work and `Invalid function: org-assert-version`
+```
+rm -v ~/.spacemacs-emacs.d/elpa/28.2/develop/org*/*.elc
+```
+and restart
