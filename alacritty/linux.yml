@@ -41,3 +41,5 @@ hints:
     binding:
       key: U
       mods: Control|Shift
+
+window.font.size: 10.0
