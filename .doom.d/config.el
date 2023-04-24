@@ -87,12 +87,32 @@
   (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
                            "~/Dropbox/gtd/gtd.org"
                            "~/Dropbox/gtd/tickler.org"))
+
   (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
                              ("~/Dropbox/gtd/inbox.org" :maxlevel . 3)
                              ("~/Dropbox/gtd/someday.org" :level . 1)
                              ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
+
+  (setq org-agenda-custom-commands
+        '(("o" "Admin tasks" tags-todo "@admin"
+           ((org-agenda-overriding-header "Admin")))
+
+          ("b" "Important but not urgent"
+           tags-todo "GTD"
+           keywords "+[#B]"
+           ((org-agenda-overriding-header "Important but not urgent")))
+
+          ("W" "Weekly review" agenda ""
+           ((org-agenda-span 'week)
+            (org-agenda-start-on-weekday 1)
+            (org-agenda-start-with-log-mode t)
+            (org-agenda-skip-function
+             '(org-agenda-skip-entry-if 'nottodo 'done))))
+          )
+        )
+
   (setq org-log-done 'time)
-)
+  )
 
 ;; Trigger action from emacs
 (defun zl/launch-github-action ()
