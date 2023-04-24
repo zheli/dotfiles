@@ -41,22 +41,6 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Dropbox/gtd/")
-(setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
-                         "~/Dropbox/gtd/gtd.org"
-                         "~/Dropbox/gtd/tickler.org"))
-;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
-;; capture GTD tasks
-(setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                (file+headline "~/Dropbox/gtd/inbox.org" "Tasks")
-                                "* TODO %i%?")
-                                ("T" "Tickler" entry
-                                (file+headline "~/Dropbox/gtd/tickler.org" "Tickler")
-                                "* %i%? \n %U")))
-(setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
-                                ("~/Dropbox/gtd/inbox.org" :maxlevel . 3)
-                                ("~/Dropbox/gtd/someday.org" :level . 1)
-                                ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
-(setq org-log-done 'time)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -89,6 +73,26 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(after! org
+  ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+  ;; capture GTD tasks
+  (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                 (file+headline "~/Dropbox/gtd/inbox.org" "Tasks")
+                                 "* TODO %i%?")
+                                ("T" "Tickler" entry
+                                 (file+headline "~/Dropbox/gtd/tickler.org" "Tickler")
+                                 "* %i%? \n %U")))
+
+  (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
+                           "~/Dropbox/gtd/gtd.org"
+                           "~/Dropbox/gtd/tickler.org"))
+  (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
+                             ("~/Dropbox/gtd/inbox.org" :maxlevel . 3)
+                             ("~/Dropbox/gtd/someday.org" :level . 1)
+                             ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
+  (setq org-log-done 'time)
+)
 
 ;; Trigger action from emacs
 (defun zl/launch-github-action ()
