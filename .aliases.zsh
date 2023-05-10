@@ -14,7 +14,7 @@ alias dcol="docker-compose -f docker-compose.base.yml -f docker-compose.local.ym
 
 # Editors
 ## edit in emacs client mode
-alias e='emacsclient -n -s spacemacs'
+alias e='emacsclient -n -s doom'
 alias en='emacsclient -c'
 alias emacsnc='emacsclient -nc &'
 alias nvv='nvim -S'

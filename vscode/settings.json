@@ -21,5 +21,8 @@
     "editor.lineNumbers": "relative",
     "clock.format": "HH:MM",
     "clock.alignment": "Right",
-    "isort.importStrategy": "fromEnvironment"
+    "isort.importStrategy": "fromEnvironment",
+    "aws.logLevel": "debug",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.confirmSync": false
 }

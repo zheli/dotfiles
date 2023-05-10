@@ -114,6 +114,10 @@
   (setq org-log-done 'time)
   )
 
+(after! magit
+  (setq git-commit-summary-max-length 70)
+  )
+
 ;; Trigger action from emacs
 (defun zl/launch-github-action ()
   (interactive)
