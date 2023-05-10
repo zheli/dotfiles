@@ -6,10 +6,6 @@
 #
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
-import:
-  - ~/.alacritty.macos.yml
-  - ~/.alacritty.linux.yml
-
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
@@ -153,7 +149,7 @@ font:
 
   # Point size
   # specified in os-specific configuration
-  # size: 10.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -650,3 +646,6 @@ key_bindings:
 
 # Regex hints
 # Imported from os specific configs
+import:
+  - ~/.alacritty.macos.yml
+  - ~/.alacritty.linux.yml
