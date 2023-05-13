@@ -116,6 +116,7 @@
 
 (after! magit
   (setq git-commit-summary-max-length 70)
+  (setq git-commit-style-convention-checks ())
   )
 
 ;; Trigger action from emacs
