@@ -42,4 +42,5 @@ hints:
       key: U
       mods: Control|Shift
 
-window.font.size: 10.0
+font:
+  size: 10.0

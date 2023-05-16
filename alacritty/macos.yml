@@ -43,5 +43,8 @@ hints:
       mods: Control|Shift
 
 # Send ESC (\x1b) before characters when alt is pressed.
-window.option_as_alt: true
-window.font.size: 11.0
+window:
+  option_as_alt: true
+
+font:
+  size: 13.0
