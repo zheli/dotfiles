@@ -1,0 +1,18 @@
+services:
+  postgres:
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.Name}}"
+    container_name: postgres
+    image: "postgres:14.2-bullseye"
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: zhe-local
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 0s
+      retries: 5
