@@ -8,7 +8,7 @@
     "python.autoComplete.extraPaths": [],
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.extraPaths": [],
-    "python.formatting.provider": "none",
+    "python.formatting.provider": "black",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnType": true,
