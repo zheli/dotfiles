@@ -116,8 +116,19 @@
 
 (after! magit
   (setq git-commit-summary-max-length 70)
-  (setq git-commit-style-convention-checks ())
-  )
+  (setq git-commit-style-convention-checks ()))
+
+;; github copilot
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word))
+    (setq copilot-node-executable "~/.nvm/versions/node/v18.15.0/bin/node"))
+
 
 ;; Trigger action from emacs
 (defun zl/launch-github-action ()
