@@ -107,12 +107,9 @@
             (org-agenda-start-on-weekday 1)
             (org-agenda-start-with-log-mode t)
             (org-agenda-skip-function
-             '(org-agenda-skip-entry-if 'nottodo 'done))))
-          )
-        )
+             '(org-agenda-skip-entry-if 'nottodo 'done))))))
 
-  (setq org-log-done 'time)
-  )
+  (setq org-log-done 'time))
 
 (after! magit
   (setq git-commit-summary-max-length 70)
@@ -127,8 +124,14 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+;; For some reason my copilot cannot find node executable ever
 (after! copilot
     (setq copilot-node-executable "~/.nvm/versions/node/v18.15.0/bin/node"))
+
+(after! company
+  (setq company-idle-delay 0.5
+        company-minimum-prefix-length 2
+        company-show-numbers t))
 
 
 ;; Trigger action from emacs
