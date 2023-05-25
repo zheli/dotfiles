@@ -14,5 +14,10 @@
         "key": "ctrl+escape",
         "command": "aws.codeWhisperer.rejectCodeSuggestion",
         "when": "CODEWHISPERER_ENABLED && inlineSuggestionVisible && !editorReadonly"
+    },
+    {
+        "key": "escape",
+        "command": "-aws.codeWhisperer.rejectCodeSuggestion",
+        "when": "CODEWHISPERER_ENABLED && inlineSuggestionVisible && !editorReadonly"
     }
 ]
