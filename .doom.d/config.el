@@ -126,7 +126,8 @@
               ("<tab>" . 'copilot-accept-completion)
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word))
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+(after! copilot
     (setq copilot-node-executable "~/.nvm/versions/node/v18.15.0/bin/node"))
 
 
