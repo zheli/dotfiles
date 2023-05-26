@@ -145,3 +145,12 @@
       (let ((output (shell-command-to-string
                      (concat "gh workflow run --ref $(git rev-parse --abbrev-ref HEAD) " filename " 2>&1"))))
         (message output)))))
+
+(defun zl/tramp-home-shortcut ()
+  "Shortcut for connecting to SSH server"
+  (interactive)
+  (find-file (concat "/sshx:zzz@85.195.40.74#2222:/home/zzz/code")))
+
+(map! :leader
+      :desc "Connect to home SSH server"
+      "z" #'zl/tramp-home-shortcut)
