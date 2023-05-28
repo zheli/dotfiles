@@ -154,3 +154,7 @@
 (map! :leader
       :desc "Connect to home SSH server"
       "z" #'zl/tramp-home-shortcut)
+
+(map! :leader
+      :desc "Run github actions"
+      "y" #'zl/launch-github-action)
