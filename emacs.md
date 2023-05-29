@@ -42,3 +42,12 @@ chmod +x coursier
 rm -v ~/.spacemacs-emacs.d/elpa/28.2/develop/org*/*.elc
 ```
 and restart
+
+## emacs hangs
+Use this to recover:
+```
+pkill -SIGUSR2 emacs
+```
+
+Don't forget to `toggle-debug-on-quit` afterwards.
+https://emacs.stackexchange.com/questions/21643/what-do-i-do-when-emacs-is-frozen
