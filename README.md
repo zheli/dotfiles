@@ -154,3 +154,10 @@ udevadm control --reload-rules && udevadm trigger
 ln -s $(pwd)/settings.json ~/Library/Application\ Support/Code/User/
 ln -s $(pwd)/keybindings.json ~/Library/Application\ Support/Code/User/
 ```
+
+For MacOS:
+``` shell
+# Enable key repeat
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+```
+
