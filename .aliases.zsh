@@ -99,3 +99,6 @@ alias spacemacs="emacs --with-profile=spacemacs"
 if [[ $(uname -s) == "Darwin" ]]; then
     alias xdg-open="open"
 fi
+
+# linux
+alias pbcopy="xclip -selection clipboard -i"
