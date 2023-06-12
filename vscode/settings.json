@@ -8,11 +8,15 @@
     "python.autoComplete.extraPaths": [],
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.extraPaths": [],
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "none",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--enable=W0614",
+        "--disable=E1101"
+    ],
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnType": true,
-        "editor.formatOnSave": true
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "chatgpt.sessionToken": "",
     "chatgpt.clearanceToken": "",
@@ -25,7 +29,13 @@
     "aws.logLevel": "debug",
     "diffEditor.ignoreTrimWhitespace": false,
     "git.confirmSync": false,
-    "python.formatting.blackArgs": [
-        "--line-length 100"
-    ]
+    "editor.formatOnSave": true,
+    "cSpell.userWords": [
+        "cloudsigma",
+        "datacenters",
+        "Erigon",
+        "gatewayfm",
+        "healthcheck"
+    ],
+    "files.autoSave": "afterDelay"
 }
