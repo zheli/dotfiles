@@ -152,9 +152,6 @@
   (find-file (concat "/sshx:zzz@85.195.40.74#2222:/home/zzz/code")))
 
 (map! :leader
-      :desc "Connect to home SSH server"
-      "z" #'zl/tramp-home-shortcut)
-
-(map! :leader
-      :desc "Run github actions"
-      "y" #'zl/launch-github-action)
+      (:prefix-map ("z" . "My tools")
+       :desc "Connect to home SSH server" "z" #'zl/tramp-home-shortcut
+       :desc "Run github actions" "y" #'zl/launch-github-action))
