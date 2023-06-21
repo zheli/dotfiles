@@ -37,5 +37,11 @@
         "gatewayfm",
         "healthcheck"
     ],
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    }
 }
