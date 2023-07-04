@@ -31,11 +31,16 @@
     "git.confirmSync": false,
     "editor.formatOnSave": true,
     "cSpell.userWords": [
+        "ciphersuites",
         "cloudsigma",
+        "Cryptodome",
         "datacenters",
         "Erigon",
         "gatewayfm",
         "healthcheck",
+        "onepassword",
+        "pubkey",
+        "SEPOLIA",
         "typer"
     ],
     "files.autoSave": "afterDelay",
