@@ -19,5 +19,15 @@
         "key": "escape",
         "command": "-aws.codeWhisperer.rejectCodeSuggestion",
         "when": "CODEWHISPERER_ENABLED && inlineSuggestionVisible && !editorReadonly"
+    },
+    {
+        "key": "ctrl+. .",
+        "command": "problems.action.showQuickFixes",
+        "when": "problemFocus"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "-problems.action.showQuickFixes",
+        "when": "problemFocus"
     }
 ]

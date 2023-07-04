@@ -35,7 +35,8 @@
         "datacenters",
         "Erigon",
         "gatewayfm",
-        "healthcheck"
+        "healthcheck",
+        "typer"
     ],
     "files.autoSave": "afterDelay",
     "github.copilot.enable": {
