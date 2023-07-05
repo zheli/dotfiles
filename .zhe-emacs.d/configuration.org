@@ -1,0 +1,95 @@
+#+TITLEk: Emacs Configuration
+#+author: 
+#+email: 
+#+options: toc:nil num:nil
+
+Based on https://github.com/hrs/dotfiles
+
+* Configure =use-package=
+
+I use =use-package= to install and configure my packages. My =init.el= includes the
+initial setup for =package.el= and ensures that =use-package= is installed, since I
+wanna do that right away.
+
+This makes sure that =use-package= will install the package if it's not already
+available. It also means that I should be able to open Emacs for the first time
+on a fresh Debian box and have my whole environment automatically installed. I'm
+not /totally/ sure about that, but we're gettin' close.
+
+#+begin_src emacs-lisp
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+#+end_src
+
+Defer loading packages unless explicitly demanded.
+
+#+begin_src emacs-lisp
+  (setq use-package-always-defer t)
+#+end_src
+
+Always compile packages, and use the newest version available.
+
+#+begin_src emacs-lisp
+	(use-package auto-compile
+		:demand t
+		:config (auto-compile-on-load-mode))
+
+	(setq load-prefer-newer t)
+#+end_src
+
+If an Emacs package relies on the installation of a system package, install that
+package (for example, =deadgrep= doesn't work if =ripgrep= isn't installed). This
+uses the system package manager (Debian's =apt=, in my case).
+
+#+begin_src emacs-lisp
+  (use-package use-package-ensure-system-package
+		:demand t
+    :custom
+    (system-packages-package-manager 'apt))
+#+end_src
+
+** Load up a theme
+
+This sets up the current theme.
+
+#+begin_src emacs-lisp
+  ;; (use-package modus-themes
+  ;;   :custom
+  ;;   (modus-themes-headings
+  ;;    '((0 . (1.3))
+  ;;      (1 . (1.3))
+  ;;      (2 . (1.2))
+  ;;      (t . (1.1))))
+  ;;   (modus-themes-bold-constructs t)
+  ;;   (modus-themes-italic-constructs t)
+  ;;   (modus-themes-org-blocks 'tinted-background))
+
+  ;; (modus-themes-select 'modus-operandi)
+  ;; (set-face-attribute 'mode-line nil
+  ;;                     :underline (modus-themes-get-color-value 'border-mode-line-active))
+  ;; (set-face-attribute 'mode-line-inactive nil
+  ;;                     :underline (modus-themes-get-color-value 'border-mode-line-inactive))
+#+end_src
+
+Use doom-theme
+
+#+begin_src emacs-lisp
+  (use-package doom-themes
+    :ensure t
+    :config
+    ;; Global settings (defaults)
+    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+	  doom-themes-enable-italic t)) ; if nil, italics is universally disabled
+
+    (load-theme 'doom-one t)
+
+    ;; Enable flashing mode-line on errors
+    (doom-themes-visual-bell-config)
+    ;; Enable custom neotree theme (all-the-icons must be installed!)
+    (doom-themes-neotree-config)
+    ;; or for treemacs users
+    (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+    (doom-themes-treemacs-config)
+    ;; Corrects (and improves) org-mode's native fontification.
+    (doom-themes-org-config)
+#+end_src
