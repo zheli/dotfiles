@@ -5,53 +5,53 @@
 
 Based on https://github.com/hrs/dotfiles
 
-# * Configure =use-package=
+* Configure =use-package=
 
-# I use =use-package= to install and configure my packages. My =init.el= includes the
-# initial setup for =package.el= and ensures that =use-package= is installed, since I
-# wanna do that right away.
+I use =use-package= to install and configure my packages. My =init.el= includes the
+initial setup for =package.el= and ensures that =use-package= is installed, since I
+wanna do that right away.
 
-# This makes sure that =use-package= will install the package if it's not already
-# available. It also means that I should be able to open Emacs for the first time
-# on a fresh Debian box and have my whole environment automatically installed. I'm
-# not /totally/ sure about that, but we're gettin' close.
+This makes sure that =use-package= will install the package if it's not already
+available. It also means that I should be able to open Emacs for the first time
+on a fresh Debian box and have my whole environment automatically installed. I'm
+not /totally/ sure about that, but we're gettin' close.
 
-# #+begin_src emacs-lisp
-#   (require 'use-package-ensure)
-#   (setq use-package-always-ensure t)
-# #+end_src
+#+begin_src emacs-lisp
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+#+end_src
 
-# Defer loading packages unless explicitly demanded.
+Defer loading packages unless explicitly demanded.
 
-# #+begin_src emacs-lisp
-#   (setq use-package-always-defer t)
-# #+end_src
+#+begin_src emacs-lisp
+  (setq use-package-always-defer t)
+#+end_src
 
-# Always compile packages, and use the newest version available.
+Always compile packages, and use the newest version available.
 
-# #+begin_src emacs-lisp
-# 	(use-package auto-compile
-# 		:demand t
-# 		:config (auto-compile-on-load-mode))
+#+begin_src emacs-lisp
+	(use-package auto-compile
+		:demand t
+		:config (auto-compile-on-load-mode))
 
-# 	(setq load-prefer-newer t)
-# #+end_src
+	(setq load-prefer-newer t)
+#+end_src
 
-# If an Emacs package relies on the installation of a system package, install that
-# package (for example, =deadgrep= doesn't work if =ripgrep= isn't installed). This
-# uses the system package manager (Debian's =apt=, in my case).
+If an Emacs package relies on the installation of a system package, install that
+package (for example, =deadgrep= doesn't work if =ripgrep= isn't installed). This
+uses the system package manager (Debian's =apt=, in my case).
 
-# #+begin_src emacs-lisp
-#   (use-package use-package-ensure-system-package
-# 		:demand t
-#     :custom
-#     (system-packages-package-manager 'apt))
-# #+end_src
+#+begin_src emacs-lisp
+  (use-package use-package-ensure-system-package
+		:demand t
+    :custom
+    (system-packages-package-manager 'apt))
+#+end_src
 
-# Don’t pop up a buffer to warn me about deprecations and other minor issues.
-# #+begin_src emacs-lisp
-#   (setq warning-minimum-level :emergency)
-# #+end_src
+Don’t pop up a buffer to warn me about deprecations and other minor issues.
+#+begin_src emacs-lisp
+  (setq warning-minimum-level :emergency)
+#+end_src
 
 # * Use =sensible-defaults.el=
 
@@ -111,40 +111,41 @@ Based on https://github.com/hrs/dotfiles
 #   )
 # #+end_src
 
-# * Publishing and task management with Org-mode
+* Publishing and task management with Org-mode
 
-# - I'd like the initial scratch buffer to be in Org.
-# - Put tags directly after the associated header rather than trying to align them.
-# - When hitting =C-<return>= to create a new heading, don't insert the heading
-#   between the current heading and its content, but instead append it /after/ the
-#   content.
+- I'd like the initial scratch buffer to be in Org.
+- Put tags directly after the associated header rather than trying to align them.
+- When hitting =C-<return>= to create a new heading, don't insert the heading
+  between the current heading and its content, but instead append it /after/ the
+  content.
 
-# I'd like to open =file:= links in Org with the applications defined in my
-# [[file:~/.dotfiles/email/.mailcap][mailcap]]. This clears the existing MIME mapping, parses my personal mailcap, and
-# tells Org to open those links with the mailcap-defined applications.
+I'd like to open =file:= links in Org with the applications defined in my
+[[file:~/.dotfiles/email/.mailcap][mailcap]]. This clears the existing MIME mapping, parses my personal mailcap, and
+tells Org to open those links with the mailcap-defined applications.
 
-# #+begin_src emacs-lisp
-#   (use-package org
-#     :custom
-#     ;; (initial-major-mode 'org-mode)
+#+begin_src emacs-lisp
+  (use-package org
+    :custom
+    ;; not sure if I want this
+    ;; (initial-major-mode 'org-mode)
 
-#     (org-auto-align-tags nil)
-#     (org-tags-column 0)
-#     (org-insert-heading-respect-content t)
+    (org-auto-align-tags nil)
+    (org-tags-column 0)
+    (org-insert-heading-respect-content t)
 
-#     :config
-#     (add-hook 'org-mode-hook
-# 	      (lambda ()
-# 		(setq mailcap-mime-data '())
-# 		(mailcap-parse-mailcap "~/.mailcap")
-# 		(setq org-file-apps
-# 		      '((auto-mode . emacs)
-# 			("mobi" . "foliate %s")
-# 			("\\.x?html?\\'" . mailcap)
-# 			("pdf" . mailcap)
-# 			(system . mailcap)
-# 			(t . mailcap))))))
-# #+end_src
+    :config
+    (add-hook 'org-mode-hook
+	     (lambda ()
+	       (setq mailcap-mime-data '())
+	       (mailcap-parse-mailcap "~/.mailcap")
+	       (setq org-file-apps
+		     '((auto-mode . emacs)
+		       ("mobi" . "foliate %s")
+		       ("\\.x?html?\\'" . mailcap)
+		       ("pdf" . mailcap)
+		       (system . mailcap)
+		       (t . mailcap))))))
+#+end_src
 
 # First, we ask org-mode to hide the emphasis markup (e.g. /.../ for italics, *...* for bold, etc.):
 
@@ -192,3 +193,11 @@ Based on https://github.com/hrs/dotfiles
 
 # ** References
 # *** https://zzamboni.org/post/beautifying-org-mode-in-emacs/
+
+* Completion
+Vertico is what used in doomemacs.
+#+begin_src emacs-lisp
+  (use-package vertico
+    :init
+    (vertico-mode))
+#+end_src
