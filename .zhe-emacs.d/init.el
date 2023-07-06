@@ -31,6 +31,8 @@
 
 (org-babel-load-file "~/.zhe-emacs.d/configuration.org")
 
+;; (find-file "~/Dropbox/gtd/gtd.org")
+
 ;; Download Evil
 (unless (package-installed-p 'evil)
   (package-install 'evil))
