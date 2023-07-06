@@ -5,91 +5,190 @@
 
 Based on https://github.com/hrs/dotfiles
 
-* Configure =use-package=
+# * Configure =use-package=
 
-I use =use-package= to install and configure my packages. My =init.el= includes the
-initial setup for =package.el= and ensures that =use-package= is installed, since I
-wanna do that right away.
+# I use =use-package= to install and configure my packages. My =init.el= includes the
+# initial setup for =package.el= and ensures that =use-package= is installed, since I
+# wanna do that right away.
 
-This makes sure that =use-package= will install the package if it's not already
-available. It also means that I should be able to open Emacs for the first time
-on a fresh Debian box and have my whole environment automatically installed. I'm
-not /totally/ sure about that, but we're gettin' close.
+# This makes sure that =use-package= will install the package if it's not already
+# available. It also means that I should be able to open Emacs for the first time
+# on a fresh Debian box and have my whole environment automatically installed. I'm
+# not /totally/ sure about that, but we're gettin' close.
 
-#+begin_src emacs-lisp
-  (require 'use-package-ensure)
-  (setq use-package-always-ensure t)
-#+end_src
+# #+begin_src emacs-lisp
+#   (require 'use-package-ensure)
+#   (setq use-package-always-ensure t)
+# #+end_src
 
-Defer loading packages unless explicitly demanded.
+# Defer loading packages unless explicitly demanded.
 
-#+begin_src emacs-lisp
-  (setq use-package-always-defer t)
-#+end_src
+# #+begin_src emacs-lisp
+#   (setq use-package-always-defer t)
+# #+end_src
 
-Always compile packages, and use the newest version available.
+# Always compile packages, and use the newest version available.
 
-#+begin_src emacs-lisp
-	(use-package auto-compile
-		:demand t
-		:config (auto-compile-on-load-mode))
+# #+begin_src emacs-lisp
+# 	(use-package auto-compile
+# 		:demand t
+# 		:config (auto-compile-on-load-mode))
 
-	(setq load-prefer-newer t)
-#+end_src
+# 	(setq load-prefer-newer t)
+# #+end_src
 
-If an Emacs package relies on the installation of a system package, install that
-package (for example, =deadgrep= doesn't work if =ripgrep= isn't installed). This
-uses the system package manager (Debian's =apt=, in my case).
+# If an Emacs package relies on the installation of a system package, install that
+# package (for example, =deadgrep= doesn't work if =ripgrep= isn't installed). This
+# uses the system package manager (Debian's =apt=, in my case).
 
-#+begin_src emacs-lisp
-  (use-package use-package-ensure-system-package
-		:demand t
-    :custom
-    (system-packages-package-manager 'apt))
-#+end_src
+# #+begin_src emacs-lisp
+#   (use-package use-package-ensure-system-package
+# 		:demand t
+#     :custom
+#     (system-packages-package-manager 'apt))
+# #+end_src
 
-** Load up a theme
+# Don’t pop up a buffer to warn me about deprecations and other minor issues.
+# #+begin_src emacs-lisp
+#   (setq warning-minimum-level :emergency)
+# #+end_src
 
-This sets up the current theme.
+# * Use =sensible-defaults.el=
 
-#+begin_src emacs-lisp
-  ;; (use-package modus-themes
-  ;;   :custom
-  ;;   (modus-themes-headings
-  ;;    '((0 . (1.3))
-  ;;      (1 . (1.3))
-  ;;      (2 . (1.2))
-  ;;      (t . (1.1))))
-  ;;   (modus-themes-bold-constructs t)
-  ;;   (modus-themes-italic-constructs t)
-  ;;   (modus-themes-org-blocks 'tinted-background))
+# Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for some basic settings.
 
-  ;; (modus-themes-select 'modus-operandi)
-  ;; (set-face-attribute 'mode-line nil
-  ;;                     :underline (modus-themes-get-color-value 'border-mode-line-active))
-  ;; (set-face-attribute 'mode-line-inactive nil
-  ;;                     :underline (modus-themes-get-color-value 'border-mode-line-inactive))
-#+end_src
+# #+begin_src emacs-lisp
+# 	;; (use-package sensible-defaults
+# 	;; 	:load-path "~/code/personal/sensible-defaults.el"
+# 	;; 	:demand t
 
-Use doom-theme
+# 	;; 	:config
+# 	;; 	(sensible-defaults/use-all-settings)
+# 	;; 	(sensible-defaults/use-all-keybindings)
+# 	;; 	(sensible-defaults/backup-to-temp-directory))
+# #+end_src
 
-#+begin_src emacs-lisp
-  (use-package doom-themes
-    :ensure t
-    :config
-    ;; Global settings (defaults)
-    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-	  doom-themes-enable-italic t)) ; if nil, italics is universally disabled
+# ** quelpa
+# #+begin_src emacs-lisp
+#   (use-package quelpa)
+# #+end_src
 
-    (load-theme 'doom-one t)
+# * UI perferences
+# ** Theme
+# This sets up the current theme (doom)
 
-    ;; Enable flashing mode-line on errors
-    (doom-themes-visual-bell-config)
-    ;; Enable custom neotree theme (all-the-icons must be installed!)
-    (doom-themes-neotree-config)
-    ;; or for treemacs users
-    (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-    (doom-themes-treemacs-config)
-    ;; Corrects (and improves) org-mode's native fontification.
-    (doom-themes-org-config)
-#+end_src
+# #+begin_src emacs-lisp
+#   (use-package doom-themes
+#     :ensure t
+#     :config
+#     ;; Global settings (defaults)
+#     (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+# 	  doom-themes-enable-italic t)) ; if nil, italics is universally disabled
+
+#     (load-theme 'doom-one t)
+
+#     ;; Enable flashing mode-line on errors
+#     (doom-themes-visual-bell-config)
+#     ;; Enable custom neotree theme (all-the-icons must be installed!)
+#     (doom-themes-neotree-config)
+#     ;; or for treemacs users
+#     (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+#     (doom-themes-treemacs-config)
+#     ;; Corrects (and improves) org-mode's native fontification.
+#     (doom-themes-org-config)
+# #+end_src
+
+# ** Highlight the current line
+# =global-hl-line-mode= softly highlights the background color of the line
+# containing point. It makes it a bit easier to find point, and it's useful when
+# pairing or presenting code.
+
+# #+begin_src emacs-lisp
+#   (when (display-graphic-p)
+#     (global-hl-line-mode)
+#     ;; (set-face-background hl-line-face (doom-lighten 'cyan4 .25)) ;; use "list-color-display" to see all colors
+#     ;;(set-face-background hl-line-face "indian red")) ;; use "list-color-display" to see all colors
+#   )
+# #+end_src
+
+# * Publishing and task management with Org-mode
+
+# - I'd like the initial scratch buffer to be in Org.
+# - Put tags directly after the associated header rather than trying to align them.
+# - When hitting =C-<return>= to create a new heading, don't insert the heading
+#   between the current heading and its content, but instead append it /after/ the
+#   content.
+
+# I'd like to open =file:= links in Org with the applications defined in my
+# [[file:~/.dotfiles/email/.mailcap][mailcap]]. This clears the existing MIME mapping, parses my personal mailcap, and
+# tells Org to open those links with the mailcap-defined applications.
+
+# #+begin_src emacs-lisp
+#   (use-package org
+#     :custom
+#     ;; (initial-major-mode 'org-mode)
+
+#     (org-auto-align-tags nil)
+#     (org-tags-column 0)
+#     (org-insert-heading-respect-content t)
+
+#     :config
+#     (add-hook 'org-mode-hook
+# 	      (lambda ()
+# 		(setq mailcap-mime-data '())
+# 		(mailcap-parse-mailcap "~/.mailcap")
+# 		(setq org-file-apps
+# 		      '((auto-mode . emacs)
+# 			("mobi" . "foliate %s")
+# 			("\\.x?html?\\'" . mailcap)
+# 			("pdf" . mailcap)
+# 			(system . mailcap)
+# 			(t . mailcap))))))
+# #+end_src
+
+# First, we ask org-mode to hide the emphasis markup (e.g. /.../ for italics, *...* for bold, etc.):
+
+# #+begin_src emacs-lisp
+#     (setq org-hide-emphasis-markers t
+# 	  org-hide-leading-stars t)
+# #+end_src
+
+# The org-bullets package replaces all headline markers with different Unicode bullets:
+
+# #+begin_src emacs-lisp
+#   (use-package org-bullets
+#     :config
+#     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+# #+end_src
+
+# Finally, we set up a nice proportional font, in different sizes, for the headlines. The fonts listed will be tried in sequence, and the first one found will be used. My current favorite is ET Book, feel free to add your own:
+# #+begin_src emacs-lisp
+#   (let* ((variable-tuple
+#           (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
+#                 ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+#                 ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+#                 ((x-list-fonts "Verdana")         '(:font "Verdana"))
+#                 ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+#                 (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+#          (base-font-color     (face-foreground 'default nil 'default))
+#          (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+
+#     (custom-theme-set-faces
+#      'user
+#      `(org-level-8 ((t (,@headline ,@variable-tuple))))
+#      `(org-level-7 ((t (,@headline ,@variable-tuple))))
+#      `(org-level-6 ((t (,@headline ,@variable-tuple))))
+#      `(org-level-5 ((t (,@headline ,@variable-tuple))))
+#      `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+#      `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
+#      `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
+#      `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+#      `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))))
+# #+end_src
+
+# #+begin_src emacs-lisp
+#   (use-package org-contrib)
+# #+end_src
+
+# ** References
+# *** https://zzamboni.org/post/beautifying-org-mode-in-emacs/
