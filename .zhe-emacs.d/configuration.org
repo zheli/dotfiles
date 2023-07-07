@@ -1,6 +1,6 @@
 #+TITLEk: Emacs Configuration
-#+author: 
-#+email: 
+#+author:
+#+email:
 #+options: toc:nil num:nil
 
 Based on https://github.com/hrs/dotfiles
@@ -220,10 +220,18 @@ tells Org to open those links with the mailcap-defined applications.
 # *** https://zzamboni.org/post/beautifying-org-mode-in-emacs/
 
 * Completion
-Vertico is what used in doomemacs.
+Vertico seems to be cool.
 #+begin_src emacs-lisp
   (use-package vertico
     :init
     (vertico-mode))
 #+end_src
 
+orderless provides matching.
+#+begin_src emacs-lisp
+  (use-package orderless
+    :ensure t
+    :custom
+    (completion-styles '(orderless basic))
+    (completion-category-overrides '((file (styles basic partial-completion)))))
+#+end_src
