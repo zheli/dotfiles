@@ -1,0 +1,15 @@
+[user]
+	email = zhe@gateway.fm
+	name = Zhe Li
+[init]
+	defaultBranch = main
+[diff "sopsdiffer"]
+	textconv = "sops -d"
+[diff "blackbox"]
+    textconv = gpg --use-agent -q --batch --decrypt
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
