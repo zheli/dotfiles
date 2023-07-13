@@ -58,10 +58,11 @@ cd
 mkdir -p ~/.aliases && cd ~/.aliases && git clone https://github.com/zer0beat/terraform-aliases.git
 ```
 
-## switch terraform version with tfswitch
+## switch terraform & terragrunt version with tfswitch & tgswitch
 ```
 # Download the latest version
 tfswitch -b ~/.local/bin/terraform --latest
+tgswitch -b ~/.local/bin/terragrunt 0.45.9
 
 # switch to different version
 tfswitch -b ~/.local/bin/terraform
