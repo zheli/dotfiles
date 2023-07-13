@@ -79,7 +79,7 @@ See
 /etc/default/grub.
 2. Install module.
 ```
-yay -S it87-dkms-git5~
+yay -S it87-dkms-git
 sudo modprobe it87 force_id=0x8686
 ```
 3. Add files in modules-load.d and modprobe.d folder.
@@ -88,6 +88,10 @@ sudo modprobe it87 force_id=0x8686
 ## Visual Studio Code
 ```
 yay -Su visual-studio-code-bin
+```
+If VSCode hijacks opening folder function, add this into your ~/.config/mimeapps.list file:
+```
+inode/directory=thunar.desktop
 ```
 
 ## Python stuff
