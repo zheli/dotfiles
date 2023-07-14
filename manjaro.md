@@ -39,6 +39,11 @@ autorandr --save <name>
 ```
 See https://www.donarmstrong.com/posts/autorandr/.
 
+## Use alt tab for application switching
+```
+yay -S alttab
+```
+
 ## Set Droidcam to use HD resolution
 1. Set resolution in `/etc/modprobe.d/droidcam.conf` (see
    https://www.dev47apps.com/droidcam/linux/). But use modprobe instead of insmod.
