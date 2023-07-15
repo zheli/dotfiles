@@ -10,12 +10,10 @@
     "python.analysis.extraPaths": [],
     "python.formatting.provider": "none",
     "python.linting.pylintEnabled": true,
-    "python.linting.pylintArgs": [
-        "--enable=W0614",
-        "--disable=E1101"
-    ],
+    "python.linting.pylintArgs": [],
     "[python]": {
         "editor.formatOnType": true,
+        "editor.formatOnSave": true,
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "chatgpt.sessionToken": "",

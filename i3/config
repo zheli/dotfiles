@@ -459,7 +459,7 @@ bindsym XF86AudioPause exec playerctl pause
 # Map volume down to printscr key
 # exec_always xmodmap -e "keycode 107 = XF86AudioLowerVolume NoSymbol XF86AudioLowerVolume"
 # Map volume up to pause key
-exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume"
+# exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume"
 # network manager
 exec --no-startup-id nm-applet
 # Launch emacs in client mode
