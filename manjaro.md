@@ -106,3 +106,8 @@ inode/directory=thunar.desktop
 pip install --user pipenv
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 ```
+
+## Arduino permssion
+```
+sudo chmod a+rw /dev/ttyUSB0
+```

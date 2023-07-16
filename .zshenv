@@ -93,3 +93,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=59"
 export ZSH_CACHE_DIR="$HOME/.zsh/completion"
 
 source ~/.zshenv_secrets
+
+## nvidia driver for pc-amd
+## https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuring_VA-API
+LIBVA_DRIVER_NAME=nvidia
