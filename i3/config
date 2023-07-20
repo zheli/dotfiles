@@ -458,9 +458,9 @@ exec --no-startup-id autorandr -c
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 # Map volume down to printscr key
-# exec_always xmodmap -e "keycode 107 = XF86AudioLowerVolume NoSymbol XF86AudioLowerVolume"
+exec_always xmodmap -e "keycode 107 = XF86AudioLowerVolume NoSymbol XF86AudioLowerVolume"
 # Map volume up to pause key
-# exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume"
+exec_always xmodmap -e "keycode 127 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume"
 # network manager
 exec --no-startup-id nm-applet
 # Launch emacs in client mode
@@ -475,3 +475,5 @@ bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 # Changing webcam settings
 exec_always v4l2-ctl -d /dev/video1 --set-ctrl=saturation=110,white_balance_temperature_auto=0,white_balance_temperature=3500
+# automount usb disk
+exec --no-startup-id udiskie &
