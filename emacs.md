@@ -1,15 +1,21 @@
-# Installation
-## Doom Emacs
+# Doom Emacs
+## Installation
 ```
 git clone https://github.com/hlissner/doom-emacs ~/.doom-emacs.d
  ~/.doom-emacs.d/bin/doom install
 ```
+## Fix issue with cannot find python packages
+```
+# Use python-version that matches the system version
+pyenv global {python-version}
+doom sync
+```
 
-# Upgrade package
-## Doom Emacs
+## Upgrade package
 ```
  ~/.doom-emacs.d/bin/doom sync
 ```
+
 
 # Common issue with spacemacs/emacs
 ## I cannot start lsp mode for my python project
