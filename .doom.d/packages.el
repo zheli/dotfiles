@@ -21,6 +21,11 @@
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 
+; for managing ssh-agent keys
+; need to install "keychain" on the system, like `sudo pacman -S keychain'
+(package! keychain-environment
+  :recipe (:host github :repo "tarsius/keychain-environment" :files ("*.el")))
+
 ;; If the package you are trying to install does not contain a PACKAGENAME.el
 ;; file, or is located in a subdirectory of the repo, you'll need to specify
 ;; `:files' in the `:recipe':
