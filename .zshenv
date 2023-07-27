@@ -76,6 +76,9 @@ unset GEM_HOME
 if [ -f '$HOME/.cache/yay/rvm/src/rvm/scripts/rvm' ]; then .
 'source $HOME/.cache/yay/rvm/src/rvm/scripts/rvm'; fi
 
+# Rust
+. "$HOME/.cargo/env"
+
 # Scala
 ## coursier
 pupdate "$HOME/.local/share/coursier/bin"
