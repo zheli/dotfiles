@@ -8,7 +8,7 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 2
+default_border 1pixel
 default_floating_border normal
 
 # Hide borders
@@ -464,8 +464,8 @@ exec --no-startup-id nm-applet
 bindsym $mod+F4 exec emacsclient -nc
 # Play/pause spotify
 bindsym $mod+Shift+F4 exec playerctl play-pause -p spotify
-# set wallpaper
-exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds
+# set wallpaper. need to install feh
+exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds /usr/share/backgrounds/wallpapers-juhraya
 # move workspace left
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 # move workspace right
