@@ -111,7 +111,7 @@ modules-left = i3
 modules-center =
 ;modules-center = spotify-prev spotify-play-pause spotify-next spotify
 ;modules-right = play-pause-general filesystem pulseaudio
-modules-right = playerctl pulseaudio
+modules-right = playerctl spotify pulseaudio
 
 wm-restack = i3
 
@@ -527,12 +527,10 @@ margin-bottom = 0
 [module/spotify]
 type = custom/script
 tail = true
-; prefix symbol is shown before the text
-format-prefix = "♬"
+format-prefix = " "
 format = <label>
+format-prefix-foreground = #1DB954
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
-padding-left = 1
-padding-right = 1
 
 [module/spotify-prev]
 type = custom/script
