@@ -41,19 +41,20 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 1
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 1
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-font-3 = "Roboto:size=11:weight=bold;2"
+font-0 = "Terminess Nerd Font:fontformat=truetype:pixelsize=11:antialias=false;2"
+; font-0 = fixed:pixelsize=10;1
+; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+; font-2 = siji:pixelsize=10;1
+; font-3 = "Roboto:size=11:weight=bold;2"
 
 modules-left = i3
 modules-center = xwindow
@@ -91,7 +92,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 1
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -109,7 +110,8 @@ font-0 = "Terminess Nerd Font:fontformat=truetype:pixelsize=11:antialias=false;2
 
 modules-left = i3
 modules-center = spotify-prev spotify-play-pause spotify-next spotify
-modules-right = play-pause-general filesystem pulseaudio
+;modules-right = play-pause-general filesystem pulseaudio
+modules-right = pulseaudio
 
 wm-restack = i3
 
@@ -357,10 +359,10 @@ date-alt = ""
 time = %H:%M
 time-alt = %H:%M
 
-format-prefix = 
+format-prefix = 
 ;format-prefix = 时间
-;format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #0a6cf5
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
 
 label = %date% %time%
 
@@ -368,7 +370,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
@@ -462,7 +464,7 @@ warn-temperature = 75
 hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input
 
 format = <ramp> <label>
-;format-underline = #f50a4d
+format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -522,23 +524,21 @@ tail = true
 ; prefix symbol is shown before the text
 format-prefix = "♬"
 format = <label>
-font-0 = "Droid Sans Mono:style=Regular"
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
 padding-left = 1
 padding-right = 1
 
 [module/spotify-prev]
 type = custom/script
-; exec = echo ""
-exec = echo "<"
+exec = echo ""
 format = <label>
 click-left = playerctl previous spotify
 
 [module/spotify-play-pause]
 ; Check get_spotify_status.sh if it is not working
 type = custom/ipc
-hook-0 = echo "||"
-hook-1 = echo ""
+hook-0 = echo ""
+hook-1 = echo ""
 initial = 1
 click-left = playerctl play-pause -p spotify
 
@@ -549,13 +549,11 @@ exec = echo ""
 ; exec = echo ">"
 format = <label>
 click-left = playerctl next spotify
-; vim:ft=dosini
 
 [module/play-pause-general]
 type = custom/ipc
-hook-0 = echo "/||"
-; hook-1 = echo ""
-hook-1 = echo ">"
+hook-0 = echo "/"
+hook-1 = echo ""
 initial = 1
 ; click-left = playerctl -l|grep firefox|xargs playerctl play-pause -p
 click-left = playerctl play-pause
