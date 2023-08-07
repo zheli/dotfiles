@@ -53,6 +53,7 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
+font-3 = "Roboto:size=11:weight=bold;2"
 
 modules-left = i3
 modules-center = xwindow
@@ -99,9 +100,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+;font-0 = fixed:pixelsize=10;1
+;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+;font-2 = siji:pixelsize=10;1
+; font-0 = "Roboto:size=11:weight=bold;2"
+; font-0 = "Roboto Mono for Powerline:pixelsize=10;antialias=false;1"
+font-0 = "Terminess Nerd Font:fontformat=truetype:pixelsize=11:antialias=false;2"
 
 modules-left = i3
 modules-center = spotify-prev spotify-play-pause spotify-next spotify
@@ -184,7 +188,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 0
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -192,11 +196,11 @@ label-mode-background = ${colors.primary}
 label-focused = %index%
 label-focused-background = #db6060
 label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -525,7 +529,8 @@ padding-right = 1
 
 [module/spotify-prev]
 type = custom/script
-exec = echo ""
+; exec = echo ""
+exec = echo "<"
 format = <label>
 click-left = playerctl previous spotify
 
@@ -533,13 +538,15 @@ click-left = playerctl previous spotify
 ; Check get_spotify_status.sh if it is not working
 type = custom/ipc
 hook-0 = echo "||"
-hook-1 = echo ""
+hook-1 = echo ""
 initial = 1
 click-left = playerctl play-pause -p spotify
 
 [module/spotify-next]
 type = custom/script
-exec = echo ""
+; exec = echo ""
+exec = echo ""
+; exec = echo ">"
 format = <label>
 click-left = playerctl next spotify
 ; vim:ft=dosini
@@ -547,7 +554,8 @@ click-left = playerctl next spotify
 [module/play-pause-general]
 type = custom/ipc
 hook-0 = echo "/||"
-hook-1 = echo ""
+; hook-1 = echo ""
+hook-1 = echo ">"
 initial = 1
 ; click-left = playerctl -l|grep firefox|xargs playerctl play-pause -p
 click-left = playerctl play-pause
