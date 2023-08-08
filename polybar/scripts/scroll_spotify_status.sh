@@ -6,7 +6,7 @@ zscroll -l 32 \
         --scroll-padding "  " \
         --match-command "$HOME/.config/polybar/scripts/get_spotify_status.sh --status" \
         --match-text "Playing" "--scroll 1" \
-        --match-text "Paused" "--scroll 0" \
+        --match-text "Paused" "--scroll 1" \
         --update-check true "$HOME/.config/polybar/scripts/get_spotify_status.sh" &
 
 wait
