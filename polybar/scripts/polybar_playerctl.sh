@@ -12,16 +12,16 @@ pause_icon=""
 player_icon=" "
 
 # Get song title
-title=$(playerctl metadata | grep -Po '(?<=title               )([^\(]*)')
+title=$(playerctl metadata 2>/dev/null| grep -Po '(?<=title               )([^\(]*)')
 
 # Get song artist
-artist=$(playerctl metadata | grep -Po '(?<=:artist              )[^,]*')
+artist=$(playerctl metadata 2>/dev/null| grep -Po '(?<=:artist              )[^,]*')
 
 # Get play/paused status
-status=$(playerctl status)
+status=$(playerctl status 2>/dev/null)
 
 # Set play_pause_icon to $play_icon or $pause_icon depending on player status
-if [ $status == "Paused" ]; then
+if [ "$status" == "Paused" ]; then
     play_pause_icon=$play_icon
 else
     play_pause_icon=$pause_icon
