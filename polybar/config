@@ -55,7 +55,7 @@ font-1 = "all-the-icons:pixelsize=12:antialias=true;0"
 
 modules-left = i3 wlan cpu temperature memory
 modules-center = xwindow
-modules-right = xbacklight xkeyboard battery date powermenu
+modules-right = wlan cpu temperature memory xkeyboard battery date powermenu
 
 tray-position = ${env:TRAY_POS:}
 tray-padding = 2
@@ -105,7 +105,7 @@ module-margin-right = 2
 ; font-0 = "Roboto Mono for Powerline:pixelsize=10;antialias=false;1"
 font-0 = "Terminess Nerd Font:fontformat=truetype:pixelsize=11:antialias=false;2"
 
-modules-left = i3
+modules-left = i3 nvidia-smi-cpu nvidia-smi-fan nvidia-smi-temp
 modules-center =
 ;modules-center = spotify-prev spotify-play-pause spotify-next spotify
 ;modules-right = play-pause-general filesystem pulseaudio
@@ -316,7 +316,7 @@ interval = 3.0
 format-connected = <ramp-signal> <label-connected>
 ; format-connected-underline = #9f78e1
 ; label-connected = %local_ip%@%essid% %upspeed:9% %downspeed:9%
-label-connected = %essid% %upspeed:9% %downspeed:9%
+label-connected = %essid% %upspeed:8% %downspeed:8%
 ;label-connected-foreground = ${colors.primary}
 
 ;format-disconnected  =
@@ -398,6 +398,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 click-right = pavucontrol
 
 [module/alsa]
+; If the volume bar doesn't show up, you need to install fonts with icons
 type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
@@ -563,3 +564,27 @@ hook-1 = echo ""
 initial = 1
 ; click-left = playerctl -l|grep firefox|xargs playerctl play-pause -p
 click-left = playerctl play-pause
+
+[module/nvidia-smi-cpu]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-nvidia-smi.sh
+interval = 10
+format-prefix = "GPU"
+format-prefix-padding = 1
+format-prefix-foreground = ${colors.foreground-light}
+
+[module/nvidia-smi-fan]
+type = custom/script
+exec = ~/.config/polybar/scripts/nvidia-smi-fan-speed.sh
+interval = 10
+format-prefix = "GPU󰈐"
+format-prefix-padding = 1
+format-prefix-foreground = ${colors.foreground-light}
+
+[module/nvidia-smi-temp]
+type = custom/script
+exec = ~/.config/polybar/scripts/nvidia-smi-gpu-temp.sh
+interval = 10
+format-prefix = "GPU"
+format-prefix-padding = 1
+format-prefix-foreground = ${colors.foreground-light}
