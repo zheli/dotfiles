@@ -111,6 +111,11 @@ git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/py
 ```
 sudo chmod a+rw /dev/ttyUSB0
 ```
+Or add current user to group
+```
+stat /dev/ttyUSB0
+sudo usermod -a -G dialout $USER
+```
 
 ## OBS doesn't work
 Remove `libva-vdpau-driver` package.
