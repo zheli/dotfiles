@@ -16,8 +16,8 @@ if type "xrandr"; then
 
         tray_pos=""
         # For primary detection
-        # if [[ "$status" == "primary" ]]; then
-        if [[ "$mon" == "HDMI-1" ]]; then
+        if [[ "$status" == "primary" ]]; then
+        # if [[ "$mon" == "HDMI-1" ]]; then
             tray_pos="right"
         fi
 
