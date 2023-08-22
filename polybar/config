@@ -55,7 +55,7 @@ font-1 = "all-the-icons:pixelsize=12:antialias=true;0"
 
 modules-left = i3 wlan cpu temperature memory
 modules-center = xwindow
-modules-right = wlan cpu temperature memory xkeyboard battery date powermenu
+modules-right = xkeyboard battery date powermenu
 
 tray-position = ${env:TRAY_POS:}
 tray-padding = 2
@@ -462,9 +462,8 @@ animation-discharging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 75
-; hwmon-path = /sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/hwmon/hwmon1/temp1_input
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input
+warn-temperature = 80
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp3_input
 
 format = <ramp> <label>
 ; format-underline = #f50a4d

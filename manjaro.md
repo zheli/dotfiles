@@ -119,3 +119,15 @@ sudo usermod -a -G dialout $USER
 
 ## OBS doesn't work
 Remove `libva-vdpau-driver` package.
+
+## Fix hibernation
+See https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Configure_the_initramfs
+1. Add `resume` to /etc/mkinitcpio.conf and run `sudo mkinitcpio -P`
+```
+HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems resume fsck)
+```
+2. Add swapdisk UUID to grub cfg (/etc/default/grub) `GRUB_CMDLINE_LINUX_DEFAULT` and run `sudo grub-mkconfig -o /boot/grub/grub.cfg`
+```
+resume=UUID=4209c845-f495-4c43-8a03-5363dd433153
+```
+
