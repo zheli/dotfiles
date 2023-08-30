@@ -20,12 +20,11 @@
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
-;;
-(setq
-      ;; doom-font (font-spec :family "Source Code Pro for Powerline" :size 13)
+
+(setq doom-font (font-spec :family "Source Code Pro for Powerline" :size 13)
       doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
-      doom-variable-pitch-font (font-spec :family "Fira Mono for Powerline" :size 13))
       ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+      doom-variable-pitch-font (font-spec :family "Fira Mono for Powerline" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -132,7 +131,7 @@
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 ;; For some reason my copilot cannot find node executable ever
 (after! copilot
-    (setq copilot-node-executable "~/.nvm/versions/node/v16.15.1/bin/node"))
+    (setq copilot-node-executable "~/.nvm/versions/node/v18.15.0/bin/node"))
 
 (after! company
   (setq company-idle-delay 0.5
@@ -155,7 +154,7 @@
 (defun zl/tramp-home-shortcut ()
   "Shortcut for connecting to SSH server"
   (interactive)
-  (find-file (concat "/sshx:zzz@85.195.40.74#2222:/home/zzz/code")))
+  (find-file (concat "/sshx:zzz@192.168.1.47:/home/zzz/code")))
 
 (map! :leader
       (:prefix-map ("z" . "My tools")
