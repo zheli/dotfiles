@@ -67,6 +67,17 @@ pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || pupdate "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
+#
+# pyenv virtualenv
+eval "$(pyenv virtualenv-init -)"
+
+
+# Postgres tools on Macos
+
+# brew install libpq
+if [[ $(uname -s) == "Darwin" ]]; then
+    pupdate "/opt/homebrew/opt/libpq/bin"
+fi
 
 # Ruby
 ## rvm
@@ -77,7 +88,7 @@ if [ -f '$HOME/.cache/yay/rvm/src/rvm/scripts/rvm' ]; then .
 'source $HOME/.cache/yay/rvm/src/rvm/scripts/rvm'; fi
 
 # Rust
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 
 # Scala
 ## coursier

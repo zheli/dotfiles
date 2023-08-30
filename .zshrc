@@ -139,9 +139,6 @@ if [ -f '/home/zzz/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/home/zzz/.l
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/zzz/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/zzz/.local/google-cloud-sdk/completion.zsh.inc'; fi
 
-# pyenv virtualenv
-eval "$(pyenv virtualenv-init -)"
-
 # Local settings
 [[ ! -f ~/.local.zsh ]] || source ~/.local.zsh
 
