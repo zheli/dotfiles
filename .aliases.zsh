@@ -102,3 +102,4 @@ fi
 
 # linux
 alias pbcopy="xclip -selection clipboard -i"
+alisa CAP_TOGGLE="xdotool key Caps_Lock"
