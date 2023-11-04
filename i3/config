@@ -443,6 +443,7 @@ exec --no-startup-id run_keybase
 exec_always alttab -d 1 -pk Shift_R  -fg "#d58681" -bg "#4a4a4a" -frame "#eb564d" -t 128x150 -i 127x64 -font "xft:Roboto Mono for Powerline-10"
 ## switch between english and swedish using alt+shift and
 ## modify caplock as ctrl and escape key. Install xcape using `sudo pacman -Syu xcape`
+## Not needed on advantage 360 perhaps
 exec_always setxkbmap -layout us,se -option grp:alt_shift_toggle -option ctrl:nocaps
 exec --no-startup-id xcape -e 'Control_L=Escape'
 ## set mouse DPI
