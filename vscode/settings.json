@@ -13,7 +13,8 @@
     "python.linting.pylintArgs": [],
     "[python]": {
         "editor.formatOnType": true,
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "chatgpt.sessionToken": "",
     "chatgpt.clearanceToken": "",
@@ -27,6 +28,7 @@
     "git.confirmSync": false,
     "editor.formatOnSave": true,
     "cSpell.userWords": [
+        "celestia",
         "ciphersuites",
         "cloudsigma",
         "Cryptodome",
@@ -35,10 +37,13 @@
         "gatewayfm",
         "healthcheck",
         "namada",
+        "Nethermind",
         "onepassword",
         "pubkey",
         "SEPOLIA",
-        "typer"
+        "stakewise",
+        "typer",
+        "Unlocker"
     ],
     "files.autoSave": "afterDelay",
     "github.copilot.enable": {
