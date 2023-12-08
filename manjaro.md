@@ -131,3 +131,16 @@ HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesy
 resume=UUID=4209c845-f495-4c43-8a03-5363dd433153
 ```
 
+# Display
+## Set one monitor to higher refresh rate when you use dual monitors
+1. "Force Full Composition Pipeline" in nvidia-settings for all monitors
+2. Disable "Sync to VBlank" and "Allow Flipping" in nvidia-settings -> OpenGL Settings
+3. Put these lines in /etc/environment :
+```
+CLUTTER_DEFAULT_FPS=<highest_refresh_rate, like 144>
+__GL_SYNC_DISPLAY_DEVICE=<display_with_highest_refresh_rate, like DP-2>
+__GL_SYNC_TO_VBLANK=0
+```
+Adjust "CLUTTER_DEFAULT_FPS" and "__GL_SYNC_DISPLAY_DEVICE" appropriate to your setup.
+
+Then run `xrandr --output DP-4 --mode 1920x1080 --rate 240` and use `autorandr` to save the current settings
