@@ -105,11 +105,11 @@ module-margin-right = 2
 ; font-0 = "Roboto Mono for Powerline:pixelsize=10;antialias=false;1"
 font-0 = "Terminess Nerd Font:fontformat=truetype:pixelsize=11:antialias=false;2"
 
-modules-left = i3 nvidia-smi-cpu nvidia-smi-fan nvidia-smi-temp
+modules-left = i3 play-pause-general nvidia-smi-cpu nvidia-smi-fan nvidia-smi-temp
 modules-center =
 ;modules-center = spotify-prev spotify-play-pause spotify-next spotify
 ;modules-right = play-pause-general filesystem pulseaudio
-modules-right = playerctl spotify pulseaudio
+modules-right = spotify playerctl pulseaudio
 
 wm-restack = i3
 
@@ -561,8 +561,8 @@ type = custom/ipc
 hook-0 = echo "/"
 hook-1 = echo ""
 initial = 1
-; click-left = playerctl -l|grep firefox|xargs playerctl play-pause -p
-click-left = playerctl play-pause
+click-left = playerctl -l|grep -v spotify|xargs playerctl play-pause -p
+;click-left = playerctl play-pause
 
 [module/nvidia-smi-cpu]
 type = custom/script
