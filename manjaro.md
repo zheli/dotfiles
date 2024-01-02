@@ -27,6 +27,9 @@ pulseaudio --start
 
 ## Enable emoji
 https://forum.manjaro.org/t/howto-enable-emoji-fonts/36695
+```
+yay -S noto-fonts-emoji
+```
 
 ## Fix spelling check
 If you get "(Can’t find Hunspell dictionary with a .aff affix file)" error in
