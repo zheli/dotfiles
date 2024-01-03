@@ -103,6 +103,13 @@ If VSCode hijacks opening folder function, add this into your ~/.config/mimeapps
 inode/directory=thunar.desktop
 ```
 
+## Ruby stuff
+### Install ruby using rvm with openssl fix
+```
+PKG_CONFIG_PATH=/usr/lib/openssl-1.1/pkgconfig:/usr/lib/pkgconfig rvm install 2.7.2
+
+```
+
 ## Python stuff
 ### Install pipenv
 ```

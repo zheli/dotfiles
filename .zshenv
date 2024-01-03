@@ -81,11 +81,8 @@ fi
 
 # Ruby
 ## rvm
-### for arch linux
-### `yay -S rvm`
-unset GEM_HOME
-if [ -f '$HOME/.cache/yay/rvm/src/rvm/scripts/rvm' ]; then .
-'source $HOME/.cache/yay/rvm/src/rvm/scripts/rvm'; fi
+### Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+pupdate "$HOME/.rvm/bin"
 
 # Rust
 #. "$HOME/.cargo/env"
