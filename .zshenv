@@ -35,7 +35,7 @@ function externalips {
 pupdate $HOME/code/minna/developer-tools/kubectl-plugins
 
 # fzf
-FZF_TMUX=1
+# FZF_TMUX=1
 
 # istio
 pupdate $HOME/.local/istio/bin
