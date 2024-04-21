@@ -8,60 +8,64 @@
     "python.autoComplete.extraPaths": [],
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.extraPaths": [],
-    "python.formatting.provider": "none",
-    "python.linting.pylintEnabled": true,
-    "python.linting.pylintArgs": [],
     "[python]": {
         "editor.formatOnType": true,
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "chatgpt.sessionToken": "",
-    "chatgpt.clearanceToken": "",
-    "chatgpt.userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0",
+    "pylint.args": [
+        "--enable useless-suppression",
+        " --disable fixme",
+        "--fail-on=I"
+    ],
     "editor.lineNumbers": "relative",
-    "clock.format": "HH:MM",
-    "clock.alignment": "Right",
     "isort.importStrategy": "fromEnvironment",
-    "aws.logLevel": "debug",
     "diffEditor.ignoreTrimWhitespace": false,
     "git.confirmSync": false,
     "editor.formatOnSave": true,
     "cSpell.userWords": [
+        "apikey",
         "celestia",
         "ciphersuites",
         "cloudsigma",
         "Cryptodome",
         "datacenters",
         "Erigon",
+        "fairblock",
+        "fairyring",
         "gatewayfm",
         "healthcheck",
+        "holesky",
+        "middlewares",
         "namada",
         "Nethermind",
+        "noarch",
         "onepassword",
+        "promtail",
         "pubkey",
         "SEPOLIA",
         "stakewise",
+        "traefik",
         "typer",
-        "Unlocker"
+        "Unlocker",
+        "xdai"
     ],
     "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/Thumbs.db": true
+    },
     "github.copilot.enable": {
         "*": true,
         "plaintext": true,
         "markdown": true,
         "scminput": false
     },
-    "errorLens.lintFilePaths": {
-        "eslint": [
-            "**/*.eslintrc.{js,cjs,yaml,yml,json}",
-            "**/*package.json"
-        ],
-        "Stylelint": [
-            "**/*.stylelintrc",
-            "**/*.stylelintrc.{cjs,js,json,yaml,yml}",
-            "**/*stylelint.config.{cjs,js}",
-            "**/*package.json"
-        ]
-    }
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "security.workspace.trust.untrustedFiles": "open"
 }
