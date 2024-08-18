@@ -1,0 +1,3 @@
+directory: ~/Music/beets
+library: ~/Music/beets.db
+plugins: convert fetchart lastgenre 
