@@ -1,3 +1,8 @@
 directory: ~/Music/beets
 library: ~/Music/beets.db
 plugins: convert fetchart lastgenre 
+convert:
+  formats:
+    alac: 
+      command: ffmpeg -i $source -y -vn -acodec alac $dest
+      extension: m4a

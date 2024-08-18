@@ -154,3 +154,9 @@ __GL_SYNC_TO_VBLANK=0
 Adjust "CLUTTER_DEFAULT_FPS" and "__GL_SYNC_DISPLAY_DEVICE" appropriate to your setup.
 
 Then run `xrandr --output DP-4 --mode 1920x1080 --rate 240` and use `autorandr` to save the current settings
+
+## Set up beets
+```
+cd ~/.config/beets
+ln -s ~/code/dotfiles/beets/config.yaml .
+```
