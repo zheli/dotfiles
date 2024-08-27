@@ -128,10 +128,16 @@
               ("<tab>" . 'copilot-accept-completion)
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+              ("C-<tab>" . 'copilot-accept-completion-by-word))
+  :config
+  (add-to-list 'copilot-indentation-alist '(prog-mode 2))
+  (add-to-list 'copilot-indentation-alist '(org-mode 2))
+  (add-to-list 'copilot-indentation-alist '(text-mode 2))
+  (add-to-list 'copilot-indentation-alist '(closure-mode 2))
+  (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2)))
 ;; For some reason my copilot cannot find node executable ever
 (after! copilot
-    (setq copilot-node-executable "~/.nvm/versions/node/v18.15.0/bin/node"))
+    (setq copilot-node-executable "~/.nvm/versions/node/v18.16.1/bin/node"))
 
 (after! company
   (setq company-idle-delay 0.5
