@@ -103,3 +103,6 @@ fi
 # linux
 alias pbcopy="xclip -selection clipboard -i"
 alias CAP_TOGGLE="xdotool key Caps_Lock"
+
+# ssh
+alias wt1="ssh -A -o StrictHostKeyChecking=no workstation-1"
