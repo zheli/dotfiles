@@ -463,7 +463,7 @@ animation-discharging-framerate = 750
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 80
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp3_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp3_input
 
 format = <ramp> <label>
 ; format-underline = #f50a4d
