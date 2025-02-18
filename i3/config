@@ -478,3 +478,5 @@ bindsym $mod+Ctrl+Shift+Right move workspace to output right
 exec_always v4l2-ctl -d /dev/video1 --set-ctrl=saturation=110,white_balance_temperature_auto=0,white_balance_temperature=3500
 # automount usb disk
 exec --no-startup-id udiskie &
+# speed up thunar launch
+exec --no-startup-id thunar --daemon
