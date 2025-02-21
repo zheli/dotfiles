@@ -294,15 +294,15 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = ""
+format-prefix = "CPU:"
 format-prefix-foreground = ${colors.foreground-light}
 format-padding = 1
-label = %percentage:4%%
+label = %percentage:3%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = ""
+format-prefix = "MEM:"
 format-padding = 1
 format-prefix-foreground = ${colors.foreground-light}
 label = %used:10%/%total:9%
@@ -464,8 +464,8 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 80
 ;hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp3_input
-;gigabyte b650m
-hwmon-path = /sys/class/hwmon/hwmon5/temp1_input
+;gigabyte b650m, if it8628-isa-0a40 modprob is loaded first
+hwmon-path = /sys/class/hwmon/hwmon4/temp2_input
 
 format = <ramp> <label>
 ; format-underline = #f50a4d
