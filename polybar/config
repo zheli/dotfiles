@@ -465,7 +465,7 @@ thermal-zone = 0
 warn-temperature = 80
 ;hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp3_input
 ;gigabyte b650m, if it8628-isa-0a40 modprob is loaded first
-hwmon-path = /sys/class/hwmon/hwmon4/temp2_input
+hwmon-path = /sys/class/hwmon/hwmon4/temp5_input
 
 format = <ramp> <label>
 ; format-underline = #f50a4d
@@ -481,6 +481,24 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-light}
 ramp-padding = 0
+
+[module/fan1]
+type = internal/temperature
+; use sensors and ls /sys/class/hwmon to check the path
+hwmon-path = /sys/class/hwmon/hwmon4/fan1_input
+
+format = <label>
+label = CPU Fan: %temperature-rpm% RPM
+label-foreground = ${colors.foreground-light}
+
+[module/fan6]
+type = internal/temperature
+; use sensors and ls /sys/class/hwmon to check the path
+hwmon-path = /sys/class/hwmon/hwmon4/fan6_input
+
+format = <label>
+label = Chassis Fan: %temperature-rpm% RPM
+label-foreground = ${colors.foreground-light}
 
 [module/powermenu]
 type = custom/menu
