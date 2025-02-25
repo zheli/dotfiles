@@ -1,3 +1,8 @@
+# enable for profiling
+#PS4='+ $(date "+%s.%N")\011 '
+#exec 3>&2 2>/tmp/bashstart.$$.log
+#set -x
+
 if [[ $(uname -s) == "Darwin" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
@@ -150,3 +155,13 @@ if [ -f '/home/zzz/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/
 
 # RVM
 [[ ! -f ~/.rvm/scripts/rvm ]] || source $HOME/.rvm/scripts/rvm
+
+# enable for profiling
+#set +x
+#exec 2>&3 3>&-
+
+. "$HOME/.cargo/env"
+
+# mise
+# https://mise.jdx.dev/
+eval "$(/home/zzz/.local/bin/mise activate zsh)"
