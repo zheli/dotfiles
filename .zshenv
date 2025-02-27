@@ -108,3 +108,6 @@ source ~/.zshenv_secrets
 ## nvidia driver for pc-amd
 ## https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuring_VA-API
 LIBVA_DRIVER_NAME=nvidia
+
+# To prevent torch.OutOfMemoryError
+PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
