@@ -164,4 +164,8 @@ if [ -f '/home/zzz/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/
 
 # mise
 # https://mise.jdx.dev/
-eval "$(/home/zzz/.local/bin/mise activate zsh)"
+if [[ -f ~/.local/bin/mise ]]; then
+    eval "$(~/.local/bin/mise activate zsh)"
+else
+    eval "$(mise activate zsh)"
+fi
