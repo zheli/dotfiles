@@ -465,7 +465,7 @@ thermal-zone = 0
 warn-temperature = 80
 ;hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp3_input
 ;gigabyte b650m, if it8628-isa-0a40 modprob is loaded first
-hwmon-path = /sys/class/hwmon/hwmon4/temp2_input
+hwmon-path = /sys/class/hwmon/hwmon4/temp3_input
 
 format = <ramp> <label>
 ; format-underline = #f50a4d
