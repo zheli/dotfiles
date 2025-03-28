@@ -436,7 +436,7 @@ mode "$mode_gaps_outer" {
 ## start dropbox
 exec --no-startup-id dropbox start
 ## start keybase
-exec --no-startup-id run_keybase
+# exec --no-startup-id run_keybase
 ## start alttab. Install alttab from https://github.com/sagb/alttab/blob/master/INSTALL.md
 ## Show all applications in the options
 #exec_always alttab -d 1 -pk Shift_R  -fg "#d58681" -bg "#4a4a4a" -frame "#eb564d" -t 128x150 -i 127x64
@@ -469,7 +469,7 @@ bindsym $mod+F4 exec emacsclient -nc
 # Play/pause spotify
 bindsym $mod+Shift+F4 exec playerctl play-pause -p spotify
 # set wallpaper. need to install feh
-exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds /usr/share/backgrounds/wallpapers-juhraya
+## exec_always --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds /usr/share/backgrounds/wallpapers-juhraya
 # move workspace left
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 # move workspace right
@@ -480,3 +480,10 @@ exec_always v4l2-ctl -d /dev/video1 --set-ctrl=saturation=110,white_balance_temp
 exec --no-startup-id udiskie &
 # speed up thunar launch
 exec --no-startup-id thunar --daemon
+
+# Assign workspaces to specific outputs
+workspace 1 output DP-0
+workspace 2 output HDMI-0
+
+# Start on workspace 1
+exec --no-startup-id i3-msg "workspace 1"
