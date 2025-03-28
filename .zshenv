@@ -55,6 +55,7 @@ export XMODIFIERS=@im=fcitx
 # Golang
 export GOPATH=$HOME/.go
 pupdate $HOME/.go/bin
+source "$HOME/.go/env"
 
 # JAVA
 export JAVA_HOME="/usr/lib/jvm/java-11-adoptopenjdk"
@@ -67,10 +68,10 @@ pupdate "${KREW_ROOT:-$HOME/.krew}/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || pupdate "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
-#
-# pyenv virtualenv
+### pyenv virtualenv
 eval "$(pyenv virtualenv-init -)"
-
+## pipx
+#set -gx PIPX_DEFAULT_PYTHON "$HOME/.pyenv/versions/3.10.14/bin/python"
 
 # Postgres tools on Macos
 
