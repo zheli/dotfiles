@@ -68,7 +68,7 @@ bindsym $mod+F2 exec firefox
 #bindsym $mod+F3 exec pcmanfm
 #bindsym $mod+F3 exec ranger
 # Switch monitor setup profile
-bindsym $mod+F3 exec autorandr -c
+bindsym $mod+F3 exec autorandr --cycle
 
 #bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 # Toggle mic mute/unmute
@@ -238,11 +238,6 @@ bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# switch to single monitor
-bindsym $mod+Shift+a exec "autorandr -l single"
-# switch to dual monitor
-bindsym $mod+Shift+Ctrl+a exec "autorandr -l home-desktop"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
