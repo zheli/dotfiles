@@ -16,8 +16,8 @@
 ;  :recipe (:host github :repo "username/repo"))
 
 ; Github copilot
-(package! copilot
-  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+;(package! copilot
+;  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 
 ; for managing ssh-agent keys
 ; need to install "keychain" on the system, like `sudo pacman -S keychain'
