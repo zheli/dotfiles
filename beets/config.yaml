@@ -6,3 +6,7 @@ convert:
     alac: 
       command: ffmpeg -i $source -y -vn -acodec alac $dest
       extension: m4a
+
+    alac-down:
+      command: ffmpeg -i $source -y -vn -acodec alac -ar 48000 -b:a 1411k -sample_fmt s16p $dest
+      extension: m4a
