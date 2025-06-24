@@ -91,7 +91,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search fzf)
+plugins=(git history-substring-search fzf nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -169,3 +169,6 @@ if [[ -f ~/.local/bin/mise ]]; then
 else
     eval "$(mise activate zsh)"
 fi
+
+# Added by Windsurf
+export PATH="/Users/zzz/.codeium/windsurf/bin:$PATH"
