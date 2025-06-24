@@ -86,7 +86,8 @@ fi
 pupdate "$HOME/.rvm/bin"
 
 # Rust
-#. "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
+
 
 # Scala
 ## coursier
