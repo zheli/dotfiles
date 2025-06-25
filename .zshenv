@@ -55,7 +55,9 @@ export XMODIFIERS=@im=fcitx
 # Golang
 export GOPATH=$HOME/.go
 pupdate $HOME/.go/bin
-source "$HOME/.go/env"
+if [[ -f "$HOME/.go/env" ]]; then
+    source "$HOME/.go/env"
+fi
 
 # JAVA
 export JAVA_HOME="/usr/lib/jvm/java-11-adoptopenjdk"
