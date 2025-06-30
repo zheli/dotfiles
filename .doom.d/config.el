@@ -92,8 +92,21 @@
 
   (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
                              ("~/Dropbox/gtd/inbox.org" :maxlevel . 3)
+                             ("~/Dropbox/gtd/notes.org" :level . 1)
                              ("~/Dropbox/gtd/someday.org" :level . 1)
                              ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
+
+  (setq org-tag-alist
+        '((:@Ops . ?o)
+          (:@Terminal . ?t)
+          (:@DeepWork . ?d)
+          (:@Admin . ?a)
+          (:@PM . ?p)
+          (:@Review . ?r)
+          (:@Home . ?h)
+          (:@Errands . ?e)
+          (:@LowEnergy . ?l)
+          (:@Quick . ?q)))
 
   (setq org-agenda-custom-commands
         '(("o" "Admin tasks" tags-todo "@admin"
