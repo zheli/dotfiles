@@ -67,5 +67,6 @@
         "scminput": false
     },
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "makefile.configureOnOpen": true
 }

@@ -79,43 +79,69 @@
 (after! org
   ;; See https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
   ;; capture GTD tasks
-  (setq org-capture-templates '(("t" "Todo [inbox]" entry
+  (setq org-capture-templates '(
+                                ("n" "[inbox]" entry
+                                 (file+headline "~/Dropbox/gtd/inbox.org" "Tasks")
+                                 "* %i%?")
+                                ("t" "Todo [inbox]" entry
                                  (file+headline "~/Dropbox/gtd/inbox.org" "Tasks")
                                  "* TODO %i%?")
                                 ("T" "Tickler" entry
                                  (file+headline "~/Dropbox/gtd/tickler.org" "Tickler")
-                                 "* %i%? \n %U")))
+                                 "* %i%? \n %U")
+                                ))
 
-  (setq org-agenda-files '("~/Dropbox/gtd/inbox.org"
+  (setq org-agenda-files '(
                            "~/Dropbox/gtd/gtd.org"
+                           "~/Dropbox/gtd/inbox.org"
                            "~/Dropbox/gtd/tickler.org"))
 
   (setq org-refile-targets '(("~/Dropbox/gtd/gtd.org" :maxlevel . 3)
                              ("~/Dropbox/gtd/inbox.org" :maxlevel . 3)
-                             ("~/Dropbox/gtd/notes.org" :level . 1)
-                             ("~/Dropbox/gtd/someday.org" :level . 1)
+                             ("~/Dropbox/gtd/notes.org" :maxlevel . 2)
+                             ("~/Dropbox/gtd/projects.org" :level . 1)
+                             ("~/Dropbox/gtd/someday.org" :maxlevel . 2)
                              ("~/Dropbox/gtd/tickler.org" :maxlevel . 2)))
 
   (setq org-tag-alist
-      '(("@Coding" . ?c)
-          ("@Ops" . ?o)
-          ("@PM" . ?p)
-          ("@Admin" . ?a)
-          ("@Review" . ?r)
-          ("@Comms" . ?m)
-          ("@Computer" . ?l)
-          ("@Terminal" . ?t)
-          ("@Phone" . ?h)
-          ("@Offline" . ?f)
-          ("@Home" . ?j)
-          ("@HomeCoding" . ?k)
-          ("@Errands" . ?e)
-          ("@DIY" . ?d)
-          ("@Family" . ?y)
-          ("@DeepWork" . ?w)
-          ("@Quick" . ?q)
-          ("@LowEnergy" . ?n)
-          ("@HighEnergy" . ?z)))
+      '(
+;; ("@Computer" . ?u)
+;; ("@Offline" . ?f)
+  ;;         ("financialfreedom" . ?f)
+  ;;         ("idea" . ?i)
+  ;;         ("@Coding" . ?c)
+  ;;         ("@Business" . ?b)
+  ;;         ("@PM" . ?p)
+  ;;         ("@Admin" . ?a)
+  ;;         ("@Review" . ?r)
+  ;;         ("@Phone" . ?h)
+  ;;         ("@Home" . ?j)
+  ;;         ("@HomeCoding" . ?k)
+  ;;         ("@Errands" . ?e)
+  ;;         ("@DIY" . ?d)
+  ;;         ("@Family" . ?y)
+  ;;         ("@DeepWork" . ?w)
+  ;;         ("@Quick" . ?q)
+  ;;         ("thisweek" . ?t)
+        (:startgroup . nil)
+        ("@Comms" . ?c)
+        ("@Ops" . ?o)
+        ("@Research" . ?e)
+        (:endgroup . nil)
+
+        (:startgroup . nil)
+        ("@LowEnergy" . ?l)
+        ("@HighEnergy" . ?h)
+        (:endgroup . nil)
+
+        ("thisweek" . ?t)
+        ("reference" . ?r)
+        ))
+  (setq org-use-fast-tag-selection t)
+  (setq org-fast-tag-selection-include-empty t)
+
+  (setq org-tags-column -80) ; optional formatting
+  (setq org-fast-tag-selection-include-other t)
 
   (setq org-agenda-custom-commands
         '(("o" "Admin tasks" tags-todo "@admin"
@@ -158,8 +184,8 @@
   (add-to-list 'copilot-indentation-alist '(closure-mode 2))
   (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2)))
 ;; For some reason my copilot cannot find node executable ever
-(after! copilot
-    (setq copilot-node-executable "~/.nvm/versions/node/v18.16.1/bin/node"))
+;; (after! copilot
+;;     (setq copilot-node-executable "~/.nvm/versions/node/v18.16.1/bin/node"))
 
 (after! company
   (setq company-idle-delay 0.5
