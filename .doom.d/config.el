@@ -136,7 +136,7 @@
 
         (:startgroup . nil)
         ("@LowEnergy" . ?l)
-        ("@HighEnergy" . ?h)
+        ("@HighEnergy" . ?i)
         (:endgroup . nil)
 
         ("thisweek" . ?t)
